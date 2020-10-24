@@ -1,0 +1,19 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<resources>
+  <color name="colorPrimary">#FFFFFF</color>
+  <color name="colorPrimaryDark">#283593</color>
+  <color name="colorAccent">#00abc2</color>
+  <color name="biru">#283593</color>
+  <color name="biruTerang">#5f5fc4</color>
+  <color name="biruGelap">#001064</color>
+  <color name="awan">#48ddf5</color>
+  <color name="awanTerang">#87ffff</color>
+  <color name="awanGelap">#00abc2</color>
+  <color name="textDiBiru">#ffffff</color>
+  <color name="textDiAwan">#1b262c</color>
+  <color name="textGrey">#929292</color>
+  <color name="duskYellow">#febf63</color>
+  <color name="lightGrey">#f4f4f4</color>
+  <color name="GARIS">#E9E9E9</color>
+  <color name="red">#900D0D</color>
+</resources>

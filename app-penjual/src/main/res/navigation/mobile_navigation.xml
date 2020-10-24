@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_dashboard">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="xyz.tqydn.tipall.ui.fragment.BarangFragment"
+        android:label="@string/barang"
+        tools:layout="@layout/fragment_barang"/>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="xyz.tqydn.tipall.ui.fragment.TransaksiFragment"
+        android:label="@string/transaksi"
+        tools:layout="@layout/fragment_transaksi"/>
+
+    <fragment
+        android:id="@+id/navigation_profil"
+        android:name="xyz.tqydn.tipall.ui.fragment.ProfilFragment"
+        android:label="@string/profil"
+        tools:layout="@layout/fragment_profil"/>
+</navigation>

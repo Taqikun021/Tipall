@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "914332552190",
+    "firebase_url": "https://tipall-5d61b.firebaseio.com",
+    "project_id": "tipall-5d61b",
+    "storage_bucket": "tipall-5d61b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914332552190:android:833ae46a93b4a537d9ceaf",
+        "android_client_info": {
+          "package_name": "xyz.tqydn.tipall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914332552190-opgt6lokctef888qrdk544vrvm8pjc2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHnpVlvJhSjJwIlnEHqkZ0ovjz6mdITBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914332552190-opgt6lokctef888qrdk544vrvm8pjc2d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

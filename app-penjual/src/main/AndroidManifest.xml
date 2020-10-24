@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="xyz.tqydn.tipall">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Tipall"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+        <activity android:name=".ui.inventory.EditUsahaActivity"></activity>
+        <activity android:name=".ui.inventory.TambahUsahaActivity" />
+        <activity android:name=".ui.inventory.EditProfilActivity" />
+        <activity android:name=".ui.inventory.BuatTransaksiActivity" />
+        <activity android:name=".ui.CadanganActivity" />
+        <activity android:name=".ui.VerEmailActivity" />
+        <activity android:name=".ui.SignUpActivity" />
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD306ZhNIIsxRlXcCu0NWnheKhPOhysous" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>
