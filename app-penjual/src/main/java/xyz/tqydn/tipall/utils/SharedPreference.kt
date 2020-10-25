@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import xyz.tqydn.tipall.model.TransaksiItem
 
 class SharedPreference(val context: Context) {
 
@@ -24,7 +25,7 @@ class SharedPreference(val context: Context) {
         return sharedPref.getString(key, "")
     }
 
-    fun setList(key: String, list: ArrayList<String>){
+    fun setList(key: String, list: List<TransaksiItem?>){
         val json = gson.toJson(list)
         editor.putString(key, json)
         editor.apply()

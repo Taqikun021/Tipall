@@ -96,4 +96,8 @@
     <string name="kode_transaksi">Kode Transaksi</string>
     <string name="kasih_rating_buat_distributor">Kasih Rating buat Distributor?</string>
     <string name="segera_lunasi_transaksi_anda">Segera Lunasi Transaksi anda.</string>
+    <string name="menunggu_konfirmasi">Menunggu Konfirmasi</string>
+    <string name="waktu_dimulai">Waktu Dimulai</string>
+    <string name="total_tagihan">Total tagihan</string>
+    <string name="hubungi">Hubungi</string>
 </resources>

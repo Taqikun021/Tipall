@@ -2087,8 +2087,11 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable bg_button
+drawable bg_pojokbawahkanan
 drawable bg_profil
 drawable bg_profil_kebalik
+drawable bg_stok
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -2159,6 +2162,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_my_location
 drawable ic_statistik_penjualan
+drawable ic_whatsapp
 drawable marker_shadow
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
@@ -2329,7 +2333,12 @@ id cancel_button
 id cardBarang
 id cardView
 id cardView2
+id card_belumdibayar
+id card_berlangsung
 id card_penjual
+id card_permintaan
+id card_tawaran
+id carddesc
 id cariPenjual
 id center
 id center_horizontal
@@ -2367,6 +2376,7 @@ id counter
 id custom
 id customPanel
 id cut
+id cv
 id dark
 id date_picker_actions
 id decelerate
@@ -2454,6 +2464,7 @@ id ignore
 id ignoreRequest
 id image
 id imageBarang
+id imageBarangFix
 id imagePemilik
 id imagePenjual
 id imageProfil
@@ -2480,6 +2491,7 @@ id iv_riwayat
 id jarak
 id judul
 id jumlah
+id jumlahStok
 id jumpToEnd
 id jumpToStart
 id kirimTawaran
@@ -2504,6 +2516,7 @@ id linearLayout
 id linearLayout2
 id listMode
 id list_item
+id ll
 id map
 id marker_image_view
 id marker_shadow_image_view
@@ -2639,8 +2652,8 @@ id right_icon
 id right_side
 id rounded
 id row_index_key
+id rv
 id rvBarang
-id rvTransaksi
 id satellite
 id save_non_transition_alpha
 id save_overlay_view
@@ -2711,8 +2724,10 @@ id tag_state_description
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id tagihan
 id tambah
 id tambahUsaha
+id terima
 id terrain
 id tersedia
 id test_checkbox_android_button_tint
@@ -2751,6 +2766,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id tolak
 id toolbar
 id top
 id topPanel
@@ -2776,12 +2792,14 @@ id view1
 id view2
 id view3
 id view4
+id viewPager
 id view_offset_helper
 id view_tree_lifecycle_owner
 id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
+id waktu
 id wide
 id withText
 id withinBounds
@@ -2880,7 +2898,11 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout dynamic_feature_install_fragment
 layout fragment_barang
+layout fragment_belumdibayar
+layout fragment_berlangsung
+layout fragment_permintaan
 layout fragment_profil
+layout fragment_tawaran
 layout fragment_transaksi
 layout list_kelamin
 layout material_chip_input_combo
@@ -2950,6 +2972,10 @@ layout places_autocomplete_impl_powered_by_google
 layout places_autocomplete_impl_search_bar
 layout places_autocomplete_prediction
 layout row_barang
+layout row_belum_dibayar
+layout row_berlangsung
+layout row_permintaan
+layout row_tawaran
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -3077,6 +3103,7 @@ string harga_barang_x_jumlah
 string harga_jual_barang
 string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
+string hubungi
 string icon_content_description
 string installation_cancelled
 string installation_failed
@@ -3113,6 +3140,7 @@ string material_timepicker_minute
 string material_timepicker_pm
 string material_timepicker_select_time
 string material_timepicker_text_input_mode_description
+string menunggu_konfirmasi
 string mtrl_badge_numberless_content_description
 string mtrl_chip_close_icon_content_description
 string mtrl_exceed_max_badge_number_content_description
@@ -3207,6 +3235,7 @@ string title_activity_place_picker
 string title_notifications
 string tolak
 string tombol_next
+string total_tagihan
 string total_transaksi
 string transaksi
 string transaksi_berlansung
@@ -3214,6 +3243,7 @@ string ulangi_kata_sandi
 string usaha_saya
 string v_1_0_1
 string verifikasi
+string waktu_dimulai
 string yuk_transaksi_lagi
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

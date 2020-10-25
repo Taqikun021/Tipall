@@ -35,11 +35,13 @@
     <style name="Widget.App.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
         <item name="titleTextAppearance">@style/TextAppearance.App.Headline6</item>
+        <item name="titleTextColor">@color/textDiAwan</item>
+        <item name="android:paddingHorizontal" tools:targetApi="o">8dp</item>
     </style>
 
     <style name="ThemeOverlay.App.Toolbar" parent="">
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/textDiAwan</item>
         <item name="colorOnPrimary">@color/textDiAwan</item>
         <item name="android:paddingHorizontal" tools:targetApi="o">8dp</item>
     </style>

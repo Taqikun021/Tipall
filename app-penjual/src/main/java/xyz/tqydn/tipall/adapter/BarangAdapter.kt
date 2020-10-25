@@ -27,7 +27,8 @@ class BarangAdapter(private val barangs: List<DataBarang>): RecyclerView.Adapter
         fun bind(barang: DataBarang){
             with(itemView){
                 preference = SharedPreference(context)
-                val img = Uri.parse(barang.foto_barang)
+                val imgBarang = Uri.parse(barang.foto_barang)
+                val imgUsaha = Uri.parse(barang.foto_usaha)
                 val hargaAwal = formatRupiah(barang.harga_awal.toDouble())
                 val hargaJual = formatRupiah(barang.harga_jual.toDouble())
                 val jarak = hitungJarak(
@@ -48,12 +49,12 @@ class BarangAdapter(private val barangs: List<DataBarang>): RecyclerView.Adapter
                 }
 
                 Glide.with(itemView.context)
-                    .load(img)
+                    .load(imgBarang)
                     .apply(RequestOptions.centerCropTransform())
                     .into(itemView.imageBarang)
 
                 Glide.with(itemView.context)
-                    .load(img)
+                    .load(imgUsaha)
                     .apply(RequestOptions.circleCropTransform())
                     .into(itemView.imagePenjual)
 

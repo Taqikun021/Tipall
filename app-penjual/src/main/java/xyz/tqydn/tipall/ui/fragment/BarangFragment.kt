@@ -30,7 +30,6 @@ class BarangFragment : Fragment() {
         }
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         preference = SharedPreference(requireContext())

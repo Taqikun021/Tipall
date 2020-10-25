@@ -1,9 +1,9 @@
 package xyz.tqydn.tipall.ui.inventory
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -13,8 +13,13 @@ import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipall.R
 import xyz.tqydn.tipall.model.DataBarang
+import xyz.tqydn.tipall.model.DefaultResponse
 import xyz.tqydn.tipall.model.RatingBarang
 import xyz.tqydn.tipall.utils.Constants
+import xyz.tqydn.tipall.utils.Constants.Companion._1
+import xyz.tqydn.tipall.utils.Constants.Companion.apiInterface
+import xyz.tqydn.tipall.utils.Constants.Companion.isNumber
+import xyz.tqydn.tipall.utils.Constants.Companion.kodeTransaksi
 import xyz.tqydn.tipall.utils.SharedPreference
 
 class BuatTransaksiActivity : AppCompatActivity() {
@@ -22,6 +27,9 @@ class BuatTransaksiActivity : AppCompatActivity() {
     private lateinit var preference: SharedPreference
     private var hargaBarang: Double = 0.0
     private var stok: Int = 0
+    private lateinit var id_penjual: String
+    private lateinit var id_distributor: String
+    private lateinit var id_barang: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,14 +60,48 @@ class BuatTransaksiActivity : AppCompatActivity() {
             jumlah.requestFocus()
             total.text = Constants.formatRupiah(jumlahBarang*hargaBarang)
         }
-        /*kirimTawaran.setOnClickListener {
+        kirimTawaran.setOnClickListener {
             val jml = jumlah.text.toString().trim()
+            val hasil = (jml.toInt()*jumlahBarang).toString()
 
-        }*/
+            if(!isNumber(jml)) {
+                jumlah.error = "Jumlah harus angka"
+                jumlah.requestFocus()
+            } else if(jml.toInt() < 1) {
+                jumlah.error = "Jumlah harus terisi minimal 1"
+                jumlah.requestFocus()
+            } else if(jml.toInt() > stok) {
+                jumlah.error = "Stok tidak mencukupi"
+                jumlah.requestFocus()
+            } else {
+                buatTransaksi(jml, hasil)
+            }
+        }
+    }
+
+    private fun buatTransaksi(jml: String, hasil: String) {
+        val call: Call<DefaultResponse> = apiInterface
+                .buatTransaksi(id_penjual, id_distributor, id_barang, kodeTransaksi(), jml, hasil, 0, _1)
+        call.enqueue(object : Callback<DefaultResponse> {
+            override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
+                if (response.body()?.status!!.equals(201)) {
+                    Toast.makeText(this@BuatTransaksiActivity, response.body()?.message, Toast.LENGTH_SHORT).show()
+                }
+                val intent = Intent().apply {
+                    putExtra(Constants.TITLE, response.body()?.message.toString())
+                }
+                setResult(RESULT_OK, intent)
+                finish()
+            }
+
+            override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                Toast.makeText(this@BuatTransaksiActivity, t.message, Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun getRatingBarang() {
-        val call: Call<RatingBarang> = Constants.apiInterface.getRatingBarang(preference.getValues("barang_click"))
+        val call: Call<RatingBarang> = apiInterface.getRatingBarang(preference.getValues("barang_click"))
         call.enqueue(object : Callback<RatingBarang> {
             override fun onResponse(call: Call<RatingBarang>, response: Response<RatingBarang>) {
                 if (response.code() == 200) {
@@ -88,6 +130,9 @@ class BuatTransaksiActivity : AppCompatActivity() {
                     )
                     hargaBarang = data.harga_awal.toDouble()
                     stok = data.jumlah_stok.toInt()
+                    id_penjual = preference.getValues("id_penjual")!!
+                    id_barang = data.id_barang
+                    id_distributor = data.id_distributor
 
                     namaUsaha.text = data.nama_usaha
                     namaPemilik.text = "Pemilik ${data.username}"

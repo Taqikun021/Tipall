@@ -67,6 +67,7 @@ class ProfilFragment : Fragment() {
 
                     imageUsaha.visibility = View.VISIBLE
                     imageUsahaAwal.visibility = View.GONE
+                    preference.setValues("id_penjual", ui?.dist_data?.id_penjual.toString())
                 }
             }
 

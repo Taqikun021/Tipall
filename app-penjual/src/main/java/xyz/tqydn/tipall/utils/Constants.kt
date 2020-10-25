@@ -3,6 +3,10 @@ package xyz.tqydn.tipall.utils
 import android.content.Context
 import android.content.Intent
 import android.location.Location
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import xyz.tqydn.tipall.model.Transaksi
 import xyz.tqydn.tipall.network.ApiClient
 import xyz.tqydn.tipall.network.ApiInterface
 import xyz.tqydn.tipall.ui.inventory.TambahUsahaActivity
@@ -14,6 +18,7 @@ import java.util.*
 
 class Constants {
     companion object{
+        private lateinit var preference: SharedPreference
         const val BASE_URL = "http://tqydn.xyz/restapi/"
         const val REQUEST_IMAGE_CAPTURE = 1
         const val EDIT_PROFIL = 2
@@ -26,15 +31,20 @@ class Constants {
         const val _2 = "BERLANGSUNG"
         const val _3 = "SELESAI"
         const val _4 = "GAGAL"
+        const val _5 = "TAWARAN_DIBUAT"
 
         val apiInterface: ApiInterface by lazy {
             ApiClient.getClient().create(ApiInterface::class.java)
         }
 
+        fun isNumber(s: String?): Boolean {
+            return if (s.isNullOrEmpty()) false else s.all { Character.isDigit(it) }
+        }
+
         fun kodeTransaksi(): String {
             val header = "T-PER"
             val code = UUID.randomUUID().toString().replace("-", "").toUpperCase(Locale.getDefault())
-            return header + code.substring(10)
+            return header + code
         }
 
         fun formatRupiah(number: Double): String? {
