@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    android:label="Tambah Barang"
+    app:startDestination="@id/navigation_transaksi">
+
+    <fragment
+        android:id="@+id/navigation_penjual"
+        android:name="xyz.tqydn.tipang.ui.fragment.PenjualFragment"
+        android:label="@string/penjual"
+        tools:layout="@layout/fragment_penjual"/>
+
+    <fragment
+        android:id="@+id/navigation_stok"
+        android:name="xyz.tqydn.tipang.ui.fragment.StokFragment"
+        android:label="@string/stok"
+        tools:layout="@layout/fragment_stok" />
+
+    <fragment
+        android:id="@+id/navigation_transaksi"
+        android:name="xyz.tqydn.tipang.ui.fragment.TransaksiFragment"
+        android:label="@string/transaksi"
+        tools:layout="@layout/fragment_transaksi"/>
+
+    <fragment
+        android:id="@+id/navigation_profil"
+        android:name="xyz.tqydn.tipang.ui.fragment.ProfilFragment"
+        android:label="@string/profil"
+        tools:layout="@layout/fragment_profil" />
+</navigation>

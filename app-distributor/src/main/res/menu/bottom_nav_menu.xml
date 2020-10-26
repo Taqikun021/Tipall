@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_penjual"
+        android:icon="@drawable/ic_pemilik_barang___icon_penjual"
+        android:title="@string/penjual" />
+
+    <item
+        android:id="@+id/navigation_stok"
+        android:icon="@drawable/ic_pemilik_barang___icon_stok"
+        android:title="@string/stok" />
+
+    <item
+        android:id="@+id/navigation_transaksi"
+        android:icon="@drawable/ic_icon_transaksi"
+        android:title="@string/transaksi" />
+
+    <item
+        android:id="@+id/navigation_profil"
+        android:icon="@drawable/ic_icon_profil"
+        android:title="@string/profil"/>
+
+</menu>

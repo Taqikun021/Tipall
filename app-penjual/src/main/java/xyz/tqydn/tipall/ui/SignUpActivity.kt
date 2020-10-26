@@ -41,11 +41,12 @@ class SignUpActivity : AppCompatActivity() {
         } else if (pw.length < 8){
             FieldPwDaftar.error = "Password Minimal memiliki 8 karakter"
             FieldPwDaftar.requestFocus()
+        } else {
+            buttonDaftar.setOnClickListener{
+                daftar(email, nama, pw)
+            }
         }
 
-        buttonDaftar.setOnClickListener{
-            daftar(email, nama, pw)
-        }
         buttonMasuklagi.setOnClickListener {
             startActivity(Intent(this@SignUpActivity, LoginActivity::class.java))
         }

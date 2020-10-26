@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v19/values-v19.xml",
+            "map": [
+                {
+                    "source": "/home/taqiyudin/.gradle/caches/transforms-2/files-2.1/7ecc1c631b54cc413b9243bfedfa496f/jetified-placepicker-1.1.2/res/values-v19/values-v19.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "7",
+                        "endColumns": "10",
+                        "endOffsets": "390"
+                    }
+                }
+            ]
+        }
+    ]
+}

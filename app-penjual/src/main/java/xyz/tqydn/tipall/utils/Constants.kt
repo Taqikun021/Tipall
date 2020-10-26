@@ -18,7 +18,6 @@ import java.util.*
 
 class Constants {
     companion object{
-        private lateinit var preference: SharedPreference
         const val BASE_URL = "http://tqydn.xyz/restapi/"
         const val REQUEST_IMAGE_CAPTURE = 1
         const val EDIT_PROFIL = 2

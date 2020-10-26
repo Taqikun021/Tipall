@@ -1,0 +1,2 @@
+xyz/tqydn/tipang/BuildConfig.java
+ xyz.tqydn.tipang.BuildConfig
