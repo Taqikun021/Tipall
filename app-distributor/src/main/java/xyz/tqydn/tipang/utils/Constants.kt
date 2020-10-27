@@ -20,6 +20,11 @@ class Constants {
         const val EDIT_BARANG = 6
         private const val ID = "id"
         const val TITLE = "title"
+        const val _1 = "TAWARAN_DIBUAT"
+        const val _2 = "BERLANGSUNG"
+        const val _3 = "SELESAI"
+        const val _4 = "GAGAL"
+        const val _5 = "PERMINTAAN_DIBUAT"
 
         val apiInterface: ApiInterface by lazy {
             ApiClient.getClient().create(ApiInterface::class.java)

@@ -109,4 +109,16 @@ interface ApiInterface {
 
     @GET("getPenjual.php")
     fun getPenjual(): Call<Penjual>
+
+    @GET("getTransaksiDist.php")
+    fun getListTransaksi(
+        @Query("status_transaksi") status_transaksi: String?,
+        @Query("id_distributor") id_distributor: String?
+    ): Call<Transaksi>
+
+    @GET("getTransaksiDistLunas.php")
+    fun getListTransaksiLunas(
+        @Query("status_bayar") status_bayar: Int?,
+        @Query("id_distributor") id_distributor: String?
+    ): Call<Transaksi>
 }

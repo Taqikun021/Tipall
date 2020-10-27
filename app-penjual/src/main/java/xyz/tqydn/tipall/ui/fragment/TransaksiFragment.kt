@@ -16,13 +16,8 @@ import xyz.tqydn.tipall.utils.Constants.Companion._4
 import xyz.tqydn.tipall.utils.SharedPreference
 
 class TransaksiFragment : Fragment() {
-
-    private lateinit var preference: SharedPreference
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        preference = SharedPreference(requireContext())
-
         val rv = listOf(
             PermintaanFragment(),
             TawaranFragment(),
