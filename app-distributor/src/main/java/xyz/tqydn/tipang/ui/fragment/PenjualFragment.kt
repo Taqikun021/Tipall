@@ -16,7 +16,9 @@ import xyz.tqydn.tipang.adapter.PenjualAdapter
 import xyz.tqydn.tipang.model.DataPenjual
 import xyz.tqydn.tipang.model.Penjual
 import xyz.tqydn.tipang.utils.Constants
+import xyz.tqydn.tipang.utils.Constants.Companion.BUAT_TRANSAKSI
 import xyz.tqydn.tipang.utils.SharedPreference
+import xyz.tqydn.tipang.utils.contracts.BuatTransaksiContract
 
 class PenjualFragment : Fragment() {
 
@@ -52,9 +54,15 @@ class PenjualFragment : Fragment() {
         rvPenjual.adapter = penjualAdapter
         penjualAdapter.setOnItemClickCallback(object : PenjualAdapter.OnItemClickCallback {
             override fun onItemClicked(penjual: DataPenjual) {
-                Toast.makeText(requireContext(), "Kamu memilih ${penjual.nama_usaha}", Toast.LENGTH_SHORT).show()
+                buatTransaksi.launch(BUAT_TRANSAKSI)
             }
         })
+    }
+
+    private val buatTransaksi = registerForActivityResult(BuatTransaksiContract()){
+        if (it != null){
+            Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

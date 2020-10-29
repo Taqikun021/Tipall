@@ -121,4 +121,27 @@ interface ApiInterface {
         @Query("status_bayar") status_bayar: Int?,
         @Query("id_distributor") id_distributor: String?
     ): Call<Transaksi>
+
+    @GET("getPenjualInfo.php")
+    fun getPenjualInfo(
+        @Query("id_penjual") id_penjual: String?
+    ): Call<DataPenjual>
+
+    @GET("getRatingPenjual.php")
+    fun getRatingPenjual(
+        @Query("id_penjual") id_penjual: String?
+    ): Call<Rating>
+
+    @FormUrlEncoded
+    @POST("createTransaksi.php")
+    fun buatTransaksi(
+        @Field("id_penjual") id_penjual: String?,
+        @Field("id_distributor") id_distributor: String?,
+        @Field("id_barang") id_barang: String?,
+        @Field("kode_transaksi") kode_transaksi: String?,
+        @Field("jumlah_barang") jumlah_barang: String?,
+        @Field("total_tagihan") total_tagihan: String?,
+        @Field("status_bayar") status_bayar: Int?,
+        @Field("status_transaksi") status_transaksi: String?
+    ): Call<DefaultResponse>
 }

@@ -35,7 +35,7 @@
 20-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:8:20-72
 21
 22    <application
-22-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:6:5-41:19
+22-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:6:5-42:19
 23        android:allowBackup="true"
 23-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:7:9-35
 24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -54,212 +54,215 @@
 31-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:12:9-44
 32        android:usesCleartextTraffic="true" >
 32-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:13:9-44
-33        <activity android:name="xyz.tqydn.tipang.ui.inventory.TambahUsahaActivity" />
-33-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:15:9-79
-33-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:15:19-67
-34        <activity android:name="xyz.tqydn.tipang.ui.inventory.TambahBarangActivity" />
-34-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:16:9-71
-34-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:16:19-68
-35        <activity android:name="xyz.tqydn.tipang.ui.inventory.EditUsahaActivity" />
-35-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:17:9-68
-35-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:17:19-65
-36        <activity android:name="xyz.tqydn.tipang.ui.inventory.EditProfilActivity" />
-36-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:18:9-69
-36-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:18:19-66
-37        <activity android:name="xyz.tqydn.tipang.ui.inventory.EditBarangActivity" />
+33        <activity android:name="xyz.tqydn.tipang.ui.inventory.BuatTransaksiActivity" />
+33-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:15:9-81
+33-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:15:19-69
+34        <activity android:name="xyz.tqydn.tipang.ui.inventory.TambahUsahaActivity" />
+34-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:16:9-70
+34-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:16:19-67
+35        <activity android:name="xyz.tqydn.tipang.ui.inventory.TambahBarangActivity" />
+35-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:17:9-71
+35-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:17:19-68
+36        <activity android:name="xyz.tqydn.tipang.ui.inventory.EditUsahaActivity" />
+36-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:18:9-68
+36-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:18:19-65
+37        <activity android:name="xyz.tqydn.tipang.ui.inventory.EditProfilActivity" />
 37-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:19:9-69
 37-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:19:19-66
-38        <activity android:name="xyz.tqydn.tipang.ui.CadanganActivity" />
-38-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:20:9-57
-38-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:20:19-54
-39        <activity android:name="xyz.tqydn.tipang.ui.VerEmailActivity" />
+38        <activity android:name="xyz.tqydn.tipang.ui.inventory.EditBarangActivity" />
+38-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:20:9-69
+38-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:20:19-66
+39        <activity android:name="xyz.tqydn.tipang.ui.CadanganActivity" />
 39-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:21:9-57
 39-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:21:19-54
-40        <activity android:name="xyz.tqydn.tipang.ui.SignUpActivity" />
-40-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:22:9-55
-40-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:22:19-52
-41        <activity android:name="xyz.tqydn.tipang.ui.LoginActivity" />
-41-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:23:9-54
-41-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:23:19-51
-42        <activity android:name="xyz.tqydn.tipang.SplashScreenActivity" >
-42-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:24:9-30:20
-42-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:24:19-55
-43            <intent-filter>
-43-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:25:13-29:29
-44                <action android:name="android.intent.action.MAIN" />
-44-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:26:17-69
-44-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:26:25-66
-45
-46                <category android:name="android.intent.category.LAUNCHER" />
-46-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:28:17-77
-46-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:28:27-74
-47            </intent-filter>
-48        </activity>
-49
-50        <meta-data
-50-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:32:9-34:57
-51            android:name="preloaded_fonts"
-51-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:33:13-43
-52            android:resource="@array/preloaded_fonts" />
-52-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:34:13-54
-53        <meta-data
-53-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:35:9-37:71
-54            android:name="com.google.android.geo.API_KEY"
-54-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:36:13-58
-55            android:value="AIzaSyD306ZhNIIsxRlXcCu0NWnheKhPOhysous" />
-55-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:37:13-68
-56        <meta-data
-56-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:38:9-40:69
-57            android:name="com.google.android.gms.version"
-57-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:39:13-58
-58            android:value="@integer/google_play_services_version" />
-58-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:40:13-66
-59
-60        <activity
-60-->[com.karumi:dexter:6.2.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/58317d455c2610669ad16abd0a6654b5/jetified-dexter-6.2.1/AndroidManifest.xml:27:9-29:72
-61            android:name="com.karumi.dexter.DexterActivity"
-61-->[com.karumi:dexter:6.2.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/58317d455c2610669ad16abd0a6654b5/jetified-dexter-6.2.1/AndroidManifest.xml:28:13-60
-62            android:theme="@style/Dexter.Internal.Theme.Transparent" />
-62-->[com.karumi:dexter:6.2.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/58317d455c2610669ad16abd0a6654b5/jetified-dexter-6.2.1/AndroidManifest.xml:29:13-69
-63        <activity
-63-->[com.google.android.libraries.places:places:2.4.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/0ee01112860cae3de82645dbe2491f94/jetified-places-2.4.0/AndroidManifest.xml:14:9-20:20
-64            android:name="com.google.android.libraries.places.widget.AutocompleteActivity"
-64-->[com.google.android.libraries.places:places:2.4.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/0ee01112860cae3de82645dbe2491f94/jetified-places-2.4.0/AndroidManifest.xml:15:13-91
-65            android:exported="false"
-65-->[com.google.android.libraries.places:places:2.4.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/0ee01112860cae3de82645dbe2491f94/jetified-places-2.4.0/AndroidManifest.xml:16:13-37
-66            android:label="@string/places_autocomplete_label"
-66-->[com.google.android.libraries.places:places:2.4.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/0ee01112860cae3de82645dbe2491f94/jetified-places-2.4.0/AndroidManifest.xml:17:13-62
-67            android:theme="@style/PlacesAutocompleteOverlay"
-67-->[com.google.android.libraries.places:places:2.4.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/0ee01112860cae3de82645dbe2491f94/jetified-places-2.4.0/AndroidManifest.xml:18:13-61
-68            android:windowSoftInputMode="adjustResize" >
-68-->[com.google.android.libraries.places:places:2.4.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/0ee01112860cae3de82645dbe2491f94/jetified-places-2.4.0/AndroidManifest.xml:19:13-55
-69        </activity> <!-- Needs to be explicitly declared on P+ -->
-70        <uses-library
-70-->[com.google.android.gms:play-services-maps:17.0.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/c09837abb3abace6c7fff99e94c193f6/jetified-play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
-71            android:name="org.apache.http.legacy"
-71-->[com.google.android.gms:play-services-maps:17.0.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/c09837abb3abace6c7fff99e94c193f6/jetified-play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
-72            android:required="false" />
-72-->[com.google.android.gms:play-services-maps:17.0.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/c09837abb3abace6c7fff99e94c193f6/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
-73
-74        <service
-74-->[com.google.firebase:firebase-storage:19.2.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/1d0b6671b11e53b4061ecf6bacdf2ec2/jetified-firebase-storage-19.2.0/AndroidManifest.xml:30:9-36:19
-75            android:name="com.google.firebase.components.ComponentDiscoveryService"
-75-->[com.google.firebase:firebase-storage:19.2.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/1d0b6671b11e53b4061ecf6bacdf2ec2/jetified-firebase-storage-19.2.0/AndroidManifest.xml:31:13-84
-76            android:directBootAware="true"
-76-->[com.google.firebase:firebase-common:19.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b1c075491376f2c133bde69df82bc668/jetified-firebase-common-19.3.1/AndroidManifest.xml:35:13-43
-77            android:exported="false" >
-77-->[com.google.firebase:firebase-storage:19.2.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/1d0b6671b11e53b4061ecf6bacdf2ec2/jetified-firebase-storage-19.2.0/AndroidManifest.xml:32:13-37
-78            <meta-data
-78-->[com.google.firebase:firebase-storage:19.2.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/1d0b6671b11e53b4061ecf6bacdf2ec2/jetified-firebase-storage-19.2.0/AndroidManifest.xml:33:13-35:85
-79                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
-79-->[com.google.firebase:firebase-storage:19.2.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/1d0b6671b11e53b4061ecf6bacdf2ec2/jetified-firebase-storage-19.2.0/AndroidManifest.xml:34:17-107
-80                android:value="com.google.firebase.components.ComponentRegistrar" />
-80-->[com.google.firebase:firebase-storage:19.2.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/1d0b6671b11e53b4061ecf6bacdf2ec2/jetified-firebase-storage-19.2.0/AndroidManifest.xml:35:17-82
-81        </service>
-82
-83        <activity
-83-->[com.sucho:placepicker:1.1.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/7ecc1c631b54cc413b9243bfedfa496f/jetified-placepicker-1.1.2/AndroidManifest.xml:12:9-14:67
-84            android:name="com.sucho.placepicker.PlacePickerActivity"
-84-->[com.sucho:placepicker:1.1.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/7ecc1c631b54cc413b9243bfedfa496f/jetified-placepicker-1.1.2/AndroidManifest.xml:13:13-69
-85            android:label="@string/title_activity_place_picker" />
-85-->[com.sucho:placepicker:1.1.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/7ecc1c631b54cc413b9243bfedfa496f/jetified-placepicker-1.1.2/AndroidManifest.xml:14:13-64
-86
-87        <service
-87-->[com.google.android.datatransport:transport-backend-cct:2.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/bbc1cc39abd9bdd9fa023960e3e1eae2/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:29:9-35:19
-88            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-88-->[com.google.android.datatransport:transport-backend-cct:2.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/bbc1cc39abd9bdd9fa023960e3e1eae2/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:30:13-103
-89            android:exported="false" >
-89-->[com.google.android.datatransport:transport-backend-cct:2.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/bbc1cc39abd9bdd9fa023960e3e1eae2/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:31:13-37
-90            <meta-data
-90-->[com.google.android.datatransport:transport-backend-cct:2.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/bbc1cc39abd9bdd9fa023960e3e1eae2/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:32:13-34:39
-91                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-91-->[com.google.android.datatransport:transport-backend-cct:2.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/bbc1cc39abd9bdd9fa023960e3e1eae2/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:33:17-94
-92                android:value="cct" />
-92-->[com.google.android.datatransport:transport-backend-cct:2.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/bbc1cc39abd9bdd9fa023960e3e1eae2/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:34:17-36
-93        </service>
-94        <service
-94-->[com.google.android.datatransport:transport-runtime:2.2.3] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/15fa9e4b5e165665bcd9330c7b489191/jetified-transport-runtime-2.2.3/AndroidManifest.xml:26:9-30:19
-95            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-95-->[com.google.android.datatransport:transport-runtime:2.2.3] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/15fa9e4b5e165665bcd9330c7b489191/jetified-transport-runtime-2.2.3/AndroidManifest.xml:27:13-117
-96            android:exported="false"
-96-->[com.google.android.datatransport:transport-runtime:2.2.3] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/15fa9e4b5e165665bcd9330c7b489191/jetified-transport-runtime-2.2.3/AndroidManifest.xml:28:13-37
-97            android:permission="android.permission.BIND_JOB_SERVICE" >
-97-->[com.google.android.datatransport:transport-runtime:2.2.3] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/15fa9e4b5e165665bcd9330c7b489191/jetified-transport-runtime-2.2.3/AndroidManifest.xml:29:13-69
-98        </service>
-99
-100        <receiver
-100-->[com.google.android.datatransport:transport-runtime:2.2.3] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/15fa9e4b5e165665bcd9330c7b489191/jetified-transport-runtime-2.2.3/AndroidManifest.xml:32:9-34:40
-101            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-101-->[com.google.android.datatransport:transport-runtime:2.2.3] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/15fa9e4b5e165665bcd9330c7b489191/jetified-transport-runtime-2.2.3/AndroidManifest.xml:33:13-132
-102            android:exported="false" />
-102-->[com.google.android.datatransport:transport-runtime:2.2.3] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/15fa9e4b5e165665bcd9330c7b489191/jetified-transport-runtime-2.2.3/AndroidManifest.xml:34:13-37
-103
-104        <provider
-104-->[com.google.firebase:firebase-common:19.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b1c075491376f2c133bde69df82bc668/jetified-firebase-common-19.3.1/AndroidManifest.xml:26:9-31:39
-105            android:name="com.google.firebase.provider.FirebaseInitProvider"
-105-->[com.google.firebase:firebase-common:19.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b1c075491376f2c133bde69df82bc668/jetified-firebase-common-19.3.1/AndroidManifest.xml:27:13-77
-106            android:authorities="xyz.tqydn.tipang.firebaseinitprovider"
-106-->[com.google.firebase:firebase-common:19.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b1c075491376f2c133bde69df82bc668/jetified-firebase-common-19.3.1/AndroidManifest.xml:28:13-72
-107            android:directBootAware="true"
-107-->[com.google.firebase:firebase-common:19.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b1c075491376f2c133bde69df82bc668/jetified-firebase-common-19.3.1/AndroidManifest.xml:29:13-43
-108            android:exported="false"
-108-->[com.google.firebase:firebase-common:19.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b1c075491376f2c133bde69df82bc668/jetified-firebase-common-19.3.1/AndroidManifest.xml:30:13-37
-109            android:initOrder="100" />
-109-->[com.google.firebase:firebase-common:19.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b1c075491376f2c133bde69df82bc668/jetified-firebase-common-19.3.1/AndroidManifest.xml:31:13-36
-110
-111        <activity
-111-->[com.google.android.gms:play-services-base:17.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/9116b0ef07c413af000aaf0ff61f077c/jetified-play-services-base-17.3.0/AndroidManifest.xml:23:9-26:75
-112            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-112-->[com.google.android.gms:play-services-base:17.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/9116b0ef07c413af000aaf0ff61f077c/jetified-play-services-base-17.3.0/AndroidManifest.xml:24:13-79
-113            android:exported="false"
-113-->[com.google.android.gms:play-services-base:17.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/9116b0ef07c413af000aaf0ff61f077c/jetified-play-services-base-17.3.0/AndroidManifest.xml:25:13-37
-114            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-114-->[com.google.android.gms:play-services-base:17.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/9116b0ef07c413af000aaf0ff61f077c/jetified-play-services-base-17.3.0/AndroidManifest.xml:26:13-72
-115
-116        <provider
-116-->[androidx.lifecycle:lifecycle-process:2.1.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/6183c90ad2807b1a6b4845cacf094fbe/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
-117            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-117-->[androidx.lifecycle:lifecycle-process:2.1.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/6183c90ad2807b1a6b4845cacf094fbe/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
-118            android:authorities="xyz.tqydn.tipang.lifecycle-process"
-118-->[androidx.lifecycle:lifecycle-process:2.1.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/6183c90ad2807b1a6b4845cacf094fbe/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
-119            android:exported="false"
-119-->[androidx.lifecycle:lifecycle-process:2.1.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/6183c90ad2807b1a6b4845cacf094fbe/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
-120            android:multiprocess="true" /> <!-- The activities will be merged into the manifest of the hosting app. -->
-120-->[androidx.lifecycle:lifecycle-process:2.1.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/6183c90ad2807b1a6b4845cacf094fbe/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
-121        <activity
-121-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:12:5-271
-122            android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity"
-122-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:12:15-102
-123            android:enabled="false"
-123-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:12:103-126
-124            android:exported="false"
-124-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:12:127-151
-125            android:launchMode="singleInstance"
-125-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:12:204-239
-126            android:process=":playcore_missing_splits_activity"
-126-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:12:152-203
-127            android:stateNotNeeded="true" />
-127-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:12:240-269
-128        <activity
-128-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:13:5-226
-129            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
-129-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:13:15-95
-130            android:enabled="false"
-130-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:13:96-119
-131            android:exported="false"
-131-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:13:120-144
-132            android:stateNotNeeded="true"
-132-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:13:145-174
-133            android:theme="@style/Theme.PlayCore.Transparent" /> <!-- The service will be merged into the manifest of the hosting app. -->
-133-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:13:175-224
-134        <service
-134-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:16:5-145
-135            android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"
-135-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:16:14-95
-136            android:enabled="false"
-136-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:16:96-119
-137            android:exported="true" />
-137-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:16:120-143
-138    </application>
-139
-140</manifest>
+40        <activity android:name="xyz.tqydn.tipang.ui.VerEmailActivity" />
+40-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:22:9-57
+40-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:22:19-54
+41        <activity android:name="xyz.tqydn.tipang.ui.SignUpActivity" />
+41-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:23:9-55
+41-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:23:19-52
+42        <activity android:name="xyz.tqydn.tipang.ui.LoginActivity" />
+42-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:24:9-54
+42-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:24:19-51
+43        <activity android:name="xyz.tqydn.tipang.SplashScreenActivity" >
+43-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:25:9-31:20
+43-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:25:19-55
+44            <intent-filter>
+44-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:26:13-30:29
+45                <action android:name="android.intent.action.MAIN" />
+45-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:27:17-69
+45-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:27:25-66
+46
+47                <category android:name="android.intent.category.LAUNCHER" />
+47-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:29:17-77
+47-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:29:27-74
+48            </intent-filter>
+49        </activity>
+50
+51        <meta-data
+51-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:33:9-35:57
+52            android:name="preloaded_fonts"
+52-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:34:13-43
+53            android:resource="@array/preloaded_fonts" />
+53-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:35:13-54
+54        <meta-data
+54-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:36:9-38:71
+55            android:name="com.google.android.geo.API_KEY"
+55-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:37:13-58
+56            android:value="AIzaSyD306ZhNIIsxRlXcCu0NWnheKhPOhysous" />
+56-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:38:13-68
+57        <meta-data
+57-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:39:9-41:69
+58            android:name="com.google.android.gms.version"
+58-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:40:13-58
+59            android:value="@integer/google_play_services_version" />
+59-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:41:13-66
+60
+61        <activity
+61-->[com.karumi:dexter:6.2.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/58317d455c2610669ad16abd0a6654b5/jetified-dexter-6.2.1/AndroidManifest.xml:27:9-29:72
+62            android:name="com.karumi.dexter.DexterActivity"
+62-->[com.karumi:dexter:6.2.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/58317d455c2610669ad16abd0a6654b5/jetified-dexter-6.2.1/AndroidManifest.xml:28:13-60
+63            android:theme="@style/Dexter.Internal.Theme.Transparent" />
+63-->[com.karumi:dexter:6.2.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/58317d455c2610669ad16abd0a6654b5/jetified-dexter-6.2.1/AndroidManifest.xml:29:13-69
+64        <activity
+64-->[com.google.android.libraries.places:places:2.4.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/0ee01112860cae3de82645dbe2491f94/jetified-places-2.4.0/AndroidManifest.xml:14:9-20:20
+65            android:name="com.google.android.libraries.places.widget.AutocompleteActivity"
+65-->[com.google.android.libraries.places:places:2.4.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/0ee01112860cae3de82645dbe2491f94/jetified-places-2.4.0/AndroidManifest.xml:15:13-91
+66            android:exported="false"
+66-->[com.google.android.libraries.places:places:2.4.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/0ee01112860cae3de82645dbe2491f94/jetified-places-2.4.0/AndroidManifest.xml:16:13-37
+67            android:label="@string/places_autocomplete_label"
+67-->[com.google.android.libraries.places:places:2.4.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/0ee01112860cae3de82645dbe2491f94/jetified-places-2.4.0/AndroidManifest.xml:17:13-62
+68            android:theme="@style/PlacesAutocompleteOverlay"
+68-->[com.google.android.libraries.places:places:2.4.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/0ee01112860cae3de82645dbe2491f94/jetified-places-2.4.0/AndroidManifest.xml:18:13-61
+69            android:windowSoftInputMode="adjustResize" >
+69-->[com.google.android.libraries.places:places:2.4.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/0ee01112860cae3de82645dbe2491f94/jetified-places-2.4.0/AndroidManifest.xml:19:13-55
+70        </activity> <!-- Needs to be explicitly declared on P+ -->
+71        <uses-library
+71-->[com.google.android.gms:play-services-maps:17.0.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/c09837abb3abace6c7fff99e94c193f6/jetified-play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+72            android:name="org.apache.http.legacy"
+72-->[com.google.android.gms:play-services-maps:17.0.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/c09837abb3abace6c7fff99e94c193f6/jetified-play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
+73            android:required="false" />
+73-->[com.google.android.gms:play-services-maps:17.0.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/c09837abb3abace6c7fff99e94c193f6/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+74
+75        <service
+75-->[com.google.firebase:firebase-storage:19.2.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/1d0b6671b11e53b4061ecf6bacdf2ec2/jetified-firebase-storage-19.2.0/AndroidManifest.xml:30:9-36:19
+76            android:name="com.google.firebase.components.ComponentDiscoveryService"
+76-->[com.google.firebase:firebase-storage:19.2.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/1d0b6671b11e53b4061ecf6bacdf2ec2/jetified-firebase-storage-19.2.0/AndroidManifest.xml:31:13-84
+77            android:directBootAware="true"
+77-->[com.google.firebase:firebase-common:19.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b1c075491376f2c133bde69df82bc668/jetified-firebase-common-19.3.1/AndroidManifest.xml:35:13-43
+78            android:exported="false" >
+78-->[com.google.firebase:firebase-storage:19.2.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/1d0b6671b11e53b4061ecf6bacdf2ec2/jetified-firebase-storage-19.2.0/AndroidManifest.xml:32:13-37
+79            <meta-data
+79-->[com.google.firebase:firebase-storage:19.2.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/1d0b6671b11e53b4061ecf6bacdf2ec2/jetified-firebase-storage-19.2.0/AndroidManifest.xml:33:13-35:85
+80                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+80-->[com.google.firebase:firebase-storage:19.2.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/1d0b6671b11e53b4061ecf6bacdf2ec2/jetified-firebase-storage-19.2.0/AndroidManifest.xml:34:17-107
+81                android:value="com.google.firebase.components.ComponentRegistrar" />
+81-->[com.google.firebase:firebase-storage:19.2.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/1d0b6671b11e53b4061ecf6bacdf2ec2/jetified-firebase-storage-19.2.0/AndroidManifest.xml:35:17-82
+82        </service>
+83
+84        <activity
+84-->[com.sucho:placepicker:1.1.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/7ecc1c631b54cc413b9243bfedfa496f/jetified-placepicker-1.1.2/AndroidManifest.xml:12:9-14:67
+85            android:name="com.sucho.placepicker.PlacePickerActivity"
+85-->[com.sucho:placepicker:1.1.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/7ecc1c631b54cc413b9243bfedfa496f/jetified-placepicker-1.1.2/AndroidManifest.xml:13:13-69
+86            android:label="@string/title_activity_place_picker" />
+86-->[com.sucho:placepicker:1.1.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/7ecc1c631b54cc413b9243bfedfa496f/jetified-placepicker-1.1.2/AndroidManifest.xml:14:13-64
+87
+88        <service
+88-->[com.google.android.datatransport:transport-backend-cct:2.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/bbc1cc39abd9bdd9fa023960e3e1eae2/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:29:9-35:19
+89            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+89-->[com.google.android.datatransport:transport-backend-cct:2.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/bbc1cc39abd9bdd9fa023960e3e1eae2/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:30:13-103
+90            android:exported="false" >
+90-->[com.google.android.datatransport:transport-backend-cct:2.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/bbc1cc39abd9bdd9fa023960e3e1eae2/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:31:13-37
+91            <meta-data
+91-->[com.google.android.datatransport:transport-backend-cct:2.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/bbc1cc39abd9bdd9fa023960e3e1eae2/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:32:13-34:39
+92                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+92-->[com.google.android.datatransport:transport-backend-cct:2.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/bbc1cc39abd9bdd9fa023960e3e1eae2/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:33:17-94
+93                android:value="cct" />
+93-->[com.google.android.datatransport:transport-backend-cct:2.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/bbc1cc39abd9bdd9fa023960e3e1eae2/jetified-transport-backend-cct-2.3.0/AndroidManifest.xml:34:17-36
+94        </service>
+95        <service
+95-->[com.google.android.datatransport:transport-runtime:2.2.3] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/15fa9e4b5e165665bcd9330c7b489191/jetified-transport-runtime-2.2.3/AndroidManifest.xml:26:9-30:19
+96            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+96-->[com.google.android.datatransport:transport-runtime:2.2.3] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/15fa9e4b5e165665bcd9330c7b489191/jetified-transport-runtime-2.2.3/AndroidManifest.xml:27:13-117
+97            android:exported="false"
+97-->[com.google.android.datatransport:transport-runtime:2.2.3] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/15fa9e4b5e165665bcd9330c7b489191/jetified-transport-runtime-2.2.3/AndroidManifest.xml:28:13-37
+98            android:permission="android.permission.BIND_JOB_SERVICE" >
+98-->[com.google.android.datatransport:transport-runtime:2.2.3] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/15fa9e4b5e165665bcd9330c7b489191/jetified-transport-runtime-2.2.3/AndroidManifest.xml:29:13-69
+99        </service>
+100
+101        <receiver
+101-->[com.google.android.datatransport:transport-runtime:2.2.3] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/15fa9e4b5e165665bcd9330c7b489191/jetified-transport-runtime-2.2.3/AndroidManifest.xml:32:9-34:40
+102            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+102-->[com.google.android.datatransport:transport-runtime:2.2.3] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/15fa9e4b5e165665bcd9330c7b489191/jetified-transport-runtime-2.2.3/AndroidManifest.xml:33:13-132
+103            android:exported="false" />
+103-->[com.google.android.datatransport:transport-runtime:2.2.3] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/15fa9e4b5e165665bcd9330c7b489191/jetified-transport-runtime-2.2.3/AndroidManifest.xml:34:13-37
+104
+105        <provider
+105-->[com.google.firebase:firebase-common:19.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b1c075491376f2c133bde69df82bc668/jetified-firebase-common-19.3.1/AndroidManifest.xml:26:9-31:39
+106            android:name="com.google.firebase.provider.FirebaseInitProvider"
+106-->[com.google.firebase:firebase-common:19.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b1c075491376f2c133bde69df82bc668/jetified-firebase-common-19.3.1/AndroidManifest.xml:27:13-77
+107            android:authorities="xyz.tqydn.tipang.firebaseinitprovider"
+107-->[com.google.firebase:firebase-common:19.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b1c075491376f2c133bde69df82bc668/jetified-firebase-common-19.3.1/AndroidManifest.xml:28:13-72
+108            android:directBootAware="true"
+108-->[com.google.firebase:firebase-common:19.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b1c075491376f2c133bde69df82bc668/jetified-firebase-common-19.3.1/AndroidManifest.xml:29:13-43
+109            android:exported="false"
+109-->[com.google.firebase:firebase-common:19.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b1c075491376f2c133bde69df82bc668/jetified-firebase-common-19.3.1/AndroidManifest.xml:30:13-37
+110            android:initOrder="100" />
+110-->[com.google.firebase:firebase-common:19.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b1c075491376f2c133bde69df82bc668/jetified-firebase-common-19.3.1/AndroidManifest.xml:31:13-36
+111
+112        <activity
+112-->[com.google.android.gms:play-services-base:17.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/9116b0ef07c413af000aaf0ff61f077c/jetified-play-services-base-17.3.0/AndroidManifest.xml:23:9-26:75
+113            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+113-->[com.google.android.gms:play-services-base:17.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/9116b0ef07c413af000aaf0ff61f077c/jetified-play-services-base-17.3.0/AndroidManifest.xml:24:13-79
+114            android:exported="false"
+114-->[com.google.android.gms:play-services-base:17.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/9116b0ef07c413af000aaf0ff61f077c/jetified-play-services-base-17.3.0/AndroidManifest.xml:25:13-37
+115            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+115-->[com.google.android.gms:play-services-base:17.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/9116b0ef07c413af000aaf0ff61f077c/jetified-play-services-base-17.3.0/AndroidManifest.xml:26:13-72
+116
+117        <provider
+117-->[androidx.lifecycle:lifecycle-process:2.1.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/6183c90ad2807b1a6b4845cacf094fbe/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
+118            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+118-->[androidx.lifecycle:lifecycle-process:2.1.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/6183c90ad2807b1a6b4845cacf094fbe/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
+119            android:authorities="xyz.tqydn.tipang.lifecycle-process"
+119-->[androidx.lifecycle:lifecycle-process:2.1.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/6183c90ad2807b1a6b4845cacf094fbe/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
+120            android:exported="false"
+120-->[androidx.lifecycle:lifecycle-process:2.1.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/6183c90ad2807b1a6b4845cacf094fbe/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
+121            android:multiprocess="true" /> <!-- The activities will be merged into the manifest of the hosting app. -->
+121-->[androidx.lifecycle:lifecycle-process:2.1.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/6183c90ad2807b1a6b4845cacf094fbe/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
+122        <activity
+122-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:12:5-271
+123            android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity"
+123-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:12:15-102
+124            android:enabled="false"
+124-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:12:103-126
+125            android:exported="false"
+125-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:12:127-151
+126            android:launchMode="singleInstance"
+126-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:12:204-239
+127            android:process=":playcore_missing_splits_activity"
+127-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:12:152-203
+128            android:stateNotNeeded="true" />
+128-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:12:240-269
+129        <activity
+129-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:13:5-226
+130            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+130-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:13:15-95
+131            android:enabled="false"
+131-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:13:96-119
+132            android:exported="false"
+132-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:13:120-144
+133            android:stateNotNeeded="true"
+133-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:13:145-174
+134            android:theme="@style/Theme.PlayCore.Transparent" /> <!-- The service will be merged into the manifest of the hosting app. -->
+134-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:13:175-224
+135        <service
+135-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:16:5-145
+136            android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"
+136-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:16:14-95
+137            android:enabled="false"
+137-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:16:96-119
+138            android:exported="true" />
+138-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:16:120-143
+139    </application>
+140
+141</manifest>

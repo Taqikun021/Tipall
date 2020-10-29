@@ -53,7 +53,7 @@ class PenjualAdapter(private val penjuals: List<DataPenjual>): RecyclerView.Adap
                 }
                 itemView.setOnClickListener {
                     onItemClickCallback?.onItemClicked(penjual)
-                    preference.setValues("penjual_click", penjual.id_user)
+                    preference.setValues("penjual_click", penjual.id_penjual)
                 }
             }
         }

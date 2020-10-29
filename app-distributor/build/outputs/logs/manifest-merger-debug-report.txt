@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-43:12
-INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-43:12
-INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-43:12
-INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-43:12
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-44:12
 MERGED from [androidx.navigation:navigation-dynamic-features-fragment:2.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/9a1c2db17155b93661828edb871a6a49/jetified-navigation-dynamic-features-fragment-2.3.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-fragment-ktx:2.3.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/2a709b20e2d49c1628663eac678ed23b/navigation-fragment-ktx-2.3.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment-ktx:1.3.0-beta01] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/7099306377b71a4c51854c8bcb6a92b6/jetified-fragment-ktx-1.3.0-beta01/AndroidManifest.xml:17:1-24:12
@@ -103,27 +103,27 @@ MERGED from [androidx.annotation:annotation-experimental:1.0.0] /home/taqiyudin/
 MERGED from [com.android.volley:volley:1.1.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/2b729824e75c6f8804c968e224a041b9/jetified-volley-1.1.1/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.datatransport:transport-api:2.2.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/d3e1e520a4d8fa99ed1b9bc4798c4a10/jetified-transport-api-2.2.0/AndroidManifest.xml:15:1-22:12
 MERGED from [com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/4e3678f9e5f362b0f24e1cb2b8d3a858/jetified-core-1.7.2/AndroidManifest.xml:2:1-19:12
-INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-43:12
-INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-43:12
-INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-43:12
+INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-44:12
 	package
 		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:4:5-31
 		INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml
 		INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-43:12
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-44:12
 		INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-43:12
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:1-44:12
 		INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:6:5-41:19
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:6:5-42:19
 MERGED from [com.karumi:dexter:6.2.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/58317d455c2610669ad16abd0a6654b5/jetified-dexter-6.2.1/AndroidManifest.xml:26:5-30:19
 MERGED from [com.karumi:dexter:6.2.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/58317d455c2610669ad16abd0a6654b5/jetified-dexter-6.2.1/AndroidManifest.xml:26:5-30:19
 MERGED from [com.google.android.material:material:1.3.0-alpha03] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/83934c020b2c450ecdaf859dacbf9f1a/material-1.3.0-alpha03/AndroidManifest.xml:22:5-20
@@ -190,76 +190,80 @@ MERGED from [com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/
 		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:12:9-44
 	android:usesCleartextTraffic
 		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:13:9-44
+activity#xyz.tqydn.tipang.ui.inventory.BuatTransaksiActivity
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:15:9-81
+	android:name
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:15:19-69
 activity#xyz.tqydn.tipang.ui.inventory.TambahUsahaActivity
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:15:9-79
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:16:9-70
 	android:name
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:15:19-67
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:16:19-67
 activity#xyz.tqydn.tipang.ui.inventory.TambahBarangActivity
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:16:9-71
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:17:9-71
 	android:name
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:16:19-68
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:17:19-68
 activity#xyz.tqydn.tipang.ui.inventory.EditUsahaActivity
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:17:9-68
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:18:9-68
 	android:name
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:17:19-65
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:18:19-65
 activity#xyz.tqydn.tipang.ui.inventory.EditProfilActivity
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:18:9-69
-	android:name
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:18:19-66
-activity#xyz.tqydn.tipang.ui.inventory.EditBarangActivity
 ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:19:9-69
 	android:name
 		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:19:19-66
-activity#xyz.tqydn.tipang.ui.CadanganActivity
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:20:9-57
+activity#xyz.tqydn.tipang.ui.inventory.EditBarangActivity
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:20:9-69
 	android:name
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:20:19-54
-activity#xyz.tqydn.tipang.ui.VerEmailActivity
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:20:19-66
+activity#xyz.tqydn.tipang.ui.CadanganActivity
 ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:21:9-57
 	android:name
 		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:21:19-54
+activity#xyz.tqydn.tipang.ui.VerEmailActivity
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:22:9-57
+	android:name
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:22:19-54
 activity#xyz.tqydn.tipang.ui.SignUpActivity
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:22:9-55
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:23:9-55
 	android:name
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:22:19-52
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:23:19-52
 activity#xyz.tqydn.tipang.ui.LoginActivity
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:23:9-54
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:24:9-54
 	android:name
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:23:19-51
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:24:19-51
 activity#xyz.tqydn.tipang.SplashScreenActivity
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:24:9-30:20
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:25:9-31:20
 	android:name
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:24:19-55
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:25:19-55
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:25:13-29:29
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:26:13-30:29
 action#android.intent.action.MAIN
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:26:17-69
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:27:17-69
 	android:name
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:26:25-66
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:27:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:28:17-77
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:29:17-77
 	android:name
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:28:27-74
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:29:27-74
 meta-data#preloaded_fonts
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:32:9-34:57
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:33:9-35:57
 	android:resource
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:34:13-54
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:35:13-54
 	android:name
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:33:13-43
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:34:13-43
 meta-data#com.google.android.geo.API_KEY
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:35:9-37:71
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:36:9-38:71
 	android:value
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:37:13-68
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:38:13-68
 	android:name
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:36:13-58
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:37:13-58
 meta-data#com.google.android.gms.version
-ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:38:9-40:69
+ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:39:9-41:69
 MERGED from [com.google.android.gms:play-services-basement:17.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/24dd06312a2fa804c243c39b0f0fd59d/jetified-play-services-basement-17.3.0/AndroidManifest.xml:23:9-25:69
 MERGED from [com.google.android.gms:play-services-basement:17.3.0] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/24dd06312a2fa804c243c39b0f0fd59d/jetified-play-services-basement-17.3.0/AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:40:13-66
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:41:13-66
 	android:name
-		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:39:13-58
+		ADDED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:40:13-58
 uses-sdk
 INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml

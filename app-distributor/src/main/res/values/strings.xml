@@ -81,7 +81,7 @@
     <string name="jumlah_barang">Jumlah Barang</string>
     <string name="_0">0</string>
     <string name="kirim_permintaan">Kirim Permintaan</string>
-    <string name="dengan_mengirimkan_permintaan_barang_anda_setuju_untuk_menunjukan_nomor_telepon_anda">Dengan mengirimkan permintaan barang, Anda setuju untuk menunjukan nomor telepon anda.</string>
+    <string name="dengan_mengirimkan_permintaan_barang_anda_setuju_untuk_menunjukan_nomor_telepon_anda">Dengan mengirimkan Tawaran penjualan barang, Anda setuju untuk menunjukan nomor telepon anda.</string>
     <string name="detail_transaksi">Detail Transaksi</string>
     <string name="total_transaksi">Total Transaksi</string>
     <string name="rp_0">Rp. 0</string>
@@ -111,4 +111,6 @@
     <string name="penjual_tersedia">Penjual Tersedia</string>
     <string name="transaksi_bulan_ini">Transaksi Bulan Ini</string>
     <string name="cari_penjual">Cari Penjual</string>
+    <string name="pilih_barang_geser_untuk_mengganti">Pilih Barang. Geser ke samping untuk mengganti Barang</string>
+    <string name="buat_tawaran">Buat Tawaran</string>
 </resources>

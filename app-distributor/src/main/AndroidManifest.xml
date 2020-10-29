@@ -12,7 +12,8 @@
         android:theme="@style/Theme.Tipall"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ui.inventory.TambahUsahaActivity"></activity>
+        <activity android:name=".ui.inventory.BuatTransaksiActivity"></activity>
+        <activity android:name=".ui.inventory.TambahUsahaActivity" />
         <activity android:name=".ui.inventory.TambahBarangActivity" />
         <activity android:name=".ui.inventory.EditUsahaActivity" />
         <activity android:name=".ui.inventory.EditProfilActivity" />

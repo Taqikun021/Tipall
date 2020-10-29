@@ -117,7 +117,7 @@ class BuatTransaksiActivity : AppCompatActivity() {
     }
 
     private fun getDataBarang() {
-        val call: Call<DataBarang> = Constants.apiInterface.getBarangInfo(preference.getValues("barang_click"))
+        val call: Call<DataBarang> = apiInterface.getBarangInfo(preference.getValues("barang_click"))
         call.enqueue(object : Callback<DataBarang> {
             override fun onResponse(call: Call<DataBarang>, response: Response<DataBarang>) {
                 val data: DataBarang? = response.body()

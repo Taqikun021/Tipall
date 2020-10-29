@@ -37,8 +37,7 @@ class SplashScreenActivity : AppCompatActivity() {
         getLastLocation()
 
         if (checkPermission()){
-            val handler =  Handler()
-            handler.postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 val intent = Intent(this@SplashScreenActivity, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
