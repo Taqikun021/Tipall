@@ -45,7 +45,7 @@ class PenjualAdapter(private val penjuals: List<DataPenjual>): RecyclerView.Adap
                     .apply(RequestOptions.circleCropTransform())
                     .into(itemView.imagePenjual)
                 itemView.namaUsaha.text = penjual.nama_usaha
-                itemView.jarak.text = "${"%.2f".format(jarak)} km"
+                itemView.jarak.text = "${"%.2f".format(jarak)} km dari lokasi Anda."
                 if (penjual.jenis_kelamin != "Perempuan") {
                     itemView.namaPemilik.text = "Bapak ${penjual.username}"
                 } else {

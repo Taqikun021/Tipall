@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/navigation_mobile_navigation.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/navigation/mobile_navigation.xml"
-    },
-    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/font_poppins_bold.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/font/poppins_bold.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/navigation_mobile_navigation.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/navigation/mobile_navigation.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/drawable_ic_baseline_add_box_24.xml.flat",
@@ -20,12 +20,12 @@
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/layout/fragment_barang.xml"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/layout_activity_cadangan.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/layout/activity_cadangan.xml"
-    },
-    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/drawable_ic_baseline_my_location_24.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/drawable/ic_baseline_my_location_24.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/layout_activity_cadangan.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/layout/activity_cadangan.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/drawable_ic_whatsapp.xml.flat",

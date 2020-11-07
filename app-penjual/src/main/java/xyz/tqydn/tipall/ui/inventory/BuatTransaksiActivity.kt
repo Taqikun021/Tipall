@@ -34,7 +34,6 @@ class BuatTransaksiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buat_transaksi)
-
         preference = SharedPreference(this)
         var jumlahBarang = 0
 
@@ -62,7 +61,7 @@ class BuatTransaksiActivity : AppCompatActivity() {
         }
         kirimTawaran.setOnClickListener {
             val jml = jumlah.text.toString().trim()
-            val hasil = (jml.toInt()*jumlahBarang).toString()
+            val hasil = (hargaBarang*jumlahBarang).toString()
 
             if(!isNumber(jml)) {
                 jumlah.error = "Jumlah harus angka"

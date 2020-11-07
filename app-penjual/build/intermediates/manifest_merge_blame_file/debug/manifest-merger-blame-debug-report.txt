@@ -55,7 +55,7 @@
 32        android:usesCleartextTraffic="true" >
 32-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/AndroidManifest.xml:13:9-44
 33        <activity android:name="xyz.tqydn.tipall.ui.inventory.EditUsahaActivity" />
-33-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/AndroidManifest.xml:15:9-77
+33-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/AndroidManifest.xml:15:9-68
 33-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/AndroidManifest.xml:15:19-65
 34        <activity android:name="xyz.tqydn.tipall.ui.inventory.TambahUsahaActivity" />
 34-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/AndroidManifest.xml:16:9-70

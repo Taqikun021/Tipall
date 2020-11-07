@@ -19,6 +19,8 @@ class Constants {
         const val TAMBAH_BARANG = 5
         const val EDIT_BARANG = 6
         const val BUAT_TRANSAKSI = 7
+        const val DETAIL_TAWARAN = 8
+        const val DETAIL_PERMINTAAN = 9
         private const val ID = "id"
         const val TITLE = "title"
         const val _1 = "TAWARAN_DIBUAT"
@@ -31,6 +33,16 @@ class Constants {
             ApiClient.getClient().create(ApiInterface::class.java)
         }
 
+        fun isNumber(s: String?): Boolean {
+            return if (s.isNullOrEmpty()) false else s.all { Character.isDigit(it) }
+        }
+
+        fun kodeTransaksi(): String {
+            val header = "T-TAW"
+            val code = UUID.randomUUID().toString().replace("-", "").toUpperCase(Locale.getDefault())
+            return header + code
+        }
+
         fun formatRupiah(number: Double): String? {
             val localeID = Locale("in", "ID")
             val formatRupiah: NumberFormat = NumberFormat.getCurrencyInstance(localeID)
@@ -41,6 +53,16 @@ class Constants {
             val jarak = FloatArray(1)
             Location.distanceBetween(lat1, lng1, lat2, lng2, jarak)
             return (jarak[0]/1000)
+        }
+
+        fun detailPermintaan(context: Context, id: Int?): Intent {
+            return Intent(context, DetailPermintaanActivity::class.java)
+                    .putExtra(ID, id)
+        }
+
+        fun detailTawaran(context: Context, id: Int?): Intent {
+            return Intent(context, DetailTawaranActivity::class.java)
+                    .putExtra(ID, id)
         }
 
         fun buatTransaksi(context: Context, id: Int?): Intent {

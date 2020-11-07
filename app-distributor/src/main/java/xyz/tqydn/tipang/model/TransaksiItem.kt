@@ -26,5 +26,7 @@ data class TransaksiItem(
     val username: String?,
     val jenis_kelamin: String?,
     val no_hp: String?,
-    val foto: String?
+    val foto: String?,
+    val rating: String?,
+    val jumlah_transaksi: String?
 )

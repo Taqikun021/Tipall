@@ -12,7 +12,7 @@ import xyz.tqydn.tipang.R
 import xyz.tqydn.tipang.model.DataBarang
 import xyz.tqydn.tipang.utils.Constants.Companion.formatRupiah
 
-class BarangPagerAdapter(private val items: List<DataBarang>): RecyclerView.Adapter<BarangPagerAdapter.MyViewHolder>() {
+class BarangPagerAdapter(private val items: List<DataBarang>?): RecyclerView.Adapter<BarangPagerAdapter.MyViewHolder>() {
 
     private var onItemClickCallback: OnItemClickCallback? = null
 
@@ -49,8 +49,8 @@ class BarangPagerAdapter(private val items: List<DataBarang>): RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items!![position])
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int = items!!.size
 }

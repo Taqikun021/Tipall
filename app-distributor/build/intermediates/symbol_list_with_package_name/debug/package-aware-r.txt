@@ -2138,7 +2138,9 @@ drawable ic_baseline_info_24
 drawable ic_baseline_ketentuan_24
 drawable ic_baseline_keyboard_arrow_right_24
 drawable ic_baseline_location_on_24
+drawable ic_baseline_map_24
 drawable ic_baseline_my_location_24
+drawable ic_baseline_phone_android_24
 drawable ic_baseline_search_24
 drawable ic_baseline_star_24
 drawable ic_baseline_store_24
@@ -2510,17 +2512,21 @@ id jarak
 id judul
 id judulBarang
 id jumlah
-id jumlahPenjualan
+id jumlahBarang
 id jumlahStok
 id jumpToEnd
 id jumpToStart
+id keMaps
+id keWA
 id kirimTawaran
+id kode_transaksi
 id kurang
 id labelGroup
 id labeled
 id largeLabel
 id layout
 id layoutAbout
+id layoutBarang
 id layoutBintang
 id layoutKebijakan
 id layoutKetentuan
@@ -2609,6 +2615,7 @@ id navigation_stok
 id navigation_transaksi
 id never
 id noScroll
+id nomorHP
 id none
 id normal
 id notification_background
@@ -2750,6 +2757,7 @@ id tagihan
 id tambah
 id tambahBarang
 id tambahUsaha
+id tanggal
 id terima
 id terrain
 id test_checkbox_android_button_tint
@@ -2794,6 +2802,7 @@ id toolbar
 id top
 id topPanel
 id total
+id totalHarga
 id touch_outside
 id transaksi
 id transitionToEnd
@@ -2806,11 +2815,13 @@ id transition_transform
 id triangle
 id tv
 id tv1
+id tv2
 id unchecked
 id uniform
 id unlabeled
 id up
 id useLogo
+id view
 id view1
 id view2
 id view3
@@ -2895,6 +2906,8 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_buat_transaksi
 layout activity_cadangan
+layout activity_detail_permintaan
+layout activity_detail_tawaran
 layout activity_edit_barang
 layout activity_edit_profil
 layout activity_edit_usaha
@@ -3117,6 +3130,8 @@ string dengan_memilih_tombol_terima_anda_setuju_memberikan_nomor_telepon_anda
 string dengan_mengirimkan_permintaan_barang_anda_setuju_untuk_menunjukan_nomor_telepon_anda
 string deskripsi_barang_yang_dijual
 string deskripsi_usaha
+string detail_barang
+string detail_permintaan
 string detail_tawaran
 string detail_transaksi
 string edit_profil
@@ -3157,6 +3172,7 @@ string ketentuan_layanan
 string kirim_permintaan
 string kode_transaksi
 string laki_laki
+string lihat_detail_permintaan
 string logo
 string lokasi_usaha
 string lokasi_usaha_anda
@@ -3232,7 +3248,9 @@ string path_password_strike_through
 string penjual
 string penjual_tersedia
 string perempuan
+string permintaan
 string permintaan_saya
+string petunjuk_arah
 string pilih_barang_geser_untuk_mengganti
 string pilih_file
 string places_autocomplete_clear_button

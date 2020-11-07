@@ -95,7 +95,6 @@
     <string name="pastikan_anda_telah_menyelesaikan_sebelum_mengklik_selesai_dan_jangan_lupa_melunasi_tagihan_transaksi">Pastikan anda telah menyelesaikan sebelum mengklik Selesai. Dan jangan lupa melunasi tagihan transaksi.</string>
     <string name="status_transaksi">Status Transaksi</string>
     <string name="tanggal_transaksi">Tanggal Transaksi</string>
-    <string name="kode_transaksi">Kode Transaksi</string>
     <string name="kasih_rating_buat_distributor">Kasih Rating buat Distributor?</string>
     <string name="segera_lunasi_transaksi_anda">Segera Lunasi Transaksi anda.</string>
     <string name="menunggu_konfirmasi">Menunggu Konfirmasi</string>
@@ -113,4 +112,10 @@
     <string name="cari_penjual">Cari Penjual</string>
     <string name="pilih_barang_geser_untuk_mengganti">Pilih Barang. Geser ke samping untuk mengganti Barang</string>
     <string name="buat_tawaran">Buat Tawaran</string>
+    <string name="detail_barang">Detail Barang</string>
+    <string name="kode_transaksi">Kode Transaksi</string>
+    <string name="lihat_detail_permintaan">Lihat Detail Permintaan</string>
+    <string name="permintaan">Permintaan</string>
+    <string name="detail_permintaan">Detail Permintaan</string>
+    <string name="petunjuk_arah">Petunjuk Arah</string>
 </resources>

@@ -144,4 +144,24 @@ interface ApiInterface {
         @Field("status_bayar") status_bayar: Int?,
         @Field("status_transaksi") status_transaksi: String?
     ): Call<DefaultResponse>
+
+    @GET("getDetailTransaksiDist.php")
+    fun getDetailTransaksi(
+            @Query("id_transaksi") id_transaksi: String?
+    ): Call<TransaksiItem>
+
+    @FormUrlEncoded
+    @POST("updateStatusTransaksi.php")
+    fun updateStatusTransaksi(
+            @Field("status_bayar") status_bayar: Int?,
+            @Field("status_transaksi") status_transaksi: String?,
+            @Field("id_transaksi") id_transaksi: String?
+    ): Call<DefaultResponse>
+
+    @FormUrlEncoded
+    @POST("updateTransaksiSelesai.php")
+    fun transaksiSelesai(
+            @Field("status_transaksi") status_transaksi: String?,
+            @Field("id_transaksi") id_transaksi: String?
+    ): Call<DefaultResponse>
 }

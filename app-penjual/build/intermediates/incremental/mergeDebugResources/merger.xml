@@ -6565,6 +6565,7 @@
         <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorSurface">@color/colorPrimaryDark</item>
         <item name="colorOnSurface">@color/colorAccent</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
     </style><style name="Widget.App.TabLayout" parent="Widget.MaterialComponents.TabLayout">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.TabLayout</item>
     </style><style name="ThemeOverlay.App.TabLayout" parent="">

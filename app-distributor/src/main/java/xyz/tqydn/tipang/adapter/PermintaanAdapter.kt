@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.row_permintaan.view.*
+import retrofit2.Call
+import xyz.tqydn.tipang.model.DefaultResponse
 import xyz.tqydn.tipang.model.TransaksiItem
 import xyz.tqydn.tipang.utils.Constants.Companion.hitungJarak
 import xyz.tqydn.tipang.utils.SharedPreference
@@ -49,7 +51,7 @@ class PermintaanAdapter(private val items: List<TransaksiItem?>): RecyclerView.A
                     .apply(RequestOptions.circleCropTransform())
                     .into(imagePenjual)
 
-                itemView.setOnClickListener {
+                itemView.terima.setOnClickListener {
                     onItemClickCallback?.onItemClicked(item)
                     preference.setValues("trans_click", item.id_transaksi.toString())
                 }

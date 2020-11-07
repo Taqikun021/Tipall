@@ -15,9 +15,11 @@ import xyz.tqydn.tipang.R
 import xyz.tqydn.tipang.adapter.TawaranAdapter
 import xyz.tqydn.tipang.model.Transaksi
 import xyz.tqydn.tipang.model.TransaksiItem
+import xyz.tqydn.tipang.utils.Constants.Companion.DETAIL_TAWARAN
 import xyz.tqydn.tipang.utils.Constants.Companion._1
 import xyz.tqydn.tipang.utils.Constants.Companion.apiInterface
 import xyz.tqydn.tipang.utils.SharedPreference
+import xyz.tqydn.tipang.utils.contracts.DetailTawaranContract
 
 class TawaranFragment : Fragment() {
 
@@ -54,9 +56,15 @@ class TawaranFragment : Fragment() {
         rv.layoutManager = LinearLayoutManager(requireContext())
         items.setOnItemClickCallback(object: TawaranAdapter.OnItemClickCallback{
             override fun onItemClicked(transaksi: TransaksiItem) {
-                TODO("Not yet implemented")
+                detailTawaran.launch(DETAIL_TAWARAN)
             }
         })
+    }
+
+    private val detailTawaran = registerForActivityResult(DetailTawaranContract()){
+        if (it != null){
+            Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
