@@ -1,5 +1,6 @@
 package xyz.tqydn.tipang.adapter
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -16,13 +17,14 @@ import xyz.tqydn.tipang.utils.SharedPreference
 class TawaranAdapter(private val items: List<TransaksiItem?>): RecyclerView.Adapter<TawaranAdapter.MyViewHolder>() {
 
     lateinit var preference: SharedPreference
-    private var onItemClickCallback: TawaranAdapter.OnItemClickCallback? = null
+    private var onItemClickCallback: OnItemClickCallback? = null
 
-    fun setOnItemClickCallback(onItemClickCallback: TawaranAdapter.OnItemClickCallback) {
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        @SuppressLint("SetTextI18n")
         fun bind(item: TransaksiItem?){
             with(itemView){
                 preference = SharedPreference(context)

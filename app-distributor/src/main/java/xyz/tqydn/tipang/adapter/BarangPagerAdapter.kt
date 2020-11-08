@@ -1,5 +1,6 @@
 package xyz.tqydn.tipang.adapter
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,7 @@ class BarangPagerAdapter(private val items: List<DataBarang>?): RecyclerView.Ada
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        @SuppressLint("SetTextI18n")
         fun bind(item: DataBarang){
             with(itemView){
                 val img = Uri.parse(item.foto_barang)

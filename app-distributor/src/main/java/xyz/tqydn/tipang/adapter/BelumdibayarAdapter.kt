@@ -1,5 +1,6 @@
 package xyz.tqydn.tipang.adapter
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -16,13 +17,14 @@ import xyz.tqydn.tipang.utils.SharedPreference
 class BelumdibayarAdapter(private val items: List<TransaksiItem?>): RecyclerView.Adapter<BelumdibayarAdapter.MyViewHolder>() {
 
     private lateinit var preference: SharedPreference
-    private var onItemClickCallback: BelumdibayarAdapter.OnItemClickCallback? = null
+    private var onItemClickCallback: OnItemClickCallback? = null
 
-    fun setOnItemClickCallback(onItemClickCallback: BelumdibayarAdapter.OnItemClickCallback){
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
         this.onItemClickCallback = onItemClickCallback
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        @SuppressLint("SetTextI18n")
         fun bind(item: TransaksiItem?){
             with(itemView){
                 preference = SharedPreference(context)
@@ -38,7 +40,7 @@ class BelumdibayarAdapter(private val items: List<TransaksiItem?>): RecyclerView
                 itemView.namaBarang.text = item.nama_barang
                 itemView.namaUsaha.text = item.nama_usaha
                 itemView.waktu.text = item.waktu_mulai
-                itemView.tagihan.text = "${total} Belum Dibayar"
+                itemView.tagihan.text = "$total Belum Dibayar"
                 itemView.jumlahStok.text = "${item.jumlah_barang} item"
                 itemView.jarak.text = "${"%.2f".format(distance)} km"
 

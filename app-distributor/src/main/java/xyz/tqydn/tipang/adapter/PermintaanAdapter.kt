@@ -1,5 +1,6 @@
 package xyz.tqydn.tipang.adapter
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.row_permintaan.view.*
-import retrofit2.Call
-import xyz.tqydn.tipang.model.DefaultResponse
 import xyz.tqydn.tipang.model.TransaksiItem
 import xyz.tqydn.tipang.utils.Constants.Companion.hitungJarak
 import xyz.tqydn.tipang.utils.SharedPreference
@@ -17,13 +16,14 @@ import xyz.tqydn.tipang.utils.SharedPreference
 class PermintaanAdapter(private val items: List<TransaksiItem?>): RecyclerView.Adapter<PermintaanAdapter.MyViewHolder>() {
 
     private lateinit var preference: SharedPreference
-    private var onItemClickCallback: PermintaanAdapter.OnItemClickCallback? = null
+    private var onItemClickCallback: OnItemClickCallback? = null
 
-    fun setOnItemClickCallback(onItemClickCallback: PermintaanAdapter.OnItemClickCallback){
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
         this.onItemClickCallback = onItemClickCallback
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        @SuppressLint("SetTextI18n")
         fun bind(item: TransaksiItem?){
             with(itemView) {
                 preference = SharedPreference(context)

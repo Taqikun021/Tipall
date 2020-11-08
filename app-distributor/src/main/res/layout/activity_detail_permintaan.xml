@@ -53,11 +53,12 @@
         <ImageView
             android:id="@+id/imageUsaha"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/_0"
             android:background="@color/colorAccent"
             android:scaleType="centerCrop"
+            android:alpha="0.8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tanggal"/>
@@ -66,7 +67,7 @@
             android:id="@+id/imagePenjual"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="240dp"
+            android:layout_marginTop="280dp"
             android:layout_marginStart="18dp"
             android:backgroundTint="@color/lightGrey"
             android:contentDescription="@string/_0"
@@ -147,7 +148,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_button"
-                        android:padding="4dp"
+                        android:paddingVertical="4dp"
+                        android:paddingHorizontal="8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -190,7 +192,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_button"
                         android:backgroundTint="@color/colorPrimaryDark"
-                        android:padding="4dp"
+                        android:paddingVertical="4dp"
+                        android:paddingHorizontal="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
@@ -309,6 +312,9 @@
                         android:textColor="@color/textGrey"
                         android:textSize="@dimen/font_kecil"
                         android:text="@string/jumlah_barang"
+                        android:layout_gravity="end"
+                        android:gravity="end"
+                        android:textAlignment="textEnd"
                         android:fontFamily="@font/poppins"/>
 
                     <TextView

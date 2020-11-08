@@ -21,13 +21,14 @@ class Constants {
         const val BUAT_TRANSAKSI = 7
         const val DETAIL_TAWARAN = 8
         const val DETAIL_PERMINTAAN = 9
+        const val DETAIL_BERLANGSUNG = 10
         private const val ID = "id"
         const val TITLE = "title"
-        const val _1 = "TAWARAN_DIBUAT"
-        const val _2 = "BERLANGSUNG"
-        const val _3 = "SELESAI"
-        const val _4 = "GAGAL"
-        const val _5 = "PERMINTAAN_DIBUAT"
+        const val status1 = "TAWARAN_DIBUAT"
+        const val status2 = "BERLANGSUNG"
+        const val status3 = "SELESAI"
+        const val status4 = "GAGAL"
+        const val status5 = "PERMINTAAN_DIBUAT"
 
         val apiInterface: ApiInterface by lazy {
             ApiClient.getClient().create(ApiInterface::class.java)
@@ -53,6 +54,11 @@ class Constants {
             val jarak = FloatArray(1)
             Location.distanceBetween(lat1, lng1, lat2, lng2, jarak)
             return (jarak[0]/1000)
+        }
+
+        fun detailBerlangsung(context: Context, id: Int?): Intent {
+            return Intent(context, DetailBerlangsungActivity::class.java)
+                    .putExtra(ID, id)
         }
 
         fun detailPermintaan(context: Context, id: Int?): Intent {

@@ -161,6 +161,8 @@ interface ApiInterface {
     @FormUrlEncoded
     @POST("updateTransaksiSelesai.php")
     fun transaksiSelesai(
+            @Field("total_tagihan") total_tagihan: String?,
+            @Field("status_bayar") status_bayar: Int?,
             @Field("status_transaksi") status_transaksi: String?,
             @Field("id_transaksi") id_transaksi: String?
     ): Call<DefaultResponse>

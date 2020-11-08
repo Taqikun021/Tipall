@@ -2139,6 +2139,7 @@ drawable ic_baseline_ketentuan_24
 drawable ic_baseline_keyboard_arrow_right_24
 drawable ic_baseline_location_on_24
 drawable ic_baseline_map_24
+drawable ic_baseline_monetization_on_24
 drawable ic_baseline_my_location_24
 drawable ic_baseline_phone_android_24
 drawable ic_baseline_search_24
@@ -2919,6 +2920,7 @@ layout activity_tambah_barang
 layout activity_tambah_usaha
 layout activity_ver_email
 layout alert_hapus
+layout alert_tolak
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3306,6 +3308,7 @@ string verifikasi
 string waktu_dimulai
 string yakin
 string yakin_menghapus_barang_ini
+string yakin_menolak_transaksi_ini
 string yuk_transaksi_lagi
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

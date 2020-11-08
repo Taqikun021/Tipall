@@ -5,7 +5,6 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -17,7 +16,7 @@ import xyz.tqydn.tipang.R
 import xyz.tqydn.tipang.adapter.BarangPagerAdapter
 import xyz.tqydn.tipang.model.*
 import xyz.tqydn.tipang.utils.Constants.Companion.TITLE
-import xyz.tqydn.tipang.utils.Constants.Companion._1
+import xyz.tqydn.tipang.utils.Constants.Companion.status1
 import xyz.tqydn.tipang.utils.Constants.Companion.apiInterface
 import xyz.tqydn.tipang.utils.Constants.Companion.formatRupiah
 import xyz.tqydn.tipang.utils.Constants.Companion.hitungJarak
@@ -83,7 +82,7 @@ class BuatTransaksiActivity : AppCompatActivity() {
     }
 
     private fun buatTransaksi(jml: String, hasil: String) {
-        val call: Call<DefaultResponse> = apiInterface.buatTransaksi(id_penjual, id_distributor, id_barang, kodeTransaksi(), jml, hasil, 0, _1)
+        val call: Call<DefaultResponse> = apiInterface.buatTransaksi(id_penjual, id_distributor, id_barang, kodeTransaksi(), jml, hasil, 0, status1)
         call.enqueue(object: Callback<DefaultResponse>{
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                 if (response.body()?.status!!.equals(201)) {

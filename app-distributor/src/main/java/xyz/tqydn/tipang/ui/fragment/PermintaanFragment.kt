@@ -15,9 +15,8 @@ import xyz.tqydn.tipang.R
 import xyz.tqydn.tipang.adapter.PermintaanAdapter
 import xyz.tqydn.tipang.model.Transaksi
 import xyz.tqydn.tipang.model.TransaksiItem
-import xyz.tqydn.tipang.ui.inventory.DetailPermintaanActivity
 import xyz.tqydn.tipang.utils.Constants.Companion.DETAIL_PERMINTAAN
-import xyz.tqydn.tipang.utils.Constants.Companion._5
+import xyz.tqydn.tipang.utils.Constants.Companion.status5
 import xyz.tqydn.tipang.utils.Constants.Companion.apiInterface
 import xyz.tqydn.tipang.utils.SharedPreference
 import xyz.tqydn.tipang.utils.contracts.DetailPermintaanContract
@@ -34,7 +33,7 @@ class PermintaanFragment : Fragment() {
     }
 
     private fun fetchTransaksi(id: String?) {
-        val call: Call<Transaksi> = apiInterface.getListTransaksi(_5, id)
+        val call: Call<Transaksi> = apiInterface.getListTransaksi(status5, id)
         call.enqueue(object : Callback<Transaksi> {
             override fun onResponse(call: Call<Transaksi>, response: Response<Transaksi>) {
                 val item = response.body()?.transaksi

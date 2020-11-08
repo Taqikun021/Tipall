@@ -1,5 +1,6 @@
 package xyz.tqydn.tipang.adapter
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -9,40 +10,39 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.row_berlangsung.view.*
 import xyz.tqydn.tipang.model.TransaksiItem
-import xyz.tqydn.tipang.utils.Constants.Companion.hitungJarak
+import xyz.tqydn.tipang.utils.Constants.Companion.formatRupiah
 import xyz.tqydn.tipang.utils.SharedPreference
 
 class BerlangsungAdapter(private val items: List<TransaksiItem?>): RecyclerView.Adapter<BerlangsungAdapter.MyViewHolder>() {
 
     private lateinit var preference: SharedPreference
-    private var onItemClickCallback: BerlangsungAdapter.OnItemClickCallback? = null
+    private var onItemClickCallback: OnItemClickCallback? = null
 
-    fun setOnItemClickCallback(onItemClickCallback: BerlangsungAdapter.OnItemClickCallback){
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
         this.onItemClickCallback = onItemClickCallback
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        @SuppressLint("SetTextI18n")
         fun bind(item: TransaksiItem?){
             with(itemView){
                 preference = SharedPreference(context)
-                val imgBarang = Uri.parse(item?.foto_barang)
-                val distance = hitungJarak(
-                    preference.getValues("lat")!!.toDouble(),
-                    preference.getValues("long")!!.toDouble(),
-                    item?.lat!!.toDouble(),
-                    item.lng!!.toDouble()
-                )
+                val imgBarang = Uri.parse(item?.foto)
 
-                itemView.namaBarang.text = item.nama_barang
-                itemView.namaUsaha.text = item.nama_usaha
-                itemView.jumlahStok.text = "${item.jumlah_barang} item"
-                itemView.jarak.text = "${"%.2f".format(distance)} km"
-                itemView.waktu.text = "Dimulai Sejak ${item.waktu_mulai}"
+                itemView.namaUsaha.text = item?.nama_usaha
+                itemView.jumlahStok.text = "${item?.jumlah_barang} item"
+                itemView.waktu.text = "Dimulai Sejak ${item?.waktu_mulai}"
+                itemView.tagihan.text = formatRupiah(item?.total_tagihan!!.toDouble())
+                if (item.jenis_kelamin == "Perempuan"){
+                    itemView.namaPemilik.text = "Ibu ${item.username}"
+                } else {
+                    itemView.namaPemilik.text = "Bapak ${item.username}"
+                }
 
                 Glide.with(context)
                     .load(imgBarang)
                     .apply(RequestOptions.centerCropTransform())
-                    .into(imageBarang)
+                    .into(imagePenjual)
 
                 itemView.setOnClickListener {
                     onItemClickCallback?.onItemClicked(item)

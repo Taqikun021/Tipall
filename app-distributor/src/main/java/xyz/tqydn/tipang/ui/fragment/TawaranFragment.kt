@@ -16,7 +16,7 @@ import xyz.tqydn.tipang.adapter.TawaranAdapter
 import xyz.tqydn.tipang.model.Transaksi
 import xyz.tqydn.tipang.model.TransaksiItem
 import xyz.tqydn.tipang.utils.Constants.Companion.DETAIL_TAWARAN
-import xyz.tqydn.tipang.utils.Constants.Companion._1
+import xyz.tqydn.tipang.utils.Constants.Companion.status1
 import xyz.tqydn.tipang.utils.Constants.Companion.apiInterface
 import xyz.tqydn.tipang.utils.SharedPreference
 import xyz.tqydn.tipang.utils.contracts.DetailTawaranContract
@@ -33,7 +33,7 @@ class TawaranFragment : Fragment() {
     }
 
     private fun fetchTransaksi(id: String?) {
-        val call: Call<Transaksi> = apiInterface.getListTransaksi(_1, id)
+        val call: Call<Transaksi> = apiInterface.getListTransaksi(status1, id)
         call.enqueue(object : Callback<Transaksi> {
             override fun onResponse(call: Call<Transaksi>, response: Response<Transaksi>) {
                 val item = response.body()?.transaksi
