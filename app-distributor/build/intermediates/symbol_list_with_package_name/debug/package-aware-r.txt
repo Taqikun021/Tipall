@@ -2570,6 +2570,7 @@ id media_actions
 id message
 id middle
 id mini
+id mintaLaporan
 id mobile_navigation
 id month_grid
 id month_navigation_bar
@@ -2758,6 +2759,7 @@ id tagihan
 id tambah
 id tambahBarang
 id tambahUsaha
+id tandaiLunas
 id tanggal
 id terima
 id terrain
@@ -2907,6 +2909,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_buat_transaksi
 layout activity_cadangan
+layout activity_detail_berlangsung
 layout activity_detail_permintaan
 layout activity_detail_tawaran
 layout activity_edit_barang
@@ -3195,6 +3198,7 @@ string material_timepicker_pm
 string material_timepicker_select_time
 string material_timepicker_text_input_mode_description
 string menunggu_konfirmasi
+string minta_laporan
 string mtrl_badge_numberless_content_description
 string mtrl_chip_close_icon_content_description
 string mtrl_exceed_max_badge_number_content_description
@@ -3284,6 +3288,7 @@ string sudah_punya_akun
 string sudah_verifikasi
 string tambah_barang
 string tambah_profil_usaha
+string tandai_lunas
 string tanggal_transaksi
 string tawaran
 string tentang_aplikasi
@@ -3299,6 +3304,7 @@ string tombol_next
 string total_tagihan
 string total_transaksi
 string transaksi
+string transaksi_berlangsung
 string transaksi_berlansung
 string transaksi_bulan_ini
 string ulangi_kata_sandi

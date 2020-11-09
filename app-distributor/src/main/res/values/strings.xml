@@ -119,4 +119,7 @@
     <string name="detail_permintaan">Detail Permintaan</string>
     <string name="petunjuk_arah">Petunjuk Arah</string>
     <string name="yakin_menolak_transaksi_ini">Yakin menolak transaksi ini?</string>
+    <string name="transaksi_berlangsung">Transaksi Berlangsung</string>
+    <string name="minta_laporan">Minta Laporan</string>
+    <string name="tandai_lunas">Tandai Lunas</string>
 </resources>
