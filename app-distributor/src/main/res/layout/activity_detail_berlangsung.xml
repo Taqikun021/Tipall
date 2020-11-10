@@ -353,7 +353,10 @@
                 android:text="@string/tandai_lunas"
                 android:textColor="@color/textDiBiru"
                 android:textSize="@dimen/font_standar"
-                app:layout_constraintTop_toBottomOf="@id/mintaLaporan" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mintaLaporan"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

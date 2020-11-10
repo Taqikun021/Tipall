@@ -166,4 +166,11 @@ interface ApiInterface {
             @Field("status_transaksi") status_transaksi: String?,
             @Field("id_transaksi") id_transaksi: String?
     ): Call<DefaultResponse>
+
+    @FormUrlEncoded
+    @POST("updateStok.php")
+    fun updateStok(
+            @Field("jumlah_stok") jumlah_stok: String?,
+            @Field("id_barang") id_barang: String?
+    ): Call<DefaultResponse>
 }

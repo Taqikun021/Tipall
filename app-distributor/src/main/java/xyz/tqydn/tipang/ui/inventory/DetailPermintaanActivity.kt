@@ -33,6 +33,8 @@ class DetailPermintaanActivity : AppCompatActivity() {
     private lateinit var dari: String
     private lateinit var ke: String
     private lateinit var telepon: String
+    private lateinit var idBarang: String
+    private lateinit var stok: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,11 +103,27 @@ class DetailPermintaanActivity : AppCompatActivity() {
                 val item: DefaultResponse? = response.body()
                 if (item?.status.toString() != "200") {
                     Toast.makeText(this@DetailPermintaanActivity, item?.message, Toast.LENGTH_SHORT).show()
+                    updateStok(stok, idBarang)
                     val intent = Intent().apply {
                         putExtra(Constants.TITLE, item?.message.toString())
                     }
                     setResult(RESULT_OK, intent)
                     finish()
+                }
+            }
+
+            override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                Toast.makeText(this@DetailPermintaanActivity, t.message, Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun updateStok(stok: String, idBarang: String) {
+        val call: Call<DefaultResponse> = apiInterface.updateStok(stok, idBarang)
+        call.enqueue(object : Callback<DefaultResponse> {
+            override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
+                if (response.body()?.status.toString() == "200") {
+                    Toast.makeText(this@DetailPermintaanActivity, response.body()?.message, Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -127,6 +145,9 @@ class DetailPermintaanActivity : AppCompatActivity() {
                 dari = "${preference.getValues("lat")},${preference.getValues("long")}"
                 ke = "${item?.lat},${item?.lng}"
                 telepon = "62${item?.no_hp}"
+                idBarang = item?.id_barang.toString()
+                val jumlah = item?.jumlah_stok!!.toInt() - item.jumlah_barang!!.toInt()
+                stok = jumlah.toString()
 
                 Glide.with(this@DetailPermintaanActivity)
                         .load(imgProfil)
@@ -141,15 +162,15 @@ class DetailPermintaanActivity : AppCompatActivity() {
                         .apply(RequestOptions.centerCropTransform())
                         .into(barang)
 
-                kode_transaksi.text = item?.kode_transaksi
-                tanggal.text = item?.waktu_mulai
-                namaUsaha.text = item?.nama_usaha
-                alamat.text = item?.alamat
-                nomorHP.text = "+62 ${item?.no_hp}"
-                namaBarang.text = item?.nama_barang
-                descBarang.text = item?.deskripsi_produk
-                jumlahBarang.text = "${item?.jumlah_barang} Item"
-                totalHarga.text = formatRupiah(item?.total_tagihan!!.toDouble())
+                kode_transaksi.text = item.kode_transaksi
+                tanggal.text = item.waktu_mulai
+                namaUsaha.text = item.nama_usaha
+                alamat.text = item.alamat
+                nomorHP.text = "+62 ${item.no_hp}"
+                namaBarang.text = item.nama_barang
+                descBarang.text = item.deskripsi_produk
+                jumlahBarang.text = "${item.jumlah_barang} Item"
+                totalHarga.text = formatRupiah(item.total_tagihan!!.toDouble())
                 ratingPenjual.text = "%.2f".format(item.rating?.toDouble())
                 if (item.jenis_kelamin == "Perempuan") {
                     namaPemilik.text = "Ibu ${item.username}"
