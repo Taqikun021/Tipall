@@ -22,10 +22,8 @@ import xyz.tqydn.tipang.utils.Constants
 import xyz.tqydn.tipang.utils.Constants.Companion.apiInterface
 import xyz.tqydn.tipang.utils.Constants.Companion.formatRupiah
 import xyz.tqydn.tipang.utils.Constants.Companion.status2
-import xyz.tqydn.tipang.utils.Constants.Companion.status3
 import xyz.tqydn.tipang.utils.Constants.Companion.status4
 import xyz.tqydn.tipang.utils.SharedPreference
-import javax.security.auth.DestroyFailedException
 
 class DetailPermintaanActivity : AppCompatActivity() {
 

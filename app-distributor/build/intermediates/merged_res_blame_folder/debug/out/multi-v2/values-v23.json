@@ -4,7 +4,7 @@
             "outputFile": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "/home/taqiyudin/.gradle/caches/transforms-2/files-2.1/c2f8698c4e9a5089a64765597265c8b7/cardview-1.0.0/res/values-v23/values-v23.xml",
+                    "source": "/home/taqiyudin/.gradle/caches/transforms-2/files-2.1/d17a1e13a45c8b4a3254625f80fc1916/cardview-1.0.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,18 @@
                     }
                 },
                 {
-                    "source": "/home/taqiyudin/.gradle/caches/transforms-2/files-2.1/83934c020b2c450ecdaf859dacbf9f1a/material-1.3.0-alpha03/res/values-v23/values-v23.xml",
+                    "source": "/home/taqiyudin/.gradle/caches/transforms-2/files-2.1/50bd0cc59885fe39897a4445560d5b9a/appcompat-1.3.0-alpha01/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,487,1371,2267,2386,2513,2735,2959,3074,3181,3294",
+                        "endLines": "2,3,4,5,19,33,34,35,38,42,43,44,45,49",
+                        "endColumns": "134,134,74,86,12,12,118,126,12,12,114,106,112,12",
+                        "endOffsets": "185,320,395,482,1366,2262,2381,2508,2730,2954,3069,3176,3289,3519"
+                    }
+                },
+                {
+                    "source": "/home/taqiyudin/.gradle/caches/transforms-2/files-2.1/b04dc05e8420bb88685a681486e1c293/material-1.3.0-alpha03/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,6",
                         "startColumns": "4,4",
@@ -39,17 +50,6 @@
                         "endLines": "56,60",
                         "endColumns": "10,10",
                         "endOffsets": "3934,4207"
-                    }
-                },
-                {
-                    "source": "/home/taqiyudin/.gradle/caches/transforms-2/files-2.1/35cba657219fc69008daef6c5bc2b7ff/appcompat-1.3.0-alpha01/res/values-v23/values-v23.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,190,325,400,487,1371,2267,2386,2513,2735,2959,3074,3181,3294",
-                        "endLines": "2,3,4,5,19,33,34,35,38,42,43,44,45,49",
-                        "endColumns": "134,134,74,86,12,12,118,126,12,12,114,106,112,12",
-                        "endOffsets": "185,320,395,482,1366,2262,2381,2508,2730,2954,3069,3176,3289,3519"
                     }
                 }
             ]
