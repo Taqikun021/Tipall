@@ -1,5 +1,6 @@
 package xyz.tqydn.tipang.ui.inventory
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -24,14 +25,15 @@ import xyz.tqydn.tipang.utils.Constants.Companion.isNumber
 import xyz.tqydn.tipang.utils.Constants.Companion.kodeTransaksi
 import xyz.tqydn.tipang.utils.SharedPreference
 
+@SuppressLint("SetTextI18n")
 class BuatTransaksiActivity : AppCompatActivity() {
 
     private lateinit var preference: SharedPreference
     private var hargaBarang: Double = 0.0
     private var stok: Int = 0
-    private lateinit var id_penjual: String
-    private lateinit var id_distributor: String
-    private lateinit var id_barang: String
+    private lateinit var idPenjual: String
+    private lateinit var idDistributor: String
+    private lateinit var idBarang: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,10 +84,10 @@ class BuatTransaksiActivity : AppCompatActivity() {
     }
 
     private fun buatTransaksi(jml: String, hasil: String) {
-        val call: Call<DefaultResponse> = apiInterface.buatTransaksi(id_penjual, id_distributor, id_barang, kodeTransaksi(), jml, hasil, 0, status1)
+        val call: Call<DefaultResponse> = apiInterface.buatTransaksi(idPenjual, idDistributor, idBarang, kodeTransaksi(), jml, hasil, 0, status1)
         call.enqueue(object: Callback<DefaultResponse>{
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
-                if (response.body()?.status!!.equals(201)) {
+                if (response.body()?.status.toString() == "201") {
                     Toast.makeText(this@BuatTransaksiActivity, response.body()?.message, Toast.LENGTH_SHORT).show()
                 }
                 val intent = Intent().apply {
@@ -98,7 +100,6 @@ class BuatTransaksiActivity : AppCompatActivity() {
             override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
                 Toast.makeText(this@BuatTransaksiActivity, t.message, Toast.LENGTH_SHORT).show()
             }
-
         })
     }
 
@@ -115,7 +116,7 @@ class BuatTransaksiActivity : AppCompatActivity() {
                             super.onPageSelected(position)
                             val a = listBarang?.get(position)
                             stok = a?.jumlah_stok!!.toInt()
-                            id_barang = a.id_barang
+                            idBarang = a.id_barang
                             hargaBarang = a.harga_awal.toDouble()
                             //Toast.makeText(this@BuatTransaksiActivity, "Kamu menawarkan $id_barang", Toast.LENGTH_SHORT).show()
                         }
@@ -160,8 +161,8 @@ class BuatTransaksiActivity : AppCompatActivity() {
                         item.lng.toDouble()
                     )
 
-                    id_penjual = item.id_penjual
-                    id_distributor = preference.getValues("id_distributor")!!
+                    idPenjual = item.id_penjual
+                    idDistributor = preference.getValues("id_distributor")!!
                     namaUsaha.text = item.nama_usaha
                     alamat.text = item.alamat
                     jarak.text = "${"%.2f".format(distance)} km"

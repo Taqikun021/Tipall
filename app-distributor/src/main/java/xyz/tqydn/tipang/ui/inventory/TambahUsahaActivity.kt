@@ -1,5 +1,6 @@
 package xyz.tqydn.tipang.ui.inventory
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -150,6 +151,7 @@ class TambahUsahaActivity : AppCompatActivity() {
         uploadImageAndSaveUri(BitmapFactory.decodeStream(input))
     }
 
+    @SuppressLint("SetTextI18n")
     private val takeLocationIntent = registerForActivityResult(PlacePickerContract()) { result ->
         latitude = result[0]
         longitude = result[1]

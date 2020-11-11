@@ -11,8 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tipall"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m"
-        tools:ignore="AllowBackup">
+        tools:ignore="AllowBackup"
+        tools:targetApi="m">
+        <activity android:name=".ui.ListRiwayatActivity"></activity>
+        <activity android:name=".ui.inventory.RiwayatTransaksiActivity" />
+        <activity android:name=".ui.inventory.DetailHutangActivity" />
         <activity android:name=".ui.inventory.DetailBerlangsungActivity" />
         <activity android:name=".ui.inventory.DetailPermintaanActivity" />
         <activity android:name=".ui.inventory.DetailTawaranActivity" />

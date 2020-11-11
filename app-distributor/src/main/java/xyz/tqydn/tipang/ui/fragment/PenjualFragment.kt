@@ -63,6 +63,7 @@ class PenjualFragment : Fragment() {
         if (it != null){
             Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
         }
+        fetchRow()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

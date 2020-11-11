@@ -2145,6 +2145,7 @@ drawable ic_baseline_my_location_24
 drawable ic_baseline_navigation_24
 drawable ic_baseline_phone_android_24
 drawable ic_baseline_search_24
+drawable ic_baseline_sort_24
 drawable ic_baseline_star_24
 drawable ic_baseline_store_24
 drawable ic_check
@@ -2335,6 +2336,7 @@ id bidirectional
 id blocking
 id bottom
 id bounce
+id buatTransaksi
 id buttonBuatAkun
 id buttonDaftar
 id buttonHapus
@@ -2508,7 +2510,6 @@ id installation_progress
 id invisible
 id italic
 id item_touch_helper_previous_elevation
-id iv_about
 id iv_berirating
 id iv_kebijakan
 id iv_ketentuan
@@ -2530,7 +2531,6 @@ id labelGroup
 id labeled
 id largeLabel
 id layout
-id layoutAbout
 id layoutBarang
 id layoutBintang
 id layoutKebijakan
@@ -2690,6 +2690,7 @@ id row_index_key
 id rv
 id rvBarang
 id rvPenjual
+id rvRiwayat
 id satellite
 id save_non_transition_alpha
 id save_overlay_view
@@ -2727,6 +2728,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id sort
 id spacer
 id special_effects_controller_view_tag
 id spline
@@ -2743,6 +2745,7 @@ id startHorizontal
 id startVertical
 id staticLayout
 id staticPostLayout
+id status
 id status_bar_latest_event_content
 id stok
 id stop
@@ -2915,19 +2918,23 @@ layout abc_tooltip
 layout activity_buat_transaksi
 layout activity_cadangan
 layout activity_detail_berlangsung
+layout activity_detail_hutang
 layout activity_detail_permintaan
 layout activity_detail_tawaran
 layout activity_edit_barang
 layout activity_edit_profil
 layout activity_edit_usaha
+layout activity_list_riwayat
 layout activity_login
 layout activity_place_picker
+layout activity_riwayat_transaksi
 layout activity_sign_up
 layout activity_splash_screen
 layout activity_tambah_barang
 layout activity_tambah_usaha
 layout activity_ver_email
 layout alert_hapus
+layout alert_lunas
 layout alert_tolak
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3026,6 +3033,7 @@ layout row_belum_dibayar
 layout row_berlangsung
 layout row_penjual
 layout row_permintaan
+layout row_riwayat
 layout row_tawaran
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
@@ -3049,6 +3057,7 @@ layout viewpager_barang
 menu barang_menu
 menu bottom_nav_menu
 menu penjual_menu
+menu riwayat_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation
@@ -3099,6 +3108,7 @@ string barang_saya
 string barang_tersedia
 string batal
 string belum_dibayar
+string belum_menerima
 string belum_punya_akun
 string beri_rating
 string berlangsung
@@ -3107,6 +3117,7 @@ string bottomsheet_action_expand_halfway
 string buat_akun
 string buat_permintaan
 string buat_tawaran
+string buat_transaksi_baru
 string buka_kamera
 string cari_barang
 string cari_penjual
@@ -3253,6 +3264,7 @@ string nomor_telepon
 string ok
 string password_toggle_content_description
 string pastikan_anda_telah_menyelesaikan_sebelum_mengklik_selesai_dan_jangan_lupa_melunasi_tagihan_transaksi
+string pastikan_bahwa_anda_telah_menerima_uang_hasil_penjualan
 string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
@@ -3281,6 +3293,7 @@ string retry
 string riwayat
 string riwayat_transaksi
 string rp_0
+string saya_telah_menerima
 string search_menu_title
 string segera_lunasi_transaksi_anda
 string selesai
@@ -3313,7 +3326,9 @@ string transaksi
 string transaksi_berlangsung
 string transaksi_berlansung
 string transaksi_bulan_ini
+string transaksi_piutang
 string ulangi_kata_sandi
+string urutkan_berdasarkan_waktu
 string usaha_saya
 string v_1_0_1
 string verifikasi

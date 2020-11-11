@@ -30,6 +30,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.Tipall"
         android:usesCleartextTraffic="true" >
+        <activity android:name="xyz.tqydn.tipang.ui.ListRiwayatActivity" />
+        <activity android:name="xyz.tqydn.tipang.ui.inventory.RiwayatTransaksiActivity" />
+        <activity android:name="xyz.tqydn.tipang.ui.inventory.DetailHutangActivity" />
         <activity android:name="xyz.tqydn.tipang.ui.inventory.DetailBerlangsungActivity" />
         <activity android:name="xyz.tqydn.tipang.ui.inventory.DetailPermintaanActivity" />
         <activity android:name="xyz.tqydn.tipang.ui.inventory.DetailTawaranActivity" />

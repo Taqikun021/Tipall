@@ -1,5 +1,6 @@
 package xyz.tqydn.tipang.ui.inventory
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -29,6 +30,7 @@ import xyz.tqydn.tipang.utils.contracts.PlacePickerContract
 import java.io.ByteArrayOutputStream
 import java.util.*
 
+@SuppressLint("SetTextI18n")
 class EditUsahaActivity : AppCompatActivity() {
 
     private lateinit var preference: SharedPreference

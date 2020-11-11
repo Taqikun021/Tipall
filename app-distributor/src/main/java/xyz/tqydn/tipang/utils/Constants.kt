@@ -22,6 +22,8 @@ class Constants {
         const val DETAIL_TAWARAN = 8
         const val DETAIL_PERMINTAAN = 9
         const val DETAIL_BERLANGSUNG = 10
+        const val DETAIL_HUTANG = 11
+        const val RIWAYAT_TRANSAKSI = 12
         private const val ID = "id"
         const val TITLE = "title"
         const val status1 = "TAWARAN_DIBUAT"
@@ -54,6 +56,16 @@ class Constants {
             val jarak = FloatArray(1)
             Location.distanceBetween(lat1, lng1, lat2, lng2, jarak)
             return (jarak[0]/1000)
+        }
+
+        fun detailHutang(context: Context, id: Int?): Intent {
+            return Intent(context, DetailHutangActivity::class.java)
+                    .putExtra(ID, id)
+        }
+
+        fun riwayatTransaksi(context: Context, id: Int?): Intent {
+            return Intent(context, RiwayatTransaksiActivity::class.java)
+                    .putExtra(ID, id)
         }
 
         fun detailBerlangsung(context: Context, id: Int?): Intent {

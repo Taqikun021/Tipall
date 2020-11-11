@@ -1,5 +1,6 @@
 package xyz.tqydn.tipang.ui.inventory
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +8,6 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_detail_tawaran.*
-import okhttp3.internal.notifyAll
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,10 +33,11 @@ class DetailTawaranActivity : AppCompatActivity() {
     private fun getDetail() {
         val call: Call<TransaksiItem> = apiInterface.getDetailTransaksi(preference.getValues("trans_click"))
         call.enqueue(object : Callback<TransaksiItem> {
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<TransaksiItem>, response: Response<TransaksiItem>) {
                 val item: TransaksiItem? = response.body()
-                val img_profil = Uri.parse(item?.foto)
-                val img_barang = Uri.parse(item?.foto_barang)
+                val imgProfil = Uri.parse(item?.foto)
+                val imgBarang = Uri.parse(item?.foto_barang)
                 val distance = hitungJarak(
                         preference.getValues("lat")!!.toDouble(),
                         preference.getValues("long")!!.toDouble(),
@@ -59,12 +60,12 @@ class DetailTawaranActivity : AppCompatActivity() {
                 jumlah.isClickable = false
 
                 Glide.with(this@DetailTawaranActivity)
-                        .load(img_profil)
+                        .load(imgProfil)
                         .apply(RequestOptions.circleCropTransform())
                         .into(imagePenjual)
 
                 Glide.with(this@DetailTawaranActivity)
-                        .load(img_barang)
+                        .load(imgBarang)
                         .apply(RequestOptions.centerCropTransform())
                         .into(barang)
 

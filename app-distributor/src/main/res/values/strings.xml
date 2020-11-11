@@ -123,4 +123,10 @@
     <string name="minta_laporan">Minta Laporan</string>
     <string name="tandai_lunas">Tandai Lunas</string>
     <string name="_10_nama_barang">10 nama barang</string>
+    <string name="transaksi_piutang">Transaksi Piutang</string>
+    <string name="buat_transaksi_baru">Buat Transaksi Baru</string>
+    <string name="pastikan_bahwa_anda_telah_menerima_uang_hasil_penjualan">Pastikan bahwa anda telah menerima uang hasil penjualan</string>
+    <string name="saya_telah_menerima">Saya telah menerima</string>
+    <string name="belum_menerima">Belum menerima</string>
+    <string name="urutkan_berdasarkan_waktu">Urutkan berdasarkan Waktu</string>
 </resources>

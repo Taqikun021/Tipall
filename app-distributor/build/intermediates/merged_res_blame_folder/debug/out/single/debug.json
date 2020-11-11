@@ -4,60 +4,24 @@
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/bg_profil_kebalik.xml"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_fragment_penjual.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/fragment_penjual.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_sign_up.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_sign_up.xml"
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_history_24.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_history_24.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_fragment_belumdibayar.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/fragment_belumdibayar.xml"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_history_24.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_history_24.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_logo_mono_dark.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_logo_mono_dark.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_cadangan.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_cadangan.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/font_poppins_light.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/font/poppins_light.xml"
-    },
-    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_add_a_photo_24.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_add_a_photo_24.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_ilustrasi_email.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_ilustrasi_email.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_ketentuan_24.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_ketentuan_24.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/font_poppins_semibold.ttf.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/font/poppins_semibold.ttf"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_row_permintaan.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/row_permintaan.xml"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_viewpager_barang.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/viewpager_barang.xml"
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_ketentuan_24.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_ketentuan_24.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_edit_barang.xml.flat",
@@ -84,64 +48,28 @@
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_launcher_foreground.xml"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-xxhdpi/ic_launcher.png"
-    },
-    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_add_24.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_add_24.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_buat_transaksi.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_buat_transaksi.xml"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_tambah_barang.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_tambah_barang.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_round_delete_forever_24.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_round_delete_forever_24.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_detail_berlangsung.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_detail_berlangsung.xml"
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_add_24.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_add_24.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_list_kelamin.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/list_kelamin.xml"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-mdpi/ic_launcher_round.png"
-    },
-    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_alert_tolak.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/alert_tolak.xml"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_marker.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_marker.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_store_24.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_store_24.xml"
-    },
-    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_fragment_tawaran.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/fragment_tawaran.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable_ic_baseline_monetization_on_24.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable/ic_baseline_monetization_on_24.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_photo_dialog.xml.flat",
@@ -160,14 +88,6 @@
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/font/poppins.ttf"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_location_on_24.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_location_on_24.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_info_24.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_info_24.xml"
-    },
-    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_add_photo_alternate_24.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_add_photo_alternate_24.xml"
     },
@@ -184,20 +104,8 @@
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_splash_screen.xml"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/menu_penjual_menu.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/menu/penjual_menu.xml"
-    },
-    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_alert_hapus.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/alert_hapus.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/navigation_mobile_navigation.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/navigation/mobile_navigation.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_bg_button.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/bg_button.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_bg_pojokbawahkanan.xml.flat",
@@ -208,12 +116,184 @@
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_detail_tawaran.xml"
     },
     {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_foto_profil.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_foto_profil.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_statistik_penjualan.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_statistik_penjualan.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_riwayat_transaksi.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_riwayat_transaksi.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_fragment_berlangsung.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/fragment_berlangsung.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_ver_email.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_ver_email.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_list_riwayat.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_list_riwayat.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_edit_24.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_edit_24.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_whatsapp.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_whatsapp.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_ilustrasi_login_svg.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_ilustrasi_login_svg.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_alert_lunas.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/alert_lunas.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_bg_profil.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/bg_profil.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_detail_permintaan.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_detail_permintaan.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/font_poppins_medium.ttf.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/font/poppins_medium.ttf"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable_ic_baseline_indeterminate_check_box_24.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable/ic_baseline_indeterminate_check_box_24.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable_ic_baseline_navigation_24.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable/ic_baseline_navigation_24.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_fragment_penjual.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/fragment_penjual.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_sign_up.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_sign_up.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_logo_mono_dark.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_logo_mono_dark.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_row_riwayat.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/row_riwayat.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_cadangan.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_cadangan.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/font_poppins_light.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/font/poppins_light.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_ilustrasi_email.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_ilustrasi_email.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/font_poppins_semibold.ttf.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/font/poppins_semibold.ttf"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_viewpager_barang.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/viewpager_barang.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_tambah_barang.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_tambah_barang.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_round_delete_forever_24.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_round_delete_forever_24.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_detail_berlangsung.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_detail_berlangsung.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_marker.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_marker.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_store_24.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_store_24.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/menu_riwayat_menu.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/menu/riwayat_menu.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable_ic_baseline_monetization_on_24.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable/ic_baseline_monetization_on_24.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_location_on_24.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_location_on_24.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_info_24.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_info_24.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/menu_penjual_menu.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/menu/penjual_menu.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/navigation_mobile_navigation.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/navigation/mobile_navigation.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_bg_button.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/bg_button.xml"
+    },
+    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable_ic_baseline_add_box_24.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable/ic_baseline_add_box_24.xml"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_foto_profil.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_foto_profil.xml"
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_detail_hutang.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_detail_hutang.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_pemilik_barang___icon_penjual.xml.flat",
@@ -236,10 +316,6 @@
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/row_berlangsung.xml"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_statistik_penjualan.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_statistik_penjualan.xml"
-    },
-    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-hdpi/ic_launcher_round.png"
     },
@@ -256,28 +332,16 @@
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/fragment_stok.xml"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
-    },
-    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_fragment_profil.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/fragment_profil.xml"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_fragment_berlangsung.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/fragment_berlangsung.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-hdpi/ic_launcher.png"
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable_ic_baseline_sort_24.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable/ic_baseline_sort_24.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_row_tawaran.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/row_tawaran.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_ver_email.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_ver_email.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_row_belum_dibayar.xml.flat",
@@ -286,26 +350,6 @@
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_row_barang.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/row_barang.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_edit_24.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_baseline_edit_24.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_whatsapp.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_whatsapp.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_ilustrasi_login_svg.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/ic_ilustrasi_login_svg.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_bg_profil.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable-v24/bg_profil.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_detail_permintaan.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_detail_permintaan.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_pemilik_barang___icon_stok.xml.flat",
@@ -318,10 +362,6 @@
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_fragment_permintaan.xml.flat",
@@ -338,14 +378,6 @@
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable_ic_baseline_map_24.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable/ic_baseline_map_24.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/font_poppins_medium.ttf.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/font/poppins_medium.ttf"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable_ic_baseline_indeterminate_check_box_24.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable/ic_baseline_indeterminate_check_box_24.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable-v24_ic_baseline_my_location_24.xml.flat",
@@ -366,9 +398,5 @@
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/layout_activity_edit_profil.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/activity_edit_profil.xml"
-    },
-    {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable_ic_baseline_navigation_24.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable/ic_baseline_navigation_24.xml"
     }
 ]

@@ -15,8 +15,10 @@ import xyz.tqydn.tipang.R
 import xyz.tqydn.tipang.adapter.BelumdibayarAdapter
 import xyz.tqydn.tipang.model.Transaksi
 import xyz.tqydn.tipang.model.TransaksiItem
+import xyz.tqydn.tipang.utils.Constants
 import xyz.tqydn.tipang.utils.Constants.Companion.apiInterface
 import xyz.tqydn.tipang.utils.SharedPreference
+import xyz.tqydn.tipang.utils.contracts.DetailHutangContract
 
 class BelumdibayarFragment : Fragment() {
 
@@ -53,9 +55,16 @@ class BelumdibayarFragment : Fragment() {
         rv.layoutManager = LinearLayoutManager(requireContext())
         items.setOnItemClickCallback(object: BelumdibayarAdapter.OnItemClickCallback{
             override fun onItemClicked(item: TransaksiItem) {
-                TODO("Not yet implemented")
+                detailBelumdibayar.launch(Constants.DETAIL_HUTANG)
             }
         })
+    }
+
+    private val detailBelumdibayar = registerForActivityResult(DetailHutangContract()){
+        if (it != null){
+            Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+        }
+        fetchTransaksi(preference.getValues("id_distributor"))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

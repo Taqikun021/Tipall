@@ -65,6 +65,7 @@ class PermintaanFragment : Fragment() {
         if (it != null){
             Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
         }
+        fetchTransaksi(preference.getValues("id_distributor"))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

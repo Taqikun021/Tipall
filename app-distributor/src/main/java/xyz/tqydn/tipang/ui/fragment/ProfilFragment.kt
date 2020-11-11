@@ -1,5 +1,6 @@
 package xyz.tqydn.tipang.ui.fragment
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -16,6 +17,7 @@ import retrofit2.Response
 import xyz.tqydn.tipang.R
 import xyz.tqydn.tipang.model.GetDistInfo
 import xyz.tqydn.tipang.model.GetUserInfo
+import xyz.tqydn.tipang.ui.ListRiwayatActivity
 import xyz.tqydn.tipang.utils.Constants
 import xyz.tqydn.tipang.utils.Constants.Companion.EDIT_PROFIL
 import xyz.tqydn.tipang.utils.Constants.Companion.EDIT_USAHA
@@ -23,6 +25,7 @@ import xyz.tqydn.tipang.utils.Constants.Companion.TAMBAH_USAHA
 import xyz.tqydn.tipang.utils.SharedPreference
 import xyz.tqydn.tipang.utils.contracts.EditProfilContract
 import xyz.tqydn.tipang.utils.contracts.EditUsahaContract
+import xyz.tqydn.tipang.utils.contracts.RiwayatTransaksiContract
 import xyz.tqydn.tipang.utils.contracts.TambahUsahaContract
 
 class ProfilFragment : Fragment() {
@@ -43,6 +46,9 @@ class ProfilFragment : Fragment() {
         }
         editusaha.setOnClickListener {
             editUsahaActivity.launch(EDIT_USAHA)
+        }
+        layoutRiwayat.setOnClickListener {
+            startActivity(Intent(requireContext(), ListRiwayatActivity::class.java))
         }
     }
 
