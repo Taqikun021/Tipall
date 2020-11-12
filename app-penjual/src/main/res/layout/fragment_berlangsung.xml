@@ -11,4 +11,39 @@
         android:layout_height="match_parent"
         android:padding="@dimen/activity_horizontal_margin"
         tools:listitem="@layout/row_berlangsung"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/kosong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:contentDescription="@string/contdes"
+            android:src="@drawable/ic_ilustrasi_transaksi_kosong"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/tidak_ada_transaksi_berlangsung_hari_ini_ayo_buat_transaksi"
+            android:textAlignment="center"
+            android:textColor="@color/textDiAwan"
+            android:textSize="@dimen/font_besar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

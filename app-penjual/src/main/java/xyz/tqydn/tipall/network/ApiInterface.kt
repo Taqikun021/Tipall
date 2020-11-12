@@ -103,4 +103,9 @@ interface ApiInterface {
         @Query("status_bayar") status_bayar: Int?,
         @Query("id_penjual") id_penjual: String?
     ): Call<Transaksi>
+
+    @GET("getDetailTransaksiDist.php")
+    fun getDetailTransaksi(
+        @Query("id_transaksi") id_transaksi: String?
+    ): Call<TransaksiItem>
 }

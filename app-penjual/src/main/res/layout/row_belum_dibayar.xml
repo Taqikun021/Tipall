@@ -24,7 +24,7 @@
             app:cardCornerRadius="10dp">
 
             <ImageView
-                android:id="@+id/imageBarang"
+                android:id="@+id/imagePenjual"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
                 android:contentDescription="@string/_0"
@@ -33,7 +33,7 @@
                 app:tint="@color/colorPrimary"/>
 
             <ImageView
-                android:id="@+id/imageBarangFix"
+                android:id="@+id/imagePenjualFix"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
                 android:contentDescription="@string/_0"
@@ -42,49 +42,60 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="12dp"
             android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cv"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/namaBarang"
-                android:layout_width="wrap_content"
+                android:id="@+id/namaPemilik"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLines="2"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="@string/judul_barang"
+                android:maxLines="2"
+                android:text="@string/nama_lengkap"
                 android:textColor="@color/textDiAwan"
-                android:textSize="@dimen/font_standar"/>
+                android:textSize="@dimen/font_standar" />
 
             <TextView
                 android:id="@+id/namaUsaha"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/textGrey"
-                android:textSize="@dimen/font_kecil"
+                android:fontFamily="@font/poppins"
                 android:text="@string/nama_usaha"
-                android:fontFamily="@font/poppins"/>
+                android:textColor="@color/textGrey"
+                android:textSize="@dimen/font_kecil" />
+
+            <TextView
+                android:id="@+id/namaBarang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="@string/judul_barang"
+                android:textColor="@color/textGrey"
+                android:textSize="@dimen/font_kecil" />
 
             <TextView
                 android:id="@+id/waktu"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
                 android:text="@string/waktu_dimulai"
-                android:textSize="@dimen/font_kecil"
                 android:textColor="@color/textGrey"
-                android:fontFamily="@font/poppins"/>
+                android:textSize="@dimen/font_kecil"
+                android:maxLines="2"/>
 
             <TextView
                 android:id="@+id/tagihan"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
                 android:text="@string/total_tagihan"
                 android:textColor="@color/red"
-                android:textSize="@dimen/font_kecil"
-                android:fontFamily="@font/poppins_semibold"/>
+                android:textSize="@dimen/font_kecil" />
         </LinearLayout>
 
         <LinearLayout
@@ -96,15 +107,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_icon_barang"
-                app:tint="@color/colorPrimaryDark"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="4dp"
-                android:contentDescription="@string/contdes" />
-
             <TextView
                 android:id="@+id/jumlahStok"
                 android:layout_width="wrap_content"
@@ -115,7 +117,10 @@
                 android:textAlignment="gravity"
                 android:layout_marginEnd="12dp"
                 android:textColor="@color/textGrey"
-                android:textSize="@dimen/font_kecil" />
+                android:textSize="@dimen/font_kecil"
+                android:drawablePadding="4dp"
+                app:drawableStartCompat="@drawable/ic_icon_barang"
+                app:drawableTint="@color/colorPrimaryDark" />
 
             <TextView
                 android:id="@+id/jarak"
@@ -132,34 +137,34 @@
                 app:drawableTint="@color/red" />
         </LinearLayout>
 
-        <LinearLayout
+        <Button
+            android:id="@+id/hubungi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/bg_button"
-            android:orientation="horizontal"
-            android:padding="@dimen/cardview_horizontal_margin"
-            android:paddingTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ll">
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:textSize="@dimen/font_standar"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/hubungi"
+            android:fontFamily="@font/poppins_semibold"
+            app:icon="@drawable/ic_whatsapp"
+            app:iconPadding="8dp"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            app:layout_constraintTop_toBottomOf="@id/ll"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="@string/contdes"
-                android:src="@drawable/ic_whatsapp"
-                app:tint="@color/colorPrimary" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/poppins_semibold"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="8dp"
-                android:text="@string/hubungi"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/font_standar" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/petunjukArah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            android:textSize="@dimen/font_standar"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/petunjuk_arah"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginEnd="4dp"
+            app:icon="@drawable/ic_baseline_navigation_24"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            app:layout_constraintTop_toBottomOf="@id/ll"
+            app:layout_constraintEnd_toStartOf="@id/hubungi"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

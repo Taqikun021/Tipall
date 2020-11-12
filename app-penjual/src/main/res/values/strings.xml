@@ -100,4 +100,13 @@
     <string name="waktu_dimulai">Waktu Dimulai</string>
     <string name="total_tagihan">Total tagihan</string>
     <string name="hubungi">Hubungi</string>
+    <string name="petunjuk_arah">Petunjuk Arah</string>
+    <string name="tidak_ada_barang_tersedia_di_sekitar_anda">Tidak ada barang tersedia di sekitar anda</string>
+    <string name="yay_tidak_ada_transaksi_yang_belum_dibayar">Yay! Tidak ada transaksi yang belum dibayar</string>
+    <string name="transaksi_hutang">Transaksi Hutang</string>
+    <string name="detail_barang">Detail Barang</string>
+    <string name="ups_ada_yang_salah_nih_coba_cek_koneksi_kamu_dan_swipe_down_untuk_memuat_ulang">Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang</string>
+    <string name="kirim_laporan">Kirim Laporan</string>
+    <string name="tandai_selesai">Tandai Selesai</string>
+    <string name="kamu_belum_membuat_permintaan_barang_hari_ini">Kamu belum membuat permintaan barang hari ini.</string>
 </resources>

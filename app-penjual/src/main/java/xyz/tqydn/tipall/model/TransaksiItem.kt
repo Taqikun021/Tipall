@@ -23,9 +23,10 @@ data class TransaksiItem(
         val lat: String?,
         val lng: String?,
         val alamat: String?,
-        val desc: String?,
         val username: String?,
         val jenis_kelamin: String?,
         val no_hp: String?,
-        val foto: String?
+        val foto: String?,
+        val rating: String?,
+        val jumlah_transaksi: String?
 )

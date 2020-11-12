@@ -16,7 +16,7 @@ import xyz.tqydn.tipall.model.DataBarang
 import xyz.tqydn.tipall.model.DefaultResponse
 import xyz.tqydn.tipall.model.RatingBarang
 import xyz.tqydn.tipall.utils.Constants
-import xyz.tqydn.tipall.utils.Constants.Companion._1
+import xyz.tqydn.tipall.utils.Constants.Companion.status1
 import xyz.tqydn.tipall.utils.Constants.Companion.apiInterface
 import xyz.tqydn.tipall.utils.Constants.Companion.isNumber
 import xyz.tqydn.tipall.utils.Constants.Companion.kodeTransaksi
@@ -80,7 +80,7 @@ class BuatTransaksiActivity : AppCompatActivity() {
 
     private fun buatTransaksi(jml: String, hasil: String) {
         val call: Call<DefaultResponse> = apiInterface
-                .buatTransaksi(id_penjual, id_distributor, id_barang, kodeTransaksi(), jml, hasil, 0, _1)
+                .buatTransaksi(id_penjual, id_distributor, id_barang, kodeTransaksi(), jml, hasil, 0, status1)
         call.enqueue(object : Callback<DefaultResponse> {
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                 if (response.body()?.status!!.equals(201)) {

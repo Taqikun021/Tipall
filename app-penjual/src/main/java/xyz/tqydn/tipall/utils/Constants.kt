@@ -3,16 +3,9 @@ package xyz.tqydn.tipall.utils
 import android.content.Context
 import android.content.Intent
 import android.location.Location
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import xyz.tqydn.tipall.model.Transaksi
 import xyz.tqydn.tipall.network.ApiClient
 import xyz.tqydn.tipall.network.ApiInterface
-import xyz.tqydn.tipall.ui.inventory.TambahUsahaActivity
-import xyz.tqydn.tipall.ui.inventory.BuatTransaksiActivity
-import xyz.tqydn.tipall.ui.inventory.EditProfilActivity
-import xyz.tqydn.tipall.ui.inventory.EditUsahaActivity
+import xyz.tqydn.tipall.ui.inventory.*
 import java.text.NumberFormat
 import java.util.*
 
@@ -24,13 +17,18 @@ class Constants {
         const val TAMBAH_USAHA = 3
         const val EDIT_USAHA = 4
         const val BUAT_TRANSAKSI = 5
+        const val DETAIL_TAWARAN = 8
+        const val DETAIL_PERMINTAAN = 9
+        const val DETAIL_BERLANGSUNG = 10
+        const val DETAIL_HUTANG = 11
+        const val RIWAYAT_TRANSAKSI = 12
         private const val ID = "id"
         const val TITLE = "title"
-        const val _1 = "PERMINTAAN_DIBUAT"
-        const val _2 = "BERLANGSUNG"
-        const val _3 = "SELESAI"
-        const val _4 = "GAGAL"
-        const val _5 = "TAWARAN_DIBUAT"
+        const val status1 = "PERMINTAAN_DIBUAT"
+        const val status2 = "BERLANGSUNG"
+        const val status3 = "SELESAI"
+        const val status4 = "GAGAL"
+        const val status5 = "TAWARAN_DIBUAT"
 
         val apiInterface: ApiInterface by lazy {
             ApiClient.getClient().create(ApiInterface::class.java)
@@ -56,6 +54,21 @@ class Constants {
             val jarak = FloatArray(1)
             Location.distanceBetween(lat1, lng1, lat2, lng2, jarak)
             return (jarak[0]/1000)
+        }
+
+        fun detailPermintaan(context: Context, id: Int?): Intent {
+            return Intent(context, DetailPermintaanActivity::class.java)
+                .putExtra(ID, id)
+        }
+
+        fun detailBerlangsung(context: Context, id: Int?): Intent {
+            return Intent(context, DetailBerlangsungActivity::class.java)
+                .putExtra(ID, id)
+        }
+
+        fun detailHutang(context: Context, id: Int?): Intent {
+            return Intent(context, DetailHutangActivity::class.java)
+                    .putExtra(ID, id)
         }
 
         fun buatTransaksi(context: Context, id: Int?): Intent {

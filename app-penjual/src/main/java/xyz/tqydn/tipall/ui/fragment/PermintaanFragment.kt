@@ -1,5 +1,6 @@
 package xyz.tqydn.tipall.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,8 +17,10 @@ import xyz.tqydn.tipall.adapter.PermintaanAdapter
 import xyz.tqydn.tipall.model.Transaksi
 import xyz.tqydn.tipall.model.TransaksiItem
 import xyz.tqydn.tipall.utils.Constants
-import xyz.tqydn.tipall.utils.Constants.Companion._1
+import xyz.tqydn.tipall.utils.Constants.Companion.DETAIL_PERMINTAAN
+import xyz.tqydn.tipall.utils.Constants.Companion.status1
 import xyz.tqydn.tipall.utils.SharedPreference
+import xyz.tqydn.tipall.utils.contracts.DetailPermintaanContract
 
 class PermintaanFragment : Fragment() {
 
@@ -31,7 +34,7 @@ class PermintaanFragment : Fragment() {
     }
 
     private fun fetchTransaksi(id: String?) {
-        val call: Call<Transaksi> = Constants.apiInterface.getListTransaksi(_1, id)
+        val call: Call<Transaksi> = Constants.apiInterface.getListTransaksi(status1, id)
         call.enqueue(object : Callback<Transaksi> {
             override fun onResponse(call: Call<Transaksi>, response: Response<Transaksi>) {
                 val item = response.body()?.transaksi
@@ -39,11 +42,19 @@ class PermintaanFragment : Fragment() {
                     item?.let {
                         showTransaksi(it)
                     }
+                } else {
+                    rv.visibility = View.GONE
+                    kosong.visibility = View.VISIBLE
                 }
             }
 
+            @SuppressLint("SetTextI18n")
             override fun onFailure(call: Call<Transaksi>, t: Throwable) {
-                Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+                rv.visibility = View.GONE
+                kosong.visibility = View.VISIBLE
+
+                iv.setImageResource(R.drawable.ic_ilustrasi_eror)
+                tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
             }
         })
     }
@@ -54,9 +65,16 @@ class PermintaanFragment : Fragment() {
         rv.layoutManager = LinearLayoutManager(requireContext())
         items.setOnItemClickCallback(object: PermintaanAdapter.OnItemClickCallback{
             override fun onItemClicked(transaksi: TransaksiItem) {
-                TODO("Not yet implemented")
+                detailPermintaan.launch(DETAIL_PERMINTAAN)
             }
         })
+    }
+
+    private val detailPermintaan = registerForActivityResult(DetailPermintaanContract()){
+        if (it != null){
+            Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+        }
+        fetchTransaksi(preference.getValues("id_penjual"))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -1,5 +1,6 @@
 package xyz.tqydn.tipall.adapter
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -24,13 +25,13 @@ class BarangAdapter(private val barangs: List<DataBarang>): RecyclerView.Adapter
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        @SuppressLint("SetTextI18n")
         fun bind(barang: DataBarang){
             with(itemView){
                 preference = SharedPreference(context)
                 val imgBarang = Uri.parse(barang.foto_barang)
                 val imgUsaha = Uri.parse(barang.foto_usaha)
                 val hargaAwal = formatRupiah(barang.harga_awal.toDouble())
-                val hargaJual = formatRupiah(barang.harga_jual.toDouble())
                 val jarak = hitungJarak(
                     preference.getValues("lat")!!.toDouble(),
                     preference.getValues("long")!!.toDouble(),
@@ -40,7 +41,6 @@ class BarangAdapter(private val barangs: List<DataBarang>): RecyclerView.Adapter
                 itemView.namaBarang.text = barang.nama_barang
                 itemView.namaPemilik.text = barang.nama_usaha
                 itemView.HargaBarang.text = hargaAwal
-                itemView.HargaJualBarang.text = hargaJual
                 itemView.jarak.text = "${"%.2f".format(jarak)} km"
                 if (barang.jumlah_stok.toInt() > 0){
                     itemView.stok.text = "Tersedia"

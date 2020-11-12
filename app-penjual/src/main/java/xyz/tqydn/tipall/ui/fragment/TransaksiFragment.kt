@@ -9,11 +9,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_transaksi.*
 import xyz.tqydn.tipall.R
 import xyz.tqydn.tipall.adapter.TransaksiPagerAdapter
-import xyz.tqydn.tipall.utils.Constants.Companion._1
-import xyz.tqydn.tipall.utils.Constants.Companion._2
-import xyz.tqydn.tipall.utils.Constants.Companion._3
-import xyz.tqydn.tipall.utils.Constants.Companion._4
-import xyz.tqydn.tipall.utils.SharedPreference
 
 class TransaksiFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Tipall"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".ui.inventory.DetailPermintaanActivity"></activity>
+        <activity android:name=".ui.inventory.DetailBerlangsungActivity" />
+        <activity android:name=".ui.inventory.DetailHutangActivity" />
         <activity android:name=".ui.inventory.EditUsahaActivity" />
         <activity android:name=".ui.inventory.TambahUsahaActivity" />
         <activity android:name=".ui.inventory.EditProfilActivity" />
@@ -38,4 +41,5 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
     </application>
+
 </manifest>

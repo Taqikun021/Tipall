@@ -13,7 +13,7 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".ui.ListRiwayatActivity"></activity>
+        <activity android:name=".ui.ListRiwayatActivity" />
         <activity android:name=".ui.inventory.RiwayatTransaksiActivity" />
         <activity android:name=".ui.inventory.DetailHutangActivity" />
         <activity android:name=".ui.inventory.DetailBerlangsungActivity" />
@@ -32,7 +32,6 @@
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -47,5 +46,4 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
     </application>
-
 </manifest>

@@ -1,55 +1,79 @@
 package xyz.tqydn.tipall.adapter
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.net.Uri
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isGone
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.row_belum_dibayar.view.*
 import xyz.tqydn.tipall.model.TransaksiItem
-import xyz.tqydn.tipall.utils.Constants
 import xyz.tqydn.tipall.utils.Constants.Companion.formatRupiah
+import xyz.tqydn.tipall.utils.Constants.Companion.hitungJarak
 import xyz.tqydn.tipall.utils.SharedPreference
 
 class BelumdibayarAdapter(private val items: List<TransaksiItem?>): RecyclerView.Adapter<BelumdibayarAdapter.MyViewHolder>() {
 
     private lateinit var preference: SharedPreference
-    private var onItemClickCallback: BelumdibayarAdapter.OnItemClickCallback? = null
+    private var onItemClickCallback: OnItemClickCallback? = null
 
-    fun setOnItemClickCallback(onItemClickCallback: BelumdibayarAdapter.OnItemClickCallback){
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
         this.onItemClickCallback = onItemClickCallback
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        @SuppressLint("SetTextI18n")
         fun bind(item: TransaksiItem?){
             with(itemView){
                 preference = SharedPreference(context)
                 val total = formatRupiah(item?.total_tagihan!!.toDouble())
-                val imgBarang = Uri.parse(item.foto_barang)
-                val distance = Constants.hitungJarak(
-                        preference.getValues("lat")!!.toDouble(),
-                        preference.getValues("long")!!.toDouble(),
-                        item.lat!!.toDouble(),
-                        item.lng!!.toDouble()
+                val imgBarang = Uri.parse(item.foto)
+                val a1 = preference.getValues("lat")
+                val a2 = preference.getValues("long")
+                val b1 = item.lat
+                val b2 = item.lng
+                val distance = hitungJarak(
+                        a1!!.toDouble(),
+                        a2!!.toDouble(),
+                        b1!!.toDouble(),
+                        b2!!.toDouble()
                 )
 
                 itemView.namaBarang.text = item.nama_barang
                 itemView.namaUsaha.text = item.nama_usaha
-                itemView.waktu.text = item.waktu_mulai
-                itemView.tagihan.text = "${total} Belum Dibayar"
+                itemView.waktu.text = "Dimulai sejak ${item.waktu_mulai}"
+                itemView.tagihan.text = "$total Belum Dibayar"
                 itemView.jumlahStok.text = "${item.jumlah_barang} item"
                 itemView.jarak.text = "${"%.2f".format(distance)} km"
+                if (item.jenis_kelamin == "Perempuan"){
+                    itemView.namaPemilik.text = "Ibu ${item.username}"
+                } else {
+                    itemView.namaPemilik.text = "Bapak ${item.username}"
+                }
 
-                itemView.imageBarang.visibility = View.GONE
-                itemView.imageBarangFix.visibility = View.VISIBLE
+                itemView.imagePenjual.visibility = View.GONE
+                itemView.imagePenjualFix.visibility = View.VISIBLE
                 Glide.with(context)
-                    .load(imgBarang)
-                    .apply(RequestOptions.centerCropTransform())
-                    .into(imageBarangFix)
+                        .load(imgBarang)
+                        .apply(RequestOptions.centerCropTransform())
+                        .into(imagePenjualFix)
+
+                itemView.hubungi.setOnClickListener {
+                    val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/62${item.no_hp}"))
+                    ContextCompat.startActivity(itemView.context, i, null)
+                }
+                itemView.petunjukArah.setOnClickListener {
+                    val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://google.co.id/maps/dir/$a1,$a2/$b1,$b2"))
+                    ContextCompat.startActivity(itemView.context, i, null)
+                }
+                itemView.setOnClickListener {
+                    onItemClickCallback?.onItemClicked(item)
+                    preference.setValues("trans_click", item.id_transaksi.toString())
+                }
             }
         }
     }

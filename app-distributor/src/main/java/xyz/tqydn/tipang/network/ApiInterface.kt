@@ -145,7 +145,7 @@ interface ApiInterface {
         @Field("status_transaksi") status_transaksi: String?
     ): Call<DefaultResponse>
 
-    @GET("getDetailTransaksiDist.php")
+    @GET("getDetailTransaksiPenjual.php")
     fun getDetailTransaksi(
             @Query("id_transaksi") id_transaksi: String?
     ): Call<TransaksiItem>

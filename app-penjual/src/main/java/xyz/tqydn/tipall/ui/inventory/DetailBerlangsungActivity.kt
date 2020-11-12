@@ -1,4 +1,4 @@
-package xyz.tqydn.tipang.ui.inventory
+package xyz.tqydn.tipall.ui.inventory
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,8 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
-import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -16,12 +14,11 @@ import kotlinx.android.synthetic.main.activity_detail_berlangsung.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import xyz.tqydn.tipang.R
-import xyz.tqydn.tipang.model.DefaultResponse
-import xyz.tqydn.tipang.model.TransaksiItem
-import xyz.tqydn.tipang.utils.Constants
-import xyz.tqydn.tipang.utils.Constants.Companion.apiInterface
-import xyz.tqydn.tipang.utils.SharedPreference
+import xyz.tqydn.tipall.R
+import xyz.tqydn.tipall.model.TransaksiItem
+import xyz.tqydn.tipall.utils.Constants
+import xyz.tqydn.tipall.utils.Constants.Companion.apiInterface
+import xyz.tqydn.tipall.utils.SharedPreference
 
 class DetailBerlangsungActivity : AppCompatActivity() {
 
@@ -39,56 +36,14 @@ class DetailBerlangsungActivity : AppCompatActivity() {
         showTransaksi()
         keMaps.setOnClickListener {
             startActivity(
-                    Intent(Intent.ACTION_VIEW, Uri.parse("https://google.co.id/maps/dir/${dari}/${ke}"))
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://google.co.id/maps/dir/${dari}/${ke}"))
             )
         }
         keWA.setOnClickListener {
             startActivity(
-                    Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/${telepon}"))
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/${telepon}"))
             )
         }
-        tandaiLunas.setOnClickListener {
-            val alertDialog = MaterialAlertDialogBuilder(this).create()
-            val inflater = LayoutInflater.from(this)
-            val dialogView = inflater.inflate(R.layout.alert_lunas, null)
-            alertDialog.setCancelable(true)
-            alertDialog.setView(dialogView)
-            val yakin = dialogView.findViewById(R.id.yakin) as Button
-            val batal = dialogView.findViewById(R.id.batal) as Button
-            yakin.setOnClickListener {
-                tandaiLunas(preference.getValues("trans_click"))
-                alertDialog.dismiss()
-                showTransaksi()
-            }
-
-            batal.setOnClickListener {
-                alertDialog.dismiss()
-            }
-            alertDialog.show()
-        }
-    }
-
-    private fun tandaiLunas(id: String?) {
-        val call: Call<DefaultResponse> = apiInterface.updateStatusTransaksi(1, status,id)
-        call.enqueue(object : Callback<DefaultResponse> {
-            override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
-                Toast.makeText(this@DetailBerlangsungActivity, response.body()?.message, Toast.LENGTH_SHORT).show()
-                val intent = Intent().apply {
-                    putExtra(Constants.TITLE, response.body()?.message.toString())
-                }
-                setResult(RESULT_OK, intent)
-                finish()
-            }
-
-            override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                val photoDialog = MaterialAlertDialogBuilder(this@DetailBerlangsungActivity).create()
-                val inflater = LayoutInflater.from(this@DetailBerlangsungActivity)
-                val dialogView = inflater.inflate(R.layout.alert_error, null)
-                photoDialog.setCancelable(true)
-                photoDialog.setView(dialogView)
-                photoDialog.show()
-            }
-        })
     }
 
     private fun showTransaksi() {
@@ -106,17 +61,17 @@ class DetailBerlangsungActivity : AppCompatActivity() {
                 status = item?.status_transaksi.toString()
 
                 Glide.with(this@DetailBerlangsungActivity)
-                        .load(imgProfil)
-                        .apply(RequestOptions.circleCropTransform())
-                        .into(imagePenjual)
+                    .load(imgProfil)
+                    .apply(RequestOptions.circleCropTransform())
+                    .into(imagePenjual)
                 Glide.with(this@DetailBerlangsungActivity)
-                        .load(imgUsaha)
-                        .apply(RequestOptions.centerCropTransform())
-                        .into(imageUsaha)
+                    .load(imgUsaha)
+                    .apply(RequestOptions.centerCropTransform())
+                    .into(imageUsaha)
                 Glide.with(this@DetailBerlangsungActivity)
-                        .load(imgBarang)
-                        .apply(RequestOptions.centerCropTransform())
-                        .into(barang)
+                    .load(imgBarang)
+                    .apply(RequestOptions.centerCropTransform())
+                    .into(barang)
 
                 kode_transaksi.text = item?.kode_transaksi
                 tanggal.text = item?.waktu_mulai
@@ -129,7 +84,7 @@ class DetailBerlangsungActivity : AppCompatActivity() {
                 totalHarga.text = Constants.formatRupiah(item?.total_tagihan!!.toDouble())
                 ratingPenjual.text = "%.2f".format(item.rating?.toDouble())
                 if (item.status_bayar == "1"){
-                    tandaiLunas.visibility = View.GONE
+                    tandaiSelesai.visibility = View.GONE
                 }
                 if (item.jenis_kelamin == "Perempuan") {
                     namaPemilik.text = "Ibu ${item.username}"
