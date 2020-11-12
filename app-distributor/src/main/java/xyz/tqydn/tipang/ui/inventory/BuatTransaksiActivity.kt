@@ -5,10 +5,13 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.TextView
 import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_buat_transaksi.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -89,6 +92,15 @@ class BuatTransaksiActivity : AppCompatActivity() {
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                 if (response.body()?.status.toString() == "201") {
                     Toast.makeText(this@BuatTransaksiActivity, response.body()?.message, Toast.LENGTH_SHORT).show()
+                } else {
+                    val photoDialog = MaterialAlertDialogBuilder(this@BuatTransaksiActivity).create()
+                    val inflater = LayoutInflater.from(this@BuatTransaksiActivity)
+                    val dialogView = inflater.inflate(R.layout.alert_error, null)
+                    photoDialog.setCancelable(true)
+                    val tv = dialogView.findViewById(R.id.tv) as TextView
+                    tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
+                    photoDialog.setView(dialogView)
+                    photoDialog.show()
                 }
                 val intent = Intent().apply {
                     putExtra(TITLE, response.body()?.message.toString())
@@ -98,7 +110,12 @@ class BuatTransaksiActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                Toast.makeText(this@BuatTransaksiActivity, t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@BuatTransaksiActivity).create()
+                val inflater = LayoutInflater.from(this@BuatTransaksiActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }
@@ -118,14 +135,27 @@ class BuatTransaksiActivity : AppCompatActivity() {
                             stok = a?.jumlah_stok!!.toInt()
                             idBarang = a.id_barang
                             hargaBarang = a.harga_awal.toDouble()
-                            //Toast.makeText(this@BuatTransaksiActivity, "Kamu menawarkan $id_barang", Toast.LENGTH_SHORT).show()
                         }
                     })
+                } else {
+                    val photoDialog = MaterialAlertDialogBuilder(this@BuatTransaksiActivity).create()
+                    val inflater = LayoutInflater.from(this@BuatTransaksiActivity)
+                    val dialogView = inflater.inflate(R.layout.alert_error, null)
+                    photoDialog.setCancelable(true)
+                    val tv = dialogView.findViewById(R.id.tv) as TextView
+                    tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
+                    photoDialog.setView(dialogView)
+                    photoDialog.show()
                 }
             }
 
             override fun onFailure(call: Call<Barang>, t: Throwable) {
-                Toast.makeText(this@BuatTransaksiActivity, t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@BuatTransaksiActivity).create()
+                val inflater = LayoutInflater.from(this@BuatTransaksiActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }
@@ -138,11 +168,25 @@ class BuatTransaksiActivity : AppCompatActivity() {
                 if (response.code() == 200) {
                     ratingPenjual.text = "%.2f".format(item?.rating_penjual!!.toDouble())
                     transaksi.text = "Dari ${item.jumlah_transaksi} Transaksi"
+                } else {
+                    val photoDialog = MaterialAlertDialogBuilder(this@BuatTransaksiActivity).create()
+                    val inflater = LayoutInflater.from(this@BuatTransaksiActivity)
+                    val dialogView = inflater.inflate(R.layout.alert_error, null)
+                    photoDialog.setCancelable(true)
+                    val tv = dialogView.findViewById(R.id.tv) as TextView
+                    tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
+                    photoDialog.setView(dialogView)
+                    photoDialog.show()
                 }
             }
 
             override fun onFailure(call: Call<Rating>, t: Throwable) {
-                Toast.makeText(this@BuatTransaksiActivity, t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@BuatTransaksiActivity).create()
+                val inflater = LayoutInflater.from(this@BuatTransaksiActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }
@@ -176,11 +220,25 @@ class BuatTransaksiActivity : AppCompatActivity() {
                         .load(img)
                         .apply(RequestOptions.circleCropTransform())
                         .into(imagePenjual)
+                } else {
+                    val photoDialog = MaterialAlertDialogBuilder(this@BuatTransaksiActivity).create()
+                    val inflater = LayoutInflater.from(this@BuatTransaksiActivity)
+                    val dialogView = inflater.inflate(R.layout.alert_error, null)
+                    photoDialog.setCancelable(true)
+                    val tv = dialogView.findViewById(R.id.tv) as TextView
+                    tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
+                    photoDialog.setView(dialogView)
+                    photoDialog.show()
                 }
             }
 
             override fun onFailure(call: Call<DataPenjual>, t: Throwable) {
-                Toast.makeText(this@BuatTransaksiActivity, t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@BuatTransaksiActivity).create()
+                val inflater = LayoutInflater.from(this@BuatTransaksiActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }

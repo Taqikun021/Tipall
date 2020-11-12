@@ -4,7 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.view.LayoutInflater
+import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -56,7 +59,12 @@ class SignUpActivity : AppCompatActivity() {
         val call: Call<DefaultResponse> = apiInterface.createUser("", email, nama, pw, "2")
         call.enqueue(object : Callback<DefaultResponse> {
             override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                Toast.makeText(this@SignUpActivity, t.message, Toast.LENGTH_LONG).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@SignUpActivity).create()
+                val inflater = LayoutInflater.from(this@SignUpActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                 val defaultResponse: DefaultResponse? = response.body()

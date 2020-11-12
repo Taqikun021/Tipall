@@ -1,5 +1,6 @@
 package xyz.tqydn.tipang.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -40,11 +41,19 @@ class BelumdibayarFragment : Fragment() {
                     item?.let {
                         showTransaksi(it)
                     }
+                } else {
+                    rv.visibility = View.GONE
+                    kosong.visibility = View.VISIBLE
                 }
             }
 
+            @SuppressLint("SetTextI18n")
             override fun onFailure(call: Call<Transaksi>, t: Throwable) {
-                Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+                rv.visibility = View.GONE
+                kosong.visibility = View.VISIBLE
+
+                iv.setImageResource(R.drawable.ic_ilustrasi_eror)
+                tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
             }
         })
     }

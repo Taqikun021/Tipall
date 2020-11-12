@@ -40,12 +40,10 @@ class PermintaanAdapter(private val items: List<TransaksiItem?>): RecyclerView.A
                 itemView.namaBarang.text = item.nama_barang
                 itemView.namaUsaha.text = item.nama_usaha
                 itemView.jarak.text = "${"%.2f".format(distance)} km"
-
                 Glide.with(context)
                     .load(imgBarang)
                     .apply(RequestOptions.centerCropTransform())
                     .into(imageBarang)
-
                 Glide.with(context)
                     .load(imgUsaha)
                     .apply(RequestOptions.circleCropTransform())

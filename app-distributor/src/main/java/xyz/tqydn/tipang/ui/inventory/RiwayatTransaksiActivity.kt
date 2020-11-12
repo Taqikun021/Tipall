@@ -4,9 +4,12 @@ import android.annotation.SuppressLint
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_riwayat_transaksi.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -74,7 +77,12 @@ class RiwayatTransaksiActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<TransaksiItem>, t: Throwable) {
-                Toast.makeText(this@RiwayatTransaksiActivity, t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@RiwayatTransaksiActivity).create()
+                val inflater = LayoutInflater.from(this@RiwayatTransaksiActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }

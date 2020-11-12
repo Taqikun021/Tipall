@@ -7,29 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.activity_detail_berlangsung.*
 import kotlinx.android.synthetic.main.activity_detail_hutang.*
-import kotlinx.android.synthetic.main.activity_detail_hutang.alamat
-import kotlinx.android.synthetic.main.activity_detail_hutang.barang
-import kotlinx.android.synthetic.main.activity_detail_hutang.descBarang
-import kotlinx.android.synthetic.main.activity_detail_hutang.imagePenjual
-import kotlinx.android.synthetic.main.activity_detail_hutang.imageUsaha
-import kotlinx.android.synthetic.main.activity_detail_hutang.jumlahBarang
-import kotlinx.android.synthetic.main.activity_detail_hutang.keMaps
-import kotlinx.android.synthetic.main.activity_detail_hutang.keWA
-import kotlinx.android.synthetic.main.activity_detail_hutang.kode_transaksi
-import kotlinx.android.synthetic.main.activity_detail_hutang.namaBarang
-import kotlinx.android.synthetic.main.activity_detail_hutang.namaPemilik
-import kotlinx.android.synthetic.main.activity_detail_hutang.namaUsaha
-import kotlinx.android.synthetic.main.activity_detail_hutang.nomorHP
-import kotlinx.android.synthetic.main.activity_detail_hutang.ratingPenjual
-import kotlinx.android.synthetic.main.activity_detail_hutang.tandaiLunas
-import kotlinx.android.synthetic.main.activity_detail_hutang.tanggal
-import kotlinx.android.synthetic.main.activity_detail_hutang.totalHarga
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -97,7 +80,12 @@ class DetailHutangActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                Toast.makeText(this@DetailHutangActivity, t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@DetailHutangActivity).create()
+                val inflater = LayoutInflater.from(this@DetailHutangActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }
@@ -147,7 +135,12 @@ class DetailHutangActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<TransaksiItem>, t: Throwable) {
-                Toast.makeText(this@DetailHutangActivity, t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@DetailHutangActivity).create()
+                val inflater = LayoutInflater.from(this@DetailHutangActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }

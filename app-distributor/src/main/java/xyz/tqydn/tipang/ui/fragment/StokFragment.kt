@@ -1,5 +1,6 @@
 package xyz.tqydn.tipang.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -50,13 +51,17 @@ class StokFragment : Fragment() {
                     }
                 } else {
                     rvBarang.visibility = View.GONE
-                    //Butuh ilustrasi belum punya barang
-                    Toast.makeText(requireContext(), "Kamu belum punya barang", Toast.LENGTH_SHORT).show()
+                    kosong.visibility = View.VISIBLE
                 }
             }
 
+            @SuppressLint("SetTextI18n")
             override fun onFailure(call: Call<Barang>, t: Throwable) {
-                Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+                rvBarang.visibility = View.GONE
+                kosong.visibility = View.VISIBLE
+
+                iv.setImageResource(R.drawable.ic_ilustrasi_eror)
+                tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
             }
         })
     }

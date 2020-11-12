@@ -2155,7 +2155,9 @@ drawable ic_icon_barang
 drawable ic_icon_profil
 drawable ic_icon_transaksi
 drawable ic_ilustrasi_email
+drawable ic_ilustrasi_eror
 drawable ic_ilustrasi_login_svg
+drawable ic_ilustrasi_transaksi_kosong
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -2510,6 +2512,7 @@ id installation_progress
 id invisible
 id italic
 id item_touch_helper_previous_elevation
+id iv
 id iv_berirating
 id iv_kebijakan
 id iv_ketentuan
@@ -2526,6 +2529,7 @@ id keMaps
 id keWA
 id kirimTawaran
 id kode_transaksi
+id kosong
 id kurang
 id labelGroup
 id labeled
@@ -2933,6 +2937,7 @@ layout activity_splash_screen
 layout activity_tambah_barang
 layout activity_tambah_usaha
 layout activity_ver_email
+layout alert_error
 layout alert_hapus
 layout alert_lunas
 layout alert_tolak
@@ -3186,6 +3191,8 @@ string jenis_kelamin
 string judul_barang
 string jumlah_barang
 string jumlah_transaksi_per_bulan
+string kamu_belum_menawaran_apapun_hari_ini
+string kamu_tidak_punya_permintaan
 string kasih_rating_buat_distributor
 string kata_sandi
 string ke
@@ -3314,6 +3321,7 @@ string tentang_aplikasi
 string terima
 string tersedia
 string tersisa
+string tidak_ada_transaksi_berlangsung_hari_ini_ayo_buat_transaksi
 string title_activity_cadangan
 string title_activity_inti
 string title_activity_place_picker
@@ -3328,6 +3336,7 @@ string transaksi_berlansung
 string transaksi_bulan_ini
 string transaksi_piutang
 string ulangi_kata_sandi
+string ups_ada_yang_salah_nih_coba_cek_koneksi_kamu_dan_swipe_down_untuk_memuat_ulang
 string urutkan_berdasarkan_waktu
 string usaha_saya
 string v_1_0_1
@@ -3336,6 +3345,7 @@ string waktu_dimulai
 string yakin
 string yakin_menghapus_barang_ini
 string yakin_menolak_transaksi_ini
+string yay_tidak_ada_transaksi_yang_belum_dibayar
 string yuk_transaksi_lagi
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

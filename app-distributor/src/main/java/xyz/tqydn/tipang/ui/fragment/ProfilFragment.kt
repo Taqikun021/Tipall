@@ -1,5 +1,6 @@
 package xyz.tqydn.tipang.ui.fragment
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -7,9 +8,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.fragment_profil.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,7 +28,6 @@ import xyz.tqydn.tipang.utils.Constants.Companion.TAMBAH_USAHA
 import xyz.tqydn.tipang.utils.SharedPreference
 import xyz.tqydn.tipang.utils.contracts.EditProfilContract
 import xyz.tqydn.tipang.utils.contracts.EditUsahaContract
-import xyz.tqydn.tipang.utils.contracts.RiwayatTransaksiContract
 import xyz.tqydn.tipang.utils.contracts.TambahUsahaContract
 
 class ProfilFragment : Fragment() {
@@ -54,24 +56,37 @@ class ProfilFragment : Fragment() {
 
     private fun getDataUser() {
         val call: Call<GetUserInfo> = Constants.apiInterface.getUserInfo("Bearer ${preference.getValues("token")}")
-        call.enqueue(object: Callback<GetUserInfo> {
+        call.enqueue(object : Callback<GetUserInfo> {
             override fun onFailure(call: Call<GetUserInfo>, t: Throwable) {
-                Toast.makeText(requireContext(), t.message, Toast.LENGTH_LONG).show()
+                val photoDialog = MaterialAlertDialogBuilder(requireContext()).create()
+                val inflater = LayoutInflater.from(requireContext())
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
 
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<GetUserInfo>, response: Response<GetUserInfo>) {
                 val ui: GetUserInfo? = response.body()
                 if (ui?.status.toString() != "200") {
-                    Toast.makeText(requireContext(), ui?.message, Toast.LENGTH_LONG).show()
+                    val photoDialog = MaterialAlertDialogBuilder(requireContext()).create()
+                    val inflater = LayoutInflater.from(requireContext())
+                    val dialogView = inflater.inflate(R.layout.alert_error, null)
+                    photoDialog.setCancelable(true)
+                    val tv = dialogView.findViewById(R.id.tv) as TextView
+                    tv.text = "${ui?.message}. Cek koneksi anda!"
+                    photoDialog.setView(dialogView)
+                    photoDialog.show()
                 } else {
                     profil_nama.text = ui?.user?.username.toString()
                     profil_hape.text = ui?.user?.no_hp.toString()
                     profil_email.text = ui?.user?.email.toString()
                     val image = Uri.parse(ui?.user?.foto.toString())
                     Glide.with(requireActivity())
-                        .load(image)
-                        .apply(RequestOptions.circleCropTransform())
-                        .into(imageProfil)
+                            .load(image)
+                            .apply(RequestOptions.circleCropTransform())
+                            .into(imageProfil)
 
                     preference.setValues("id_user", ui?.user?.id_user.toString())
                 }
@@ -82,10 +97,18 @@ class ProfilFragment : Fragment() {
     private fun getDataUsaha() {
         val call: Call<GetDistInfo> = Constants.apiInterface.getDistInfo(preference.getValues("id_user"))
         call.enqueue(object: Callback<GetDistInfo> {
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<GetDistInfo>, response: Response<GetDistInfo>) {
                 val ui: GetDistInfo? = response.body()
                 if (ui?.status.toString() != "200") {
-                    Toast.makeText(requireContext(), ui?.message, Toast.LENGTH_SHORT).show()
+                    val photoDialog = MaterialAlertDialogBuilder(requireContext()).create()
+                    val inflater = LayoutInflater.from(requireContext())
+                    val dialogView = inflater.inflate(R.layout.alert_error, null)
+                    photoDialog.setCancelable(true)
+                    val tv = dialogView.findViewById(R.id.tv) as TextView
+                    tv.text = "${ui?.message}. Cek koneksi anda!"
+                    photoDialog.setView(dialogView)
+                    photoDialog.show()
                 } else {
                     tambahUsaha.visibility = View.GONE
                     editusaha.visibility = View.VISIBLE
@@ -106,7 +129,12 @@ class ProfilFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<GetDistInfo>, t: Throwable) {
-                Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(requireContext()).create()
+                val inflater = LayoutInflater.from(requireContext())
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }

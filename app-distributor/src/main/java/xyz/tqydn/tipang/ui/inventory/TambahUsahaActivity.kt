@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
@@ -108,7 +109,12 @@ class TambahUsahaActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                Toast.makeText(this@TambahUsahaActivity, t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@TambahUsahaActivity).create()
+                val inflater = LayoutInflater.from(this@TambahUsahaActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }

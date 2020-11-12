@@ -2,8 +2,11 @@ package xyz.tqydn.tipang.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_list_riwayat.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -41,7 +44,12 @@ class ListRiwayatActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Transaksi>, t: Throwable) {
-                Toast.makeText(this@ListRiwayatActivity, t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@ListRiwayatActivity).create()
+                val inflater = LayoutInflater.from(this@ListRiwayatActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }

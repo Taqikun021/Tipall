@@ -4,9 +4,12 @@ import android.annotation.SuppressLint
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_detail_tawaran.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -77,7 +80,12 @@ class DetailTawaranActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<TransaksiItem>, t: Throwable) {
-                Toast.makeText(this@DetailTawaranActivity, t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@DetailTawaranActivity).create()
+                val inflater = LayoutInflater.from(this@DetailTawaranActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }

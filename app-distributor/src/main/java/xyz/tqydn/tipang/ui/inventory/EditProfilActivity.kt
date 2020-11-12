@@ -7,10 +7,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.LinearLayout
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -93,7 +90,12 @@ class EditProfilActivity : AppCompatActivity() {
             .updateProfil(preference.getValues("id_user"), email, nama, kelamin, noHP, foto)
         call.enqueue(object : Callback<DefaultResponse> {
             override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                Toast.makeText(this@EditProfilActivity, t.message, Toast.LENGTH_LONG).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@EditProfilActivity).create()
+                val inflater = LayoutInflater.from(this@EditProfilActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
 
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
@@ -111,7 +113,12 @@ class EditProfilActivity : AppCompatActivity() {
         val call : Call<GetUserInfo> = Constants.apiInterface.getUserInfo("Bearer " + preference.getValues("token"))
         call.enqueue(object : Callback<GetUserInfo> {
             override fun onFailure(call: Call<GetUserInfo>, t: Throwable) {
-                Toast.makeText(this@EditProfilActivity, t.message, Toast.LENGTH_LONG).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@EditProfilActivity).create()
+                val inflater = LayoutInflater.from(this@EditProfilActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
 
             override fun onResponse(call: Call<GetUserInfo>, response: Response<GetUserInfo>) {

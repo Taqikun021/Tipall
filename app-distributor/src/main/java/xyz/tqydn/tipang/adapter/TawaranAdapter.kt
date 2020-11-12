@@ -43,12 +43,10 @@ class TawaranAdapter(private val items: List<TransaksiItem?>): RecyclerView.Adap
                 itemView.HargaBarang.text = harga
                 itemView.jarak.text = "${"%.2f".format(distance)} km"
                 itemView.stok.text = item.jumlah_barang
-
                 Glide.with(itemView.context)
                     .load(imgBarang)
                     .apply(RequestOptions.centerCropTransform())
                     .into(imageBarang)
-
                 Glide.with(itemView.context)
                     .load(imgUsaha)
                     .apply(RequestOptions.circleCropTransform())
