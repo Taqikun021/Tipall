@@ -16,12 +16,11 @@ import xyz.tqydn.tipang.R
 import xyz.tqydn.tipang.adapter.PermintaanAdapter
 import xyz.tqydn.tipang.model.Transaksi
 import xyz.tqydn.tipang.model.TransaksiItem
-import xyz.tqydn.tipang.utils.Constants.Companion.DETAIL_PERMINTAAN
-import xyz.tqydn.tipang.utils.Constants.Companion.status5
-import xyz.tqydn.tipang.utils.Constants.Companion.apiInterface
+import xyz.tqydn.tipang.utils.Constants
 import xyz.tqydn.tipang.utils.SharedPreference
 import xyz.tqydn.tipang.utils.contracts.DetailPermintaanContract
 
+@SuppressLint("SetTextI18n")
 class PermintaanFragment : Fragment() {
 
     private lateinit var preference: SharedPreference
@@ -34,7 +33,7 @@ class PermintaanFragment : Fragment() {
     }
 
     private fun fetchTransaksi(id: String?) {
-        val call: Call<Transaksi> = apiInterface.getListTransaksi(status5, id)
+        val call: Call<Transaksi> = Constants.apiInterface.getListTransaksi(Constants.status5, id)
         call.enqueue(object : Callback<Transaksi> {
             override fun onResponse(call: Call<Transaksi>, response: Response<Transaksi>) {
                 val item = response.body()?.transaksi
@@ -48,11 +47,9 @@ class PermintaanFragment : Fragment() {
                 }
             }
 
-            @SuppressLint("SetTextI18n")
             override fun onFailure(call: Call<Transaksi>, t: Throwable) {
                 rv.visibility = View.GONE
                 kosong.visibility = View.VISIBLE
-
                 iv.setImageResource(R.drawable.ic_ilustrasi_eror)
                 tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
             }
@@ -65,7 +62,7 @@ class PermintaanFragment : Fragment() {
         rv.layoutManager = LinearLayoutManager(requireContext())
         items.setOnItemClickCallback(object: PermintaanAdapter.OnItemClickCallback{
             override fun onItemClicked(item: TransaksiItem) {
-                detailPermintaan.launch(DETAIL_PERMINTAAN)
+                detailPermintaan.launch(Constants.DETAIL_PERMINTAAN)
             }
         })
     }

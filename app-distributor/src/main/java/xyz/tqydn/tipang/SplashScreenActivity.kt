@@ -17,25 +17,23 @@ import com.google.android.gms.location.*
 import xyz.tqydn.tipang.ui.LoginActivity
 import xyz.tqydn.tipang.utils.SharedPreference
 
+@SuppressLint("MissingPermission")
 class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var preference: SharedPreference
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var locationRequest: LocationRequest
-    private val PERMISSIONID = 1010
+    private val permissionID = 1010
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
         preference = SharedPreference(this)
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-
         Log.d("Debug : ", checkPermission().toString())
         Log.d("Debug : ", isLocationEnabled().toString())
-
         reqPermission()
         getLastLocation()
-
         if (checkPermission()){
             Handler(Looper.getMainLooper()).postDelayed({
                 val intent = Intent(this@SplashScreenActivity, LoginActivity::class.java)
@@ -45,13 +43,11 @@ class SplashScreenActivity : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("MissingPermission")
     private fun getLastLocation() {
         if(checkPermission()){
             if(isLocationEnabled()){
                 fusedLocationProviderClient.lastLocation.addOnCompleteListener {task->
                     val location : Location? = task.result
-
                     if(location == null){
                         newLocationData()
                     } else {
@@ -67,7 +63,6 @@ class SplashScreenActivity : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("MissingPermission")
     private fun newLocationData() {
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         locationRequest.interval = 0
@@ -90,7 +85,7 @@ class SplashScreenActivity : AppCompatActivity() {
         ActivityCompat.requestPermissions(this, arrayOf
             (android.Manifest.permission.ACCESS_COARSE_LOCATION,
             android.Manifest.permission.ACCESS_FINE_LOCATION),
-            PERMISSIONID
+            permissionID
         )
     }
 
@@ -111,7 +106,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
     override fun onRequestPermissionsResult( requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode == PERMISSIONID){
+        if(requestCode == permissionID){
             if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 Log.d("Debug:","You have the Permission")
             }

@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
@@ -44,7 +43,6 @@ class EditUsahaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_usaha)
         preference = SharedPreference(this)
-
         getDistInfo()
         imageProfil.setOnClickListener {
             val photoDialog = MaterialAlertDialogBuilder(this).create()
@@ -54,7 +52,6 @@ class EditUsahaActivity : AppCompatActivity() {
             photoDialog.setView(dialogView)
             val kamera = dialogView.findViewById(R.id.ambilPhoto) as LinearLayout
             val file = dialogView.findViewById(R.id.pilihFile) as LinearLayout
-
             kamera.setOnClickListener {
                 bukaKamera.launch(Constants.REQUEST_IMAGE_CAPTURE)
                 photoDialog.dismiss()
@@ -65,17 +62,14 @@ class EditUsahaActivity : AppCompatActivity() {
             }
             photoDialog.show()
         }
-
         getLokasi.setOnClickListener {
             takeLocationIntent.launch(com.sucho.placepicker.Constants.PLACE_PICKER_REQUEST)
         }
-
         buttonSimpan.setOnClickListener {
             val namaUsaha = etNamaUsaha.text.toString().trim()
             val desc = etDesc.text.toString().trim()
             val foto = imageUri.toString()
             alamats = alamat.text.toString().trim()
-
             when { namaUsaha.isEmpty() -> {
                 etNamaUsaha.error = "Nama tidak boleh kosong"
                 etNamaUsaha.requestFocus()
@@ -93,8 +87,7 @@ class EditUsahaActivity : AppCompatActivity() {
     }
 
     private fun updateUsaha(nama: String, foto: String, lat: String, long: String, alamat: String, desc: String) {
-        val call: Call<DefaultResponse> = Constants.apiInterface
-            .updateUsaha(preference.getValues("id_distributor"), nama, foto, lat, long, alamat, desc)
+        val call: Call<DefaultResponse> = Constants.apiInterface.updateUsaha(preference.getValues("id_distributor"), nama, foto, lat, long, alamat, desc)
         call.enqueue(object : Callback<DefaultResponse> {
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                 val ui: DefaultResponse? = response.body()
@@ -142,10 +135,8 @@ class EditUsahaActivity : AppCompatActivity() {
                         .load(imageUri)
                         .apply(RequestOptions.centerCropTransform())
                         .into(imageUsaha)
-
                     imageUsaha.visibility = View.VISIBLE
                     imageUsahaAwal.visibility = View.GONE
-
                     preference.setValues("id_distributor", ui?.dist_data?.id_distributor.toString())
                 }
             }
@@ -166,7 +157,6 @@ class EditUsahaActivity : AppCompatActivity() {
         val storageRef = FirebaseStorage.getInstance().reference.child("usaha/" + UUID.randomUUID().toString())
         bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, ByteArrayOutputStream())
         val upload = storageRef.putBytes(image)
-
         upload.addOnCompleteListener { uploadTask ->
             if (uploadTask.isSuccessful){
                 storageRef.downloadUrl.addOnCompleteListener { urlTask ->
@@ -176,7 +166,6 @@ class EditUsahaActivity : AppCompatActivity() {
                             .load(imageUri)
                             .apply(RequestOptions.centerCropTransform())
                             .into(imageUsaha)
-
                         imageUsaha.visibility = View.VISIBLE
                         imageUsahaAwal.visibility = View.GONE
                     }

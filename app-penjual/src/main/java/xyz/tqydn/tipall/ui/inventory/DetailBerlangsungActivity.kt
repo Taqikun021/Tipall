@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -15,6 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipall.R
+import xyz.tqydn.tipall.model.DefaultResponse
 import xyz.tqydn.tipall.model.TransaksiItem
 import xyz.tqydn.tipall.utils.Constants
 import xyz.tqydn.tipall.utils.Constants.Companion.apiInterface
@@ -32,7 +34,6 @@ class DetailBerlangsungActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_berlangsung)
         preference = SharedPreference(this)
-
         showTransaksi()
         keMaps.setOnClickListener {
             startActivity(
@@ -44,6 +45,35 @@ class DetailBerlangsungActivity : AppCompatActivity() {
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/${telepon}"))
             )
         }
+        tandaiSelesai.setOnClickListener {
+            transaksiSelesai(preference.getValues("trans_click"))
+        }
+    }
+
+    private fun transaksiSelesai(id: String?) {
+        val call: Call<DefaultResponse> = apiInterface.updateStatusTransaksi(0, Constants.status3, id)
+        call.enqueue(object : Callback<DefaultResponse> {
+            override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
+                val item: DefaultResponse? = response.body()
+                if (item?.status.toString() != "200") {
+                    Toast.makeText(this@DetailBerlangsungActivity, item?.message, Toast.LENGTH_SHORT).show()
+                    val intent = Intent().apply {
+                        putExtra(Constants.TITLE, item?.message.toString())
+                    }
+                    setResult(RESULT_OK, intent)
+                    finish()
+                }
+            }
+
+            override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                val photoDialog = MaterialAlertDialogBuilder(this@DetailBerlangsungActivity).create()
+                val inflater = LayoutInflater.from(this@DetailBerlangsungActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
+            }
+        })
     }
 
     private fun showTransaksi() {
@@ -59,7 +89,6 @@ class DetailBerlangsungActivity : AppCompatActivity() {
                 ke = "${item?.lat},${item?.lng}"
                 telepon = "62${item?.no_hp}"
                 status = item?.status_transaksi.toString()
-
                 Glide.with(this@DetailBerlangsungActivity)
                     .load(imgProfil)
                     .apply(RequestOptions.circleCropTransform())
@@ -72,7 +101,6 @@ class DetailBerlangsungActivity : AppCompatActivity() {
                     .load(imgBarang)
                     .apply(RequestOptions.centerCropTransform())
                     .into(barang)
-
                 kode_transaksi.text = item?.kode_transaksi
                 tanggal.text = item?.waktu_mulai
                 namaUsaha.text = item?.nama_usaha

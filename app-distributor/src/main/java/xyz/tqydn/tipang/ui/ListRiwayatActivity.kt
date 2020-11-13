@@ -3,7 +3,7 @@ package xyz.tqydn.tipang.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.TextView
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -40,6 +40,9 @@ class ListRiwayatActivity : AppCompatActivity() {
                     item?.let {
                         showTransaksi(it)
                     }
+                } else {
+                    rvRiwayat.visibility = View.GONE
+                    kosong.visibility = View.VISIBLE
                 }
             }
 

@@ -35,7 +35,7 @@
 20-->[com.google.android.play:core:1.7.2] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/af46ca5e8fe9eeef5416802ea8fec79a/jetified-core-1.7.2/AndroidManifest.xml:8:20-72
 21
 22    <application
-22-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:6:5-49:19
+22-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:6:5-48:19
 23        android:allowBackup="true"
 23-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:7:9-35
 24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -55,7 +55,7 @@
 32        android:usesCleartextTraffic="true" >
 32-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:13:9-44
 33        <activity android:name="xyz.tqydn.tipang.ui.ListRiwayatActivity" />
-33-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:16:9-69
+33-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:16:9-60
 33-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:16:19-57
 34        <activity android:name="xyz.tqydn.tipang.ui.inventory.RiwayatTransaksiActivity" />
 34-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:17:9-75
@@ -103,38 +103,38 @@
 48-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:31:9-54
 48-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:31:19-51
 49        <activity android:name="xyz.tqydn.tipang.SplashScreenActivity" >
-49-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:32:9-38:20
+49-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:32:9-37:20
 49-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:32:19-55
 50            <intent-filter>
-50-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:33:13-37:29
+50-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:33:13-36:29
 51                <action android:name="android.intent.action.MAIN" />
 51-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:34:17-69
 51-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:34:25-66
 52
 53                <category android:name="android.intent.category.LAUNCHER" />
-53-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:36:17-77
-53-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:36:27-74
+53-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:35:17-77
+53-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:35:27-74
 54            </intent-filter>
 55        </activity>
 56
 57        <meta-data
-57-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:40:9-42:57
+57-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:39:9-41:57
 58            android:name="preloaded_fonts"
-58-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:41:13-43
+58-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:40:13-43
 59            android:resource="@array/preloaded_fonts" />
-59-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:42:13-54
+59-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:41:13-54
 60        <meta-data
-60-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:43:9-45:71
+60-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:42:9-44:71
 61            android:name="com.google.android.geo.API_KEY"
-61-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:44:13-58
+61-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:43:13-58
 62            android:value="AIzaSyD306ZhNIIsxRlXcCu0NWnheKhPOhysous" />
-62-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:45:13-68
+62-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:44:13-68
 63        <meta-data
-63-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:46:9-48:69
+63-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:45:9-47:69
 64            android:name="com.google.android.gms.version"
-64-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:47:13-58
+64-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:46:13-58
 65            android:value="@integer/google_play_services_version" />
-65-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:48:13-66
+65-->/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/AndroidManifest.xml:47:13-66
 66
 67        <activity
 67-->[com.karumi:dexter:6.2.1] /home/taqiyudin/.gradle/caches/transforms-2/files-2.1/051bcbf334a313f289e1b1b8925cc388/jetified-dexter-6.2.1/AndroidManifest.xml:27:9-29:72

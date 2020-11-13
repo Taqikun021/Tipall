@@ -108,4 +108,28 @@ interface ApiInterface {
     fun getDetailTransaksi(
         @Query("id_transaksi") id_transaksi: String?
     ): Call<TransaksiItem>
+
+    @FormUrlEncoded
+    @POST("updateStatusTransaksi.php")
+    fun updateStatusTransaksi(
+        @Field("status_bayar") status_bayar: Int?,
+        @Field("status_transaksi") status_transaksi: String?,
+        @Field("id_transaksi") id_transaksi: String?
+    ): Call<DefaultResponse>
+
+    @FormUrlEncoded
+    @POST("updateStok.php")
+    fun updateStok(
+        @Field("jumlah_stok") jumlah_stok: String?,
+        @Field("id_barang") id_barang: String?
+    ): Call<DefaultResponse>
+
+    @FormUrlEncoded
+    @POST("updateTransaksiSelesai.php")
+    fun transaksiSelesai(
+        @Field("total_tagihan") total_tagihan: String?,
+        @Field("status_bayar") status_bayar: Int?,
+        @Field("status_transaksi") status_transaksi: String?,
+        @Field("id_transaksi") id_transaksi: String?
+    ): Call<DefaultResponse>
 }

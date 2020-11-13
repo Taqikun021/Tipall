@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
-import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_sign_up.*
@@ -20,12 +19,10 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
-
         val nama = FieldNamaLengkap.text.toString().trim()
         val email = FieldDaftarEmail.text.toString().trim()
         val pw = FieldPwDaftar.text.toString().trim()
         val pwUlang = FieldPwUlang.text.toString().trim()
-
         if (pw != pwUlang){
             FieldPwUlang.error = "Password Harus Sama"
             FieldPwUlang.requestFocus()
@@ -49,7 +46,6 @@ class SignUpActivity : AppCompatActivity() {
                 daftar(email, nama, pw)
             }
         }
-
         buttonMasuklagi.setOnClickListener {
             startActivity(Intent(this@SignUpActivity, LoginActivity::class.java))
         }

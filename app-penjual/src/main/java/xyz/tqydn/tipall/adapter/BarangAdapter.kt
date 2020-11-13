@@ -37,7 +37,6 @@ class BarangAdapter(private val barangs: List<DataBarang>): RecyclerView.Adapter
                     preference.getValues("long")!!.toDouble(),
                     barang.lat.toDouble(),
                     barang.lng.toDouble())
-
                 itemView.namaBarang.text = barang.nama_barang
                 itemView.namaPemilik.text = barang.nama_usaha
                 itemView.HargaBarang.text = hargaAwal
@@ -47,17 +46,14 @@ class BarangAdapter(private val barangs: List<DataBarang>): RecyclerView.Adapter
                 } else {
                     itemView.stok.text = "Stok Kosong"
                 }
-
                 Glide.with(itemView.context)
                     .load(imgBarang)
                     .apply(RequestOptions.centerCropTransform())
                     .into(itemView.imageBarang)
-
                 Glide.with(itemView.context)
                     .load(imgUsaha)
                     .apply(RequestOptions.circleCropTransform())
                     .into(itemView.imagePenjual)
-
                 itemView.setOnClickListener {
                     onItemClickCallback?.onItemClicked(barang)
                     preference.setValues("barang_click", barang.id_barang)

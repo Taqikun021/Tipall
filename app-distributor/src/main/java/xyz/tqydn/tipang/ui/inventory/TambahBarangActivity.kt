@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
@@ -37,7 +36,6 @@ class TambahBarangActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tambah_barang)
         preference = SharedPreference(this)
-
         imageBarang.setOnClickListener {
             val photoDialog = MaterialAlertDialogBuilder(this).create()
             val inflater = LayoutInflater.from(this)
@@ -46,7 +44,6 @@ class TambahBarangActivity : AppCompatActivity() {
             photoDialog.setView(dialogView)
             val kamera = dialogView.findViewById(R.id.ambilPhoto) as LinearLayout
             val file = dialogView.findViewById(R.id.pilihFile) as LinearLayout
-
             kamera.setOnClickListener {
                 bukaKamera.launch(Constants.REQUEST_IMAGE_CAPTURE)
                 photoDialog.dismiss()
@@ -57,7 +54,6 @@ class TambahBarangActivity : AppCompatActivity() {
             }
             photoDialog.show()
         }
-
         buttonSimpan.setOnClickListener{
             val nama = etNamaBarang.text.toString().trim()
             val desc = etDesc.text.toString().trim()
@@ -65,7 +61,6 @@ class TambahBarangActivity : AppCompatActivity() {
             val stok = etStok.text.toString().trim()
             val harga = etHarga.text.toString().trim()
             val hargaJual = etHargaJual.text.toString().trim()
-
             when { nama.isEmpty() -> {
                 etNamaBarang.error = "Nama Barang tidak boleh kosong"
                 etNamaBarang.requestFocus()
@@ -89,8 +84,7 @@ class TambahBarangActivity : AppCompatActivity() {
     }
 
     private fun tambahBarang(nama: String, foto: String, stok: String, desc: String, harga: String, hargaJual: String) {
-        val call: Call<DefaultResponse> = Constants.apiInterface
-            .tambahBarang(preference.getValues("id_distributor"), nama, foto, stok, desc, harga, hargaJual)
+        val call: Call<DefaultResponse> = Constants.apiInterface.tambahBarang(preference.getValues("id_distributor"), nama, foto, stok, desc, harga, hargaJual)
         call.enqueue(object : Callback<DefaultResponse> {
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                 val res: DefaultResponse? = response.body()
@@ -120,7 +114,6 @@ class TambahBarangActivity : AppCompatActivity() {
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val image = baos.toByteArray()
         val upload = storageRef.putBytes(image)
-
         upload.addOnCompleteListener { uploadTask ->
             if (uploadTask.isSuccessful){
                 storageRef.downloadUrl.addOnCompleteListener { urlTask ->
@@ -130,7 +123,6 @@ class TambahBarangActivity : AppCompatActivity() {
                             .load(imageUri)
                             .apply(RequestOptions.centerCropTransform())
                             .into(imageBarangFix)
-
                         imageBarangFix.visibility = View.VISIBLE
                         imageBarangAwal.visibility = View.GONE
                     }

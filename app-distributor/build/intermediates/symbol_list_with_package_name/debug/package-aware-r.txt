@@ -2356,7 +2356,6 @@ id cardView3
 id card_belumdibayar
 id card_berlangsung
 id card_penjual
-id card_permintaan
 id card_stok
 id card_tawaran
 id carddesc

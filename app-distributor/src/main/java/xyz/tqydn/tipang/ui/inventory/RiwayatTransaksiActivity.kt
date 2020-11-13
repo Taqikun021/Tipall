@@ -1,12 +1,11 @@
 package xyz.tqydn.tipang.ui.inventory
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.TextView
-import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -29,7 +28,6 @@ class RiwayatTransaksiActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_riwayat_transaksi)
         preference = SharedPreference(this)
-
         showTransaksi()
         buatTransaksi.setOnClickListener {
             regbuatTransaksi.launch(BUAT_TRANSAKSI)
@@ -45,7 +43,6 @@ class RiwayatTransaksiActivity : AppCompatActivity() {
                 val imgProfil = Uri.parse(item?.foto)
                 val imgUsaha = Uri.parse(item?.foto_usaha)
                 val imgBarang = Uri.parse(item?.foto_barang)
-
                 Glide.with(this@RiwayatTransaksiActivity)
                     .load(imgProfil)
                     .apply(RequestOptions.circleCropTransform())
@@ -58,7 +55,6 @@ class RiwayatTransaksiActivity : AppCompatActivity() {
                     .load(imgBarang)
                     .apply(RequestOptions.centerCropTransform())
                     .into(barang)
-
                 kode_transaksi.text = item?.kode_transaksi
                 tanggal.text = item?.waktu_mulai
                 namaUsaha.text = item?.nama_usaha
@@ -89,7 +85,11 @@ class RiwayatTransaksiActivity : AppCompatActivity() {
 
     private val regbuatTransaksi = registerForActivityResult(BuatTransaksiContract()){
         if (it != null){
-            Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
+            val intent = Intent().apply {
+                putExtra(Constants.TITLE, it.toString())
+            }
+            setResult(RESULT_OK, intent)
+            finish()
         }
     }
 }

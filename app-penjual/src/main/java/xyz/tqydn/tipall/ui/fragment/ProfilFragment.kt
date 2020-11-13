@@ -1,14 +1,18 @@
 package xyz.tqydn.tipall.ui.fragment
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.fragment_profil.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,6 +20,7 @@ import retrofit2.Response
 import xyz.tqydn.tipall.R
 import xyz.tqydn.tipall.model.GetInfoPenjual
 import xyz.tqydn.tipall.model.GetUserInfo
+import xyz.tqydn.tipall.ui.ListRiwayatActivity
 import xyz.tqydn.tipall.utils.Constants
 import xyz.tqydn.tipall.utils.Constants.Companion.EDIT_PROFIL
 import xyz.tqydn.tipall.utils.Constants.Companion.EDIT_USAHA
@@ -32,7 +37,6 @@ class ProfilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         preference = SharedPreference(requireContext())
-
         getDataUser()
         getDataUsaha()
         editprofil.setOnClickListener{
@@ -44,19 +48,29 @@ class ProfilFragment : Fragment() {
         editusaha.setOnClickListener {
             editUsahaActivity.launch(EDIT_USAHA)
         }
+        layoutRiwayat.setOnClickListener {
+            startActivity(Intent(requireContext(), ListRiwayatActivity::class.java))
+        }
     }
 
     private fun getDataUsaha() {
         val call: Call<GetInfoPenjual> = Constants.apiInterface.getInfoPenjual(preference.getValues("id_user"))
         call.enqueue(object: Callback<GetInfoPenjual> {
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<GetInfoPenjual>, response: Response<GetInfoPenjual>) {
                 val ui: GetInfoPenjual? = response.body()
                 if (ui?.status.toString() != "200") {
-                    Toast.makeText(requireContext(), ui?.message, Toast.LENGTH_SHORT).show()
+                    val photoDialog = MaterialAlertDialogBuilder(requireContext()).create()
+                    val inflater = LayoutInflater.from(requireContext())
+                    val dialogView = inflater.inflate(R.layout.alert_error, null)
+                    photoDialog.setCancelable(true)
+                    val tv = dialogView.findViewById(R.id.tv) as TextView
+                    tv.text = "${ui?.message}. Cek koneksi anda!"
+                    photoDialog.setView(dialogView)
+                    photoDialog.show()
                 } else {
                     tambahUsaha.visibility = View.GONE
                     editusaha.visibility = View.VISIBLE
-
                     namaUsaha.text = ui?.dist_data?.nama_usaha.toString()
                     alamat.text = ui?.dist_data?.alamat.toString()
                     val im = Uri.parse(ui?.dist_data?.foto_usaha.toString())
@@ -64,7 +78,6 @@ class ProfilFragment : Fragment() {
                         .load(im)
                         .apply(RequestOptions.centerCropTransform())
                         .into(imageUsaha)
-
                     imageUsaha.visibility = View.VISIBLE
                     imageUsahaAwal.visibility = View.GONE
                     preference.setValues("id_penjual", ui?.dist_data?.id_penjual.toString())
@@ -72,7 +85,12 @@ class ProfilFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<GetInfoPenjual>, t: Throwable) {
-                Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(requireContext()).create()
+                val inflater = LayoutInflater.from(requireContext())
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }
@@ -81,13 +99,26 @@ class ProfilFragment : Fragment() {
         val call: Call<GetUserInfo> = Constants.apiInterface.getUserInfo("Bearer ${preference.getValues("token")}")
         call.enqueue(object: Callback<GetUserInfo> {
             override fun onFailure(call: Call<GetUserInfo>, t: Throwable) {
-                Toast.makeText(requireContext(), t.message, Toast.LENGTH_LONG).show()
+                val photoDialog = MaterialAlertDialogBuilder(requireContext()).create()
+                val inflater = LayoutInflater.from(requireContext())
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
 
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<GetUserInfo>, response: Response<GetUserInfo>) {
                 val ui: GetUserInfo? = response.body()
                 if (ui?.status.toString() != "200") {
-                    Toast.makeText(requireContext(), ui?.message, Toast.LENGTH_LONG).show()
+                    val photoDialog = MaterialAlertDialogBuilder(requireContext()).create()
+                    val inflater = LayoutInflater.from(requireContext())
+                    val dialogView = inflater.inflate(R.layout.alert_error, null)
+                    photoDialog.setCancelable(true)
+                    val tv = dialogView.findViewById(R.id.tv) as TextView
+                    tv.text = "${ui?.message}. Cek koneksi anda!"
+                    photoDialog.setView(dialogView)
+                    photoDialog.show()
                 } else {
                     profil_nama.text = ui?.user?.username.toString()
                     profil_hape.text = ui?.user?.no_hp.toString()
@@ -97,7 +128,6 @@ class ProfilFragment : Fragment() {
                         .load(image)
                         .apply(RequestOptions.circleCropTransform())
                         .into(imageProfil)
-
                     preference.setValues("id_user", ui?.user?.id_user.toString())
                 }
             }

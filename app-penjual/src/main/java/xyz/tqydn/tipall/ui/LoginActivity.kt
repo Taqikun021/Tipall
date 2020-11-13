@@ -21,7 +21,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         preferences = SharedPreference(this)
-
         if (preferences.getValues("isLogin").equals("1")){
             val i = Intent(this@LoginActivity, CadanganActivity::class.java)
             startActivity(i)
@@ -30,7 +29,6 @@ class LoginActivity : AppCompatActivity() {
             buttonMasuk.setOnClickListener {
                 val email = editTextEmail.text.toString()
                 val pw = editTextPaw.text.toString()
-
                 when {
                     email.isEmpty() -> {
                         editTextEmail.error = "Silahkan tulis Username Anda"
@@ -43,7 +41,6 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             }
-
             buttonBuatAkun.setOnClickListener {
                 startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
             }

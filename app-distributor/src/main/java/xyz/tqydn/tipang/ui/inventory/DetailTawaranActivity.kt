@@ -5,8 +5,6 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.TextView
-import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -29,7 +27,6 @@ class DetailTawaranActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_tawaran)
         preference = SharedPreference(this)
-
         getDetail()
     }
 
@@ -42,12 +39,11 @@ class DetailTawaranActivity : AppCompatActivity() {
                 val imgProfil = Uri.parse(item?.foto)
                 val imgBarang = Uri.parse(item?.foto_barang)
                 val distance = hitungJarak(
-                        preference.getValues("lat")!!.toDouble(),
-                        preference.getValues("long")!!.toDouble(),
-                        item?.lat!!.toDouble(),
-                        item.lng!!.toDouble()
+                    preference.getValues("lat")!!.toDouble(),
+                    preference.getValues("long")!!.toDouble(),
+                    item?.lat!!.toDouble(),
+                    item.lng!!.toDouble()
                 )
-
                 kode_transaksi.text = item.kode_transaksi
                 tanggal.text = item.waktu_mulai
                 namaUsaha.text = item.nama_usaha
@@ -61,7 +57,6 @@ class DetailTawaranActivity : AppCompatActivity() {
                 total.text = formatRupiah(item.total_tagihan!!.toDouble())
                 jumlah.setText(item.jumlah_barang)
                 jumlah.isClickable = false
-
                 Glide.with(this@DetailTawaranActivity)
                         .load(imgProfil)
                         .apply(RequestOptions.circleCropTransform())
@@ -71,7 +66,6 @@ class DetailTawaranActivity : AppCompatActivity() {
                         .load(imgBarang)
                         .apply(RequestOptions.centerCropTransform())
                         .into(barang)
-
                 if (item.jenis_kelamin == "Perempuan") {
                     namaPemilik.text = "Ibu ${item.username}"
                 } else {

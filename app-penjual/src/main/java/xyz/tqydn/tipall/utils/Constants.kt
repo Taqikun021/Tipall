@@ -56,6 +56,16 @@ class Constants {
             return (jarak[0]/1000)
         }
 
+        fun detailTawaran(context: Context, id: Int?): Intent {
+            return Intent(context, DetailTawaranActivity::class.java)
+                .putExtra(ID, id)
+        }
+
+        fun riwayatTransaksi(context: Context, id: Int?): Intent {
+            return Intent(context, RiwayatTransaksiActivity::class.java)
+                .putExtra(ID, id)
+        }
+
         fun detailPermintaan(context: Context, id: Int?): Intent {
             return Intent(context, DetailPermintaanActivity::class.java)
                 .putExtra(ID, id)

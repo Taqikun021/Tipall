@@ -10,7 +10,6 @@ class VerEmailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ver_email)
-
         buttonMasuk.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)

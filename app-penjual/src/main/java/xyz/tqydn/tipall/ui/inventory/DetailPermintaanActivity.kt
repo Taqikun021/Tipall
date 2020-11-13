@@ -27,7 +27,6 @@ class DetailPermintaanActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_permintaan)
         preference = SharedPreference(this)
-
         getDetail()
     }
 
@@ -43,9 +42,7 @@ class DetailPermintaanActivity : AppCompatActivity() {
                     preference.getValues("lat")!!.toDouble(),
                     preference.getValues("long")!!.toDouble(),
                     item?.lat!!.toDouble(),
-                    item.lng!!.toDouble()
-                )
-
+                    item.lng!!.toDouble())
                 kode_transaksi.text = item.kode_transaksi
                 tanggal.text = item.waktu_mulai
                 namaUsaha.text = item.nama_usaha
@@ -59,17 +56,14 @@ class DetailPermintaanActivity : AppCompatActivity() {
                 total.text = formatRupiah(item.total_tagihan!!.toDouble())
                 jumlah.setText(item.jumlah_barang)
                 jumlah.isClickable = false
-
                 Glide.with(this@DetailPermintaanActivity)
                     .load(imgProfil)
                     .apply(RequestOptions.circleCropTransform())
                     .into(imagePenjual)
-
                 Glide.with(this@DetailPermintaanActivity)
                     .load(imgBarang)
                     .apply(RequestOptions.centerCropTransform())
                     .into(barang)
-
                 if (item.jenis_kelamin == "Perempuan") {
                     namaPemilik.text = "Ibu ${item.username}"
                 } else {

@@ -31,7 +31,6 @@ class DetailHutangActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_hutang)
         preference = SharedPreference(this)
-
         showTransaksi()
         keMaps.setOnClickListener {
             startActivity(
@@ -58,7 +57,6 @@ class DetailHutangActivity : AppCompatActivity() {
                 ke = "${item?.lat},${item?.lng}"
                 telepon = "62${item?.no_hp}"
                 status = item?.status_transaksi.toString()
-
                 Glide.with(this@DetailHutangActivity)
                         .load(imgProfil)
                         .apply(RequestOptions.circleCropTransform())
@@ -71,7 +69,6 @@ class DetailHutangActivity : AppCompatActivity() {
                         .load(imgBarang)
                         .apply(RequestOptions.centerCropTransform())
                         .into(barang)
-
                 kode_transaksi.text = item?.kode_transaksi
                 tanggal.text = item?.waktu_mulai
                 namaUsaha.text = item?.nama_usaha

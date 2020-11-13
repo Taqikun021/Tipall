@@ -32,28 +32,23 @@ class PermintaanAdapter(private val items: List<TransaksiItem?>): RecyclerView.A
                 val imgUsaha = Uri.parse(item?.foto_usaha)
                 val harga = formatRupiah(item?.total_tagihan!!.toDouble())
                 val distance = hitungJarak(
-                        preference.getValues("lat")!!.toDouble(),
-                        preference.getValues("long")!!.toDouble(),
-                        item.lat!!.toDouble(),
-                        item.lng!!.toDouble()
-                )
-
+                    preference.getValues("lat")!!.toDouble(),
+                    preference.getValues("long")!!.toDouble(),
+                    item.lat!!.toDouble(),
+                    item.lng!!.toDouble())
                 itemView.namaBarang.text = item.nama_barang
                 itemView.namaUsaha.text = item.nama_usaha
                 itemView.HargaBarang.text = harga
                 itemView.jarak.text = "${"%.2f".format(distance)} km"
                 itemView.stok.text = item.jumlah_barang
-
                 Glide.with(itemView.context)
-                        .load(imgBarang)
-                        .apply(RequestOptions.centerCropTransform())
-                        .into(imageBarang)
-
+                    .load(imgBarang)
+                    .apply(RequestOptions.centerCropTransform())
+                    .into(imageBarang)
                 Glide.with(itemView.context)
-                        .load(imgUsaha)
-                        .apply(RequestOptions.circleCropTransform())
-                        .into(imagePenjual)
-
+                    .load(imgUsaha)
+                    .apply(RequestOptions.circleCropTransform())
+                    .into(imagePenjual)
                 itemView.setOnClickListener {
                     onItemClickCallback?.onItemClicked(item)
                     preference.setValues("trans_click", item.id_transaksi.toString())

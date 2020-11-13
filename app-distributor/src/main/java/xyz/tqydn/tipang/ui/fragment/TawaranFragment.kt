@@ -16,9 +16,7 @@ import xyz.tqydn.tipang.R
 import xyz.tqydn.tipang.adapter.TawaranAdapter
 import xyz.tqydn.tipang.model.Transaksi
 import xyz.tqydn.tipang.model.TransaksiItem
-import xyz.tqydn.tipang.utils.Constants.Companion.DETAIL_TAWARAN
-import xyz.tqydn.tipang.utils.Constants.Companion.status1
-import xyz.tqydn.tipang.utils.Constants.Companion.apiInterface
+import xyz.tqydn.tipang.utils.Constants
 import xyz.tqydn.tipang.utils.SharedPreference
 import xyz.tqydn.tipang.utils.contracts.DetailTawaranContract
 
@@ -34,7 +32,7 @@ class TawaranFragment : Fragment() {
     }
 
     private fun fetchTransaksi(id: String?) {
-        val call: Call<Transaksi> = apiInterface.getListTransaksi(status1, id)
+        val call: Call<Transaksi> = Constants.apiInterface.getListTransaksi(Constants.status1, id)
         call.enqueue(object : Callback<Transaksi> {
             override fun onResponse(call: Call<Transaksi>, response: Response<Transaksi>) {
                 val item = response.body()?.transaksi
@@ -52,7 +50,6 @@ class TawaranFragment : Fragment() {
             override fun onFailure(call: Call<Transaksi>, t: Throwable) {
                 rv.visibility = View.GONE
                 kosong.visibility = View.VISIBLE
-
                 iv.setImageResource(R.drawable.ic_ilustrasi_eror)
                 tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
             }
@@ -65,7 +62,7 @@ class TawaranFragment : Fragment() {
         rv.layoutManager = LinearLayoutManager(requireContext())
         items.setOnItemClickCallback(object: TawaranAdapter.OnItemClickCallback{
             override fun onItemClicked(transaksi: TransaksiItem) {
-                detailTawaran.launch(DETAIL_TAWARAN)
+                detailTawaran.launch(Constants.DETAIL_TAWARAN)
             }
         })
     }

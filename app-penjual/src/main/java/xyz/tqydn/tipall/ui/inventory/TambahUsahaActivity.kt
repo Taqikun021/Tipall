@@ -1,5 +1,6 @@
 package xyz.tqydn.tipall.ui.inventory
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -41,7 +42,6 @@ class TambahUsahaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tambah_usaha)
         preference = SharedPreference(this)
-
         imageProfil.setOnClickListener {
             val photoDialog = MaterialAlertDialogBuilder(this).create()
             val inflater = LayoutInflater.from(this)
@@ -50,7 +50,6 @@ class TambahUsahaActivity : AppCompatActivity() {
             photoDialog.setView(dialogView)
             val kamera = dialogView.findViewById(R.id.ambilPhoto) as LinearLayout
             val file = dialogView.findViewById(R.id.pilihFile) as LinearLayout
-
             kamera.setOnClickListener {
                 bukaKamera.launch(Constants.REQUEST_IMAGE_CAPTURE)
                 photoDialog.dismiss()
@@ -61,16 +60,13 @@ class TambahUsahaActivity : AppCompatActivity() {
             }
             photoDialog.show()
         }
-
         getLokasi.setOnClickListener {
             takeLocationIntent.launch(PLACE_PICKER_REQUEST)
         }
-
         buttonSimpan.setOnClickListener {
             val nama = etNamaUsaha.text.toString().trim()
             val foto = imageUri.toString()
             alamats = alamat.text.toString().trim()
-
             when {
                 nama.isEmpty() -> {
                     etNamaUsaha.error = "Nama tidak boleh kosong"
@@ -86,8 +82,7 @@ class TambahUsahaActivity : AppCompatActivity() {
     }
 
     private fun tambahUsaha(nama: String, foto: String, lat: String, long: String, alamat: String) {
-        val call: Call<DefaultResponse> = Constants.apiInterface
-                .tambahUsaha(preference.getValues("id_user"), nama, foto, lat, long, alamat)
+        val call: Call<DefaultResponse> = Constants.apiInterface.tambahUsaha(preference.getValues("id_user"), nama, foto, lat, long, alamat)
         call.enqueue(object : Callback<DefaultResponse> {
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                 val ui: DefaultResponse? = response.body()
@@ -101,7 +96,12 @@ class TambahUsahaActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                Toast.makeText(this@TambahUsahaActivity, t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@TambahUsahaActivity).create()
+                val inflater = LayoutInflater.from(this@TambahUsahaActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }
@@ -112,7 +112,6 @@ class TambahUsahaActivity : AppCompatActivity() {
         bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val image = baos.toByteArray()
         val upload = storageRef.putBytes(image)
-
         upload.addOnCompleteListener { uploadTask ->
             if (uploadTask.isSuccessful){
                 storageRef.downloadUrl.addOnCompleteListener { urlTask ->
@@ -122,7 +121,6 @@ class TambahUsahaActivity : AppCompatActivity() {
                                 .load(imageUri)
                                 .apply(RequestOptions.centerCropTransform())
                                 .into(imageUsaha)
-
                         imageUsaha.visibility = View.VISIBLE
                         imageUsahaAwal.visibility = View.GONE
                     }
@@ -144,6 +142,7 @@ class TambahUsahaActivity : AppCompatActivity() {
         uploadImageAndSaveUri(BitmapFactory.decodeStream(input))
     }
 
+    @SuppressLint("SetTextI18n")
     private val takeLocationIntent = registerForActivityResult(PlacePickerContract()) { result ->
         latitude = result[0]
         longitude = result[1]

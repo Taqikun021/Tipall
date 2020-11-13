@@ -17,10 +17,10 @@ import xyz.tqydn.tipang.adapter.PenjualAdapter
 import xyz.tqydn.tipang.model.DataPenjual
 import xyz.tqydn.tipang.model.Penjual
 import xyz.tqydn.tipang.utils.Constants
-import xyz.tqydn.tipang.utils.Constants.Companion.BUAT_TRANSAKSI
 import xyz.tqydn.tipang.utils.SharedPreference
 import xyz.tqydn.tipang.utils.contracts.BuatTransaksiContract
 
+@SuppressLint("SetTextI18n")
 class PenjualFragment : Fragment() {
 
     lateinit var preference: SharedPreference
@@ -46,11 +46,10 @@ class PenjualFragment : Fragment() {
                 }
             }
 
-            @SuppressLint("SetTextI18n")
+
             override fun onFailure(call: Call<Penjual>, t: Throwable) {
                 rvPenjual.visibility = View.GONE
                 kosong.visibility = View.VISIBLE
-
                 iv.setImageResource(R.drawable.ic_ilustrasi_eror)
                 tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
             }
@@ -63,7 +62,7 @@ class PenjualFragment : Fragment() {
         rvPenjual.adapter = penjualAdapter
         penjualAdapter.setOnItemClickCallback(object : PenjualAdapter.OnItemClickCallback {
             override fun onItemClicked(penjual: DataPenjual) {
-                buatTransaksi.launch(BUAT_TRANSAKSI)
+                buatTransaksi.launch(Constants.BUAT_TRANSAKSI)
             }
         })
     }

@@ -35,9 +35,7 @@ class TawaranAdapter(private val items: List<TransaksiItem?>): RecyclerView.Adap
                     preference.getValues("lat")!!.toDouble(),
                     preference.getValues("long")!!.toDouble(),
                     item.lat!!.toDouble(),
-                    item.lng!!.toDouble()
-                )
-
+                    item.lng!!.toDouble())
                 itemView.namaBarang.text = item.nama_barang
                 itemView.namaUsaha.text = item.nama_usaha
                 itemView.HargaBarang.text = harga
@@ -51,7 +49,6 @@ class TawaranAdapter(private val items: List<TransaksiItem?>): RecyclerView.Adap
                     .load(imgUsaha)
                     .apply(RequestOptions.circleCropTransform())
                     .into(imagePenjual)
-
                 itemView.setOnClickListener {
                     onItemClickCallback?.onItemClicked(item)
                     preference.setValues("trans_click", item.id_transaksi.toString())

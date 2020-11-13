@@ -33,9 +33,7 @@ class PermintaanAdapter(private val items: List<TransaksiItem?>): RecyclerView.A
                     preference.getValues("lat")!!.toDouble(),
                     preference.getValues("long")!!.toDouble(),
                     item?.lat!!.toDouble(),
-                    item.lng!!.toDouble()
-                )
-
+                    item.lng!!.toDouble())
                 itemView.jumlahStok.text = "${item.jumlah_barang} item"
                 itemView.namaBarang.text = item.nama_barang
                 itemView.namaUsaha.text = item.nama_usaha
@@ -48,7 +46,6 @@ class PermintaanAdapter(private val items: List<TransaksiItem?>): RecyclerView.A
                     .load(imgUsaha)
                     .apply(RequestOptions.circleCropTransform())
                     .into(imagePenjual)
-
                 itemView.terima.setOnClickListener {
                     onItemClickCallback?.onItemClicked(item)
                     preference.setValues("trans_click", item.id_transaksi.toString())

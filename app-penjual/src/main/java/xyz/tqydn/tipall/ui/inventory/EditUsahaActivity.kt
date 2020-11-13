@@ -1,5 +1,6 @@
 package xyz.tqydn.tipall.ui.inventory
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -40,9 +41,7 @@ class EditUsahaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_usaha)
-
         preference = SharedPreference(this)
-
         getDataUsaha()
         imageProfil.setOnClickListener {
             val photoDialog = MaterialAlertDialogBuilder(this).create()
@@ -52,7 +51,6 @@ class EditUsahaActivity : AppCompatActivity() {
             photoDialog.setView(dialogView)
             val kamera = dialogView.findViewById(R.id.ambilPhoto) as LinearLayout
             val file = dialogView.findViewById(R.id.pilihFile) as LinearLayout
-
             kamera.setOnClickListener {
                 bukaKamera.launch(Constants.REQUEST_IMAGE_CAPTURE)
                 photoDialog.dismiss()
@@ -63,16 +61,13 @@ class EditUsahaActivity : AppCompatActivity() {
             }
             photoDialog.show()
         }
-
         getLokasi.setOnClickListener {
             takeLocationIntent.launch(com.sucho.placepicker.Constants.PLACE_PICKER_REQUEST)
         }
-
         buttonSimpan.setOnClickListener {
             val namaUsaha = etNamaUsaha.text.toString().trim()
             val foto = imageUri.toString()
             alamats = alamat.text.toString().trim()
-
             when {
                 namaUsaha.isEmpty() -> {
                     etNamaUsaha.error = "Nama tidak boleh kosong"
@@ -90,6 +85,7 @@ class EditUsahaActivity : AppCompatActivity() {
     private fun getDataUsaha() {
         val call: Call<GetInfoPenjual> = Constants.apiInterface.getInfoPenjual(preference.getValues("id_user"))
         call.enqueue(object : Callback<GetInfoPenjual> {
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<GetInfoPenjual>, response: Response<GetInfoPenjual>) {
                 val ui: GetInfoPenjual? = response.body()
                 if (ui?.status.toString() != "200") {
@@ -108,16 +104,19 @@ class EditUsahaActivity : AppCompatActivity() {
                         .load(imageUri)
                         .apply(RequestOptions.centerCropTransform())
                         .into(imageUsaha)
-
                     imageUsaha.visibility = View.VISIBLE
                     imageUsahaAwal.visibility = View.GONE
-
                     preference.setValues("id_penjual", ui?.dist_data?.id_penjual.toString())
                 }
             }
 
             override fun onFailure(call: Call<GetInfoPenjual>, t: Throwable) {
-                Toast.makeText(this@EditUsahaActivity, t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@EditUsahaActivity).create()
+                val inflater = LayoutInflater.from(this@EditUsahaActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }
@@ -140,7 +139,12 @@ class EditUsahaActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                Toast.makeText(this@EditUsahaActivity, t.message, Toast.LENGTH_SHORT).show()
+                val photoDialog = MaterialAlertDialogBuilder(this@EditUsahaActivity).create()
+                val inflater = LayoutInflater.from(this@EditUsahaActivity)
+                val dialogView = inflater.inflate(R.layout.alert_error, null)
+                photoDialog.setCancelable(true)
+                photoDialog.setView(dialogView)
+                photoDialog.show()
             }
         })
     }
@@ -150,7 +154,6 @@ class EditUsahaActivity : AppCompatActivity() {
         val storageRef = FirebaseStorage.getInstance().reference.child("usaha/" + UUID.randomUUID().toString())
         bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, ByteArrayOutputStream())
         val upload = storageRef.putBytes(image)
-
         upload.addOnCompleteListener { uploadTask ->
             if (uploadTask.isSuccessful){
                 storageRef.downloadUrl.addOnCompleteListener { urlTask ->
@@ -160,7 +163,6 @@ class EditUsahaActivity : AppCompatActivity() {
                             .load(imageUri)
                             .apply(RequestOptions.centerCropTransform())
                             .into(imageUsaha)
-
                         imageUsaha.visibility = View.VISIBLE
                         imageUsahaAwal.visibility = View.GONE
                     }
@@ -182,6 +184,7 @@ class EditUsahaActivity : AppCompatActivity() {
         uploadImageAndSaveUri(BitmapFactory.decodeStream(input))
     }
 
+    @SuppressLint("SetTextI18n")
     private val takeLocationIntent = registerForActivityResult(PlacePickerContract()) { result ->
         latitude = result[0]
         longitude = result[1]

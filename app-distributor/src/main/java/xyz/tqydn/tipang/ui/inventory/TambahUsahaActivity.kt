@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
@@ -42,7 +41,6 @@ class TambahUsahaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tambah_usaha)
         preference = SharedPreference(this)
-
         imageProfil.setOnClickListener {
             val photoDialog = MaterialAlertDialogBuilder(this).create()
             val inflater = LayoutInflater.from(this)
@@ -51,7 +49,6 @@ class TambahUsahaActivity : AppCompatActivity() {
             photoDialog.setView(dialogView)
             val kamera = dialogView.findViewById(R.id.ambilPhoto) as LinearLayout
             val file = dialogView.findViewById(R.id.pilihFile) as LinearLayout
-
             kamera.setOnClickListener {
                 bukaKamera.launch(Constants.REQUEST_IMAGE_CAPTURE)
                 photoDialog.dismiss()
@@ -62,17 +59,14 @@ class TambahUsahaActivity : AppCompatActivity() {
             }
             photoDialog.show()
         }
-
         getLokasi.setOnClickListener {
             takeLocationIntent.launch(com.sucho.placepicker.Constants.PLACE_PICKER_REQUEST)
         }
-
         buttonSimpan.setOnClickListener {
             val nama = etNamaUsaha.text.toString().trim()
             val desc = etDesc.text.toString().trim()
             val foto = imageUri.toString()
             alamats = alamat.text.toString().trim()
-
             when {
                 nama.isEmpty() -> {
                     etNamaUsaha.error = "Nama tidak boleh kosong"
@@ -94,8 +88,7 @@ class TambahUsahaActivity : AppCompatActivity() {
     }
 
     private fun tambahUsaha(nama: String, foto: String, lat: String, long: String, alamat: String, desc: String) {
-        val call: Call<DefaultResponse> = Constants.apiInterface
-            .tambahUsaha(preference.getValues("id_user"), nama, foto, lat, long, alamat, desc)
+        val call: Call<DefaultResponse> = Constants.apiInterface.tambahUsaha(preference.getValues("id_user"), nama, foto, lat, long, alamat, desc)
         call.enqueue(object : Callback<DefaultResponse> {
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                 val ui: DefaultResponse? = response.body()
@@ -125,7 +118,6 @@ class TambahUsahaActivity : AppCompatActivity() {
         bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val image = baos.toByteArray()
         val upload = storageRef.putBytes(image)
-
         upload.addOnCompleteListener { uploadTask ->
             if (uploadTask.isSuccessful){
                 storageRef.downloadUrl.addOnCompleteListener { urlTask ->
@@ -135,7 +127,6 @@ class TambahUsahaActivity : AppCompatActivity() {
                             .load(imageUri)
                             .apply(RequestOptions.centerCropTransform())
                             .into(imageUsaha)
-
                         imageUsaha.visibility = View.VISIBLE
                         imageUsahaAwal.visibility = View.GONE
                     }

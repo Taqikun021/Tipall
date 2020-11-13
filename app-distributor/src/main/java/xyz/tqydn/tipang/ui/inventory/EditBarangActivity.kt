@@ -10,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
@@ -39,7 +38,6 @@ class EditBarangActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_barang)
         preference = SharedPreference(this)
-
         getBarangInfo()
         imageBarang.setOnClickListener {
             val photoDialog = MaterialAlertDialogBuilder(this).create()
@@ -49,7 +47,6 @@ class EditBarangActivity : AppCompatActivity() {
             photoDialog.setView(dialogView)
             val kamera = dialogView.findViewById(R.id.ambilPhoto) as LinearLayout
             val file = dialogView.findViewById(R.id.pilihFile) as LinearLayout
-
             kamera.setOnClickListener {
                 bukaKamera.launch(Constants.REQUEST_IMAGE_CAPTURE)
                 photoDialog.dismiss()
@@ -60,7 +57,6 @@ class EditBarangActivity : AppCompatActivity() {
             }
             photoDialog.show()
         }
-
         buttonHapus.setOnClickListener {
             val alertDialog = MaterialAlertDialogBuilder(this).create()
             val inflater = LayoutInflater.from(this)
@@ -73,13 +69,11 @@ class EditBarangActivity : AppCompatActivity() {
                 hapusBarang()
                 alertDialog.dismiss()
             }
-
             batal.setOnClickListener {
                 alertDialog.dismiss()
             }
             alertDialog.show()
         }
-
         buttonSimpan.setOnClickListener{
             val nama = etNamaBarang.text.toString().trim()
             val desc = etDesc.text.toString().trim()
@@ -87,7 +81,6 @@ class EditBarangActivity : AppCompatActivity() {
             val stok = etStok.text.toString().trim()
             val harga = etHarga.text.toString().trim()
             val hargaJual = etHargaJual.text.toString().trim()
-
             when {
                 nama.isEmpty() -> {
                     etNamaBarang.error = "Nama Barang tidak boleh kosong"
@@ -117,13 +110,11 @@ class EditBarangActivity : AppCompatActivity() {
     }
 
     private fun editBarang(nama: String, foto: String, stok: String, desc: String, harga: String, hargaJual: String) {
-        val call: Call<DefaultResponse> = Constants.apiInterface
-            .editBarang(preference.getValues("barang_click"), nama, foto, stok, desc, harga, hargaJual)
+        val call: Call<DefaultResponse> = Constants.apiInterface.editBarang(preference.getValues("barang_click"), nama, foto, stok, desc, harga, hargaJual)
         call.enqueue(object : Callback<DefaultResponse> {
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
-                val data = response.body()
                 val intent = Intent().apply {
-                    putExtra(Constants.TITLE, data?.message.toString())
+                    putExtra(Constants.TITLE, response.body()?.message.toString())
                 }
                 setResult(RESULT_OK, intent)
                 finish()
@@ -144,8 +135,7 @@ class EditBarangActivity : AppCompatActivity() {
         val call: Call<DefaultResponse> = Constants.apiInterface.hapusBarang(preference.getValues("barang_click"))
         call.enqueue(object : Callback<DefaultResponse> {
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
-                val data = response.body()
-                Toast.makeText(this@EditBarangActivity, data?.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@EditBarangActivity, response.body()?.message, Toast.LENGTH_SHORT).show()
             }
 
             override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
@@ -174,7 +164,6 @@ class EditBarangActivity : AppCompatActivity() {
                     .load(imageUri)
                     .apply(RequestOptions.centerCropTransform())
                     .into(imageBarangFix)
-
                 imageBarangAwal.visibility = View.GONE
                 imageBarangFix.visibility = View.VISIBLE
             }
@@ -196,7 +185,6 @@ class EditBarangActivity : AppCompatActivity() {
         bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val image = baos.toByteArray()
         val upload = storageRef.putBytes(image)
-
         upload.addOnCompleteListener { uploadTask ->
             if (uploadTask.isSuccessful){
                 storageRef.downloadUrl.addOnCompleteListener { urlTask ->
@@ -206,7 +194,6 @@ class EditBarangActivity : AppCompatActivity() {
                             .load(imageUri)
                             .apply(RequestOptions.centerCropTransform())
                             .into(imageBarangFix)
-
                         imageBarangFix.visibility = View.VISIBLE
                         imageBarangAwal.visibility = View.GONE
                     }

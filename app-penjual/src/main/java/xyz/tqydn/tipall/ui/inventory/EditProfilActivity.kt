@@ -40,7 +40,6 @@ class EditProfilActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profil)
         preference = SharedPreference(this)
-
         getDataUser()
         val item = listOf("Laki laki", "Perempuan")
         val adapter = ArrayAdapter(this, R.layout.list_kelamin, item)
@@ -53,7 +52,6 @@ class EditProfilActivity : AppCompatActivity() {
             photoDialog.setView(dialogView)
             val kamera = dialogView.findViewById(R.id.ambilPhoto) as LinearLayout
             val file = dialogView.findViewById(R.id.pilihFile) as LinearLayout
-
             kamera.setOnClickListener {
                 bukaKamera.launch(REQUEST_IMAGE_CAPTURE)
                 photoDialog.dismiss()
@@ -64,14 +62,12 @@ class EditProfilActivity : AppCompatActivity() {
             }
             photoDialog.show()
         }
-
         buttonSimpan.setOnClickListener {
             val nama = etNama.text.toString().trim()
             val email = etEmail.text.toString().trim()
             val kelamin = etKelamin.text.toString().trim()
             val noHP = etHape.text.toString().trim()
             val foto = imageUri.toString()
-
             when {
                 nama.isEmpty() -> {
                     etNama.error = "Nama Tidak Boleh Kosong"
@@ -143,7 +139,6 @@ class EditProfilActivity : AppCompatActivity() {
         bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val image = baos.toByteArray()
         val upload = storageRef.putBytes(image)
-
         upload.addOnCompleteListener { uploadtask ->
             if (uploadtask.isSuccessful){
                 storageRef.downloadUrl.addOnCompleteListener { urlTask ->

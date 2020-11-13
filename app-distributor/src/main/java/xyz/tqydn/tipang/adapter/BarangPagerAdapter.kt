@@ -27,12 +27,10 @@ class BarangPagerAdapter(private val items: List<DataBarang>?): RecyclerView.Ada
             with(itemView){
                 val img = Uri.parse(item.foto_barang)
                 val harga = formatRupiah(item.harga_awal.toDouble())
-
                 itemView.namaBarang.text = item.nama_barang
                 itemView.descBarang.text = item.deskripsi_produk
                 itemView.stok.text = "Tersisa ${item.jumlah_stok} item"
                 itemView.HargaBarang.text = harga
-
                 Glide.with(context)
                     .load(img)
                     .apply(RequestOptions.centerCropTransform())

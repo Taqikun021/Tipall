@@ -12,8 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.row_belum_dibayar.view.*
 import xyz.tqydn.tipang.model.TransaksiItem
-import xyz.tqydn.tipang.utils.Constants.Companion.formatRupiah
-import xyz.tqydn.tipang.utils.Constants.Companion.hitungJarak
+import xyz.tqydn.tipang.utils.Constants
 import xyz.tqydn.tipang.utils.SharedPreference
 
 class BelumdibayarAdapter(private val items: List<TransaksiItem?>): RecyclerView.Adapter<BelumdibayarAdapter.MyViewHolder>() {
@@ -30,19 +29,13 @@ class BelumdibayarAdapter(private val items: List<TransaksiItem?>): RecyclerView
         fun bind(item: TransaksiItem?){
             with(itemView){
                 preference = SharedPreference(context)
-                val total = formatRupiah(item?.total_tagihan!!.toDouble())
+                val total = Constants.formatRupiah(item?.total_tagihan!!.toDouble())
                 val imgBarang = Uri.parse(item.foto)
                 val a1 = preference.getValues("lat")
                 val a2 = preference.getValues("long")
                 val b1 = item.lat
                 val b2 = item.lng
-                val distance = hitungJarak(
-                    a1!!.toDouble(),
-                    a2!!.toDouble(),
-                    b1!!.toDouble(),
-                    b2!!.toDouble()
-                )
-
+                val distance = Constants.hitungJarak(a1!!.toDouble(), a2!!.toDouble(), b1!!.toDouble(), b2!!.toDouble())
                 itemView.namaBarang.text = item.nama_barang
                 itemView.namaUsaha.text = item.nama_usaha
                 itemView.waktu.text = "Dimulai sejak ${item.waktu_mulai}"
@@ -54,14 +47,12 @@ class BelumdibayarAdapter(private val items: List<TransaksiItem?>): RecyclerView
                 } else {
                     itemView.namaPemilik.text = "Bapak ${item.username}"
                 }
-
                 itemView.imagePenjual.visibility = View.GONE
                 itemView.imagePenjualFix.visibility = View.VISIBLE
                 Glide.with(context)
                     .load(imgBarang)
                     .apply(RequestOptions.centerCropTransform())
                     .into(imagePenjualFix)
-
                 itemView.hubungi.setOnClickListener {
                     val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/62${item.no_hp}"))
                     startActivity(itemView.context, i, null)

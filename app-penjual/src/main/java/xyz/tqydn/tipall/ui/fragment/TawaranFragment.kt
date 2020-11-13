@@ -1,5 +1,6 @@
 package xyz.tqydn.tipall.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,8 +17,10 @@ import xyz.tqydn.tipall.adapter.TawaranAdapter
 import xyz.tqydn.tipall.model.Transaksi
 import xyz.tqydn.tipall.model.TransaksiItem
 import xyz.tqydn.tipall.utils.Constants
+import xyz.tqydn.tipall.utils.Constants.Companion.DETAIL_TAWARAN
 import xyz.tqydn.tipall.utils.Constants.Companion.status5
 import xyz.tqydn.tipall.utils.SharedPreference
+import xyz.tqydn.tipall.utils.contracts.DetailTawaranContract
 
 class TawaranFragment : Fragment() {
 
@@ -39,11 +42,18 @@ class TawaranFragment : Fragment() {
                     item?.let {
                         showTransaksi(it)
                     }
+                } else {
+                    rv.visibility = View.GONE
+                    kosong.visibility = View.VISIBLE
                 }
             }
 
+            @SuppressLint("SetTextI18n")
             override fun onFailure(call: Call<Transaksi>, t: Throwable) {
-                Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+                rv.visibility = View.GONE
+                kosong.visibility = View.VISIBLE
+                iv.setImageResource(R.drawable.ic_ilustrasi_eror)
+                tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
             }
         })
     }
@@ -54,9 +64,16 @@ class TawaranFragment : Fragment() {
         rv.layoutManager = LinearLayoutManager(requireContext())
         items.setOnItemClickCallback(object: TawaranAdapter.OnItemClickCallback{
             override fun onItemClicked(item: TransaksiItem) {
-                TODO("Not yet implemented")
+                detailTawaran.launch(DETAIL_TAWARAN)
             }
         })
+    }
+
+    private val detailTawaran = registerForActivityResult(DetailTawaranContract()){
+        if (it != null){
+            Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+        }
+        fetchTransaksi(preference.getValues("id_penjual"))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

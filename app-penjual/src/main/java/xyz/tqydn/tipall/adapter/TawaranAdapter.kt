@@ -30,28 +30,23 @@ class TawaranAdapter(private val items: List<TransaksiItem?>): RecyclerView.Adap
                 val imgBarang = Uri.parse(item?.foto_barang)
                 val imgUsaha = Uri.parse(item?.foto_usaha)
                 val distance = Constants.hitungJarak(
-                        preference.getValues("lat")!!.toDouble(),
-                        preference.getValues("long")!!.toDouble(),
-                        item?.lat!!.toDouble(),
-                        item.lng!!.toDouble()
-                )
-
+                    preference.getValues("lat")!!.toDouble(),
+                    preference.getValues("long")!!.toDouble(),
+                    item?.lat!!.toDouble(),
+                    item.lng!!.toDouble())
                 itemView.jumlahStok.text = "${item.jumlah_barang} item"
                 itemView.namaBarang.text = item.nama_barang
                 itemView.namaUsaha.text = item.nama_usaha
                 itemView.jarak.text = "${"%.2f".format(distance)} km"
-
                 Glide.with(context)
-                        .load(imgBarang)
-                        .apply(RequestOptions.centerCropTransform())
-                        .into(imageBarang)
-
+                    .load(imgBarang)
+                    .apply(RequestOptions.centerCropTransform())
+                    .into(imageBarang)
                 Glide.with(context)
-                        .load(imgUsaha)
-                        .apply(RequestOptions.circleCropTransform())
-                        .into(imagePenjual)
-
-                itemView.setOnClickListener {
+                    .load(imgUsaha)
+                    .apply(RequestOptions.circleCropTransform())
+                    .into(imagePenjual)
+                itemView.terima.setOnClickListener {
                     onItemClickCallback?.onItemClicked(item)
                     preference.setValues("trans_click", item.id_transaksi.toString())
                 }

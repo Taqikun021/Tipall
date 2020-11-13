@@ -21,6 +21,7 @@ import xyz.tqydn.tipang.utils.Constants.Companion.apiInterface
 import xyz.tqydn.tipang.utils.SharedPreference
 import xyz.tqydn.tipang.utils.contracts.DetailHutangContract
 
+@SuppressLint("SetTextI18n")
 class BelumdibayarFragment : Fragment() {
 
     private lateinit var preference: SharedPreference
@@ -47,11 +48,9 @@ class BelumdibayarFragment : Fragment() {
                 }
             }
 
-            @SuppressLint("SetTextI18n")
             override fun onFailure(call: Call<Transaksi>, t: Throwable) {
                 rv.visibility = View.GONE
                 kosong.visibility = View.VISIBLE
-
                 iv.setImageResource(R.drawable.ic_ilustrasi_eror)
                 tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
             }

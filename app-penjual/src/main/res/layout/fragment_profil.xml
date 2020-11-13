@@ -303,59 +303,6 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <View
-                        android:id="@+id/view1"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="16dp"
-                        android:background="@color/GARIS"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/layoutRiwayat"/>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/layoutAbout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/view1">
-
-                        <ImageView
-                            android:id="@+id/iv_about"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/riwayat"
-                            android:src="@drawable/ic_statistik_penjualan"
-                            app:tint="@color/textDiAwan"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="16dp"
-                            android:fontFamily="@font/poppins"
-                            android:text="@string/statistik_penjualan"
-                            android:textSize="@dimen/font_standar"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/iv_about"
-                            app:layout_constraintTop_toTopOf="parent"/>
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/tombol_next"
-                            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-                            app:tint="@color/textDiAwan"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"/>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <View
                         android:id="@+id/view2"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -364,7 +311,7 @@
                         android:background="@color/GARIS"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/layoutAbout"/>
+                        app:layout_constraintTop_toBottomOf="@+id/layoutRiwayat"/>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/layoutKetentuan"

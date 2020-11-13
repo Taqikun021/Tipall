@@ -57,7 +57,6 @@ class BarangFragment : Fragment() {
             override fun onFailure(call: Call<Barang>, t: Throwable) {
                 rvBarang.visibility = View.GONE
                 kosong.visibility = View.VISIBLE
-
                 iv.setImageResource(R.drawable.ic_ilustrasi_eror)
                 tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
             }

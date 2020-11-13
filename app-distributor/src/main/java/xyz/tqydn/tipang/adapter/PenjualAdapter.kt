@@ -34,8 +34,7 @@ class PenjualAdapter(private val penjuals: List<DataPenjual>): RecyclerView.Adap
                     preference.getValues("lat")!!.toDouble(),
                     preference.getValues("long")!!.toDouble(),
                     penjual.lat.toDouble(),
-                    penjual.lng.toDouble()
-                )
+                    penjual.lng.toDouble())
                 Glide.with(itemView.context)
                     .load(imgUsaha)
                     .apply(RequestOptions.centerCropTransform())

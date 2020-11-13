@@ -35,7 +35,6 @@ class DetailBerlangsungActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_berlangsung)
         preference = SharedPreference(this)
-
         showTransaksi()
         keMaps.setOnClickListener {
             startActivity(
@@ -60,7 +59,6 @@ class DetailBerlangsungActivity : AppCompatActivity() {
                 alertDialog.dismiss()
                 showTransaksi()
             }
-
             batal.setOnClickListener {
                 alertDialog.dismiss()
             }

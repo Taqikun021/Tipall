@@ -19,13 +19,7 @@ import retrofit2.Response
 import xyz.tqydn.tipang.R
 import xyz.tqydn.tipang.adapter.BarangPagerAdapter
 import xyz.tqydn.tipang.model.*
-import xyz.tqydn.tipang.utils.Constants.Companion.TITLE
-import xyz.tqydn.tipang.utils.Constants.Companion.status1
-import xyz.tqydn.tipang.utils.Constants.Companion.apiInterface
-import xyz.tqydn.tipang.utils.Constants.Companion.formatRupiah
-import xyz.tqydn.tipang.utils.Constants.Companion.hitungJarak
-import xyz.tqydn.tipang.utils.Constants.Companion.isNumber
-import xyz.tqydn.tipang.utils.Constants.Companion.kodeTransaksi
+import xyz.tqydn.tipang.utils.Constants
 import xyz.tqydn.tipang.utils.SharedPreference
 
 @SuppressLint("SetTextI18n")
@@ -43,7 +37,6 @@ class BuatTransaksiActivity : AppCompatActivity() {
         setContentView(R.layout.activity_buat_transaksi)
         preference = SharedPreference(this)
         var jumlahBarang = 0
-
         getPenjualInfo()
         getRatingPenjual()
         getBarang()
@@ -55,7 +48,7 @@ class BuatTransaksiActivity : AppCompatActivity() {
             }
             jumlah.setText(jumlahBarang.toString())
             jumlah.requestFocus()
-            total.text = formatRupiah(jumlahBarang*hargaBarang)
+            total.text = Constants.formatRupiah(jumlahBarang*hargaBarang)
         }
         tambah.setOnClickListener {
             if (jumlahBarang >= stok){
@@ -65,13 +58,13 @@ class BuatTransaksiActivity : AppCompatActivity() {
             }
             jumlah.setText(jumlahBarang.toString())
             jumlah.requestFocus()
-            total.text = formatRupiah(jumlahBarang*hargaBarang)
+            total.text = Constants.formatRupiah(jumlahBarang*hargaBarang)
         }
         kirimTawaran.setOnClickListener {
             val jml = jumlah.text.toString().trim()
             val hasil = (hargaBarang*jumlahBarang).toString()
 
-            if(!isNumber(jml)) {
+            if(!Constants.isNumber(jml)) {
                 jumlah.error = "Jumlah harus angka"
                 jumlah.requestFocus()
             } else if(jml.toInt() < 1) {
@@ -87,7 +80,7 @@ class BuatTransaksiActivity : AppCompatActivity() {
     }
 
     private fun buatTransaksi(jml: String, hasil: String) {
-        val call: Call<DefaultResponse> = apiInterface.buatTransaksi(idPenjual, idDistributor, idBarang, kodeTransaksi(), jml, hasil, 0, status1)
+        val call: Call<DefaultResponse> = Constants.apiInterface.buatTransaksi(idPenjual, idDistributor, idBarang, Constants.kodeTransaksi(), jml, hasil, 0, Constants.status1)
         call.enqueue(object: Callback<DefaultResponse>{
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                 if (response.body()?.status.toString() == "201") {
@@ -103,7 +96,7 @@ class BuatTransaksiActivity : AppCompatActivity() {
                     photoDialog.show()
                 }
                 val intent = Intent().apply {
-                    putExtra(TITLE, response.body()?.message.toString())
+                    putExtra(Constants.TITLE, response.body()?.message.toString())
                 }
                 setResult(RESULT_OK, intent)
                 finish()
@@ -121,7 +114,7 @@ class BuatTransaksiActivity : AppCompatActivity() {
     }
 
     private fun getBarang() {
-        val call: Call<Barang> = apiInterface.getBarang(preference.getValues("id_distributor"))
+        val call: Call<Barang> = Constants.apiInterface.getBarang(preference.getValues("id_distributor"))
         call.enqueue(object : Callback<Barang> {
             override fun onResponse(call: Call<Barang>, response: Response<Barang>) {
                 val item: Barang? = response.body()
@@ -161,7 +154,7 @@ class BuatTransaksiActivity : AppCompatActivity() {
     }
 
     private fun getRatingPenjual() {
-        val call: Call<Rating> = apiInterface.getRatingPenjual(preference.getValues("penjual_click"))
+        val call: Call<Rating> = Constants.apiInterface.getRatingPenjual(preference.getValues("penjual_click"))
         call.enqueue(object : Callback<Rating> {
             override fun onResponse(call: Call<Rating>, response: Response<Rating>) {
                 val item: Rating? = response.body()
@@ -192,13 +185,13 @@ class BuatTransaksiActivity : AppCompatActivity() {
     }
 
     private fun getPenjualInfo() {
-        val call: Call<DataPenjual> = apiInterface.getPenjualInfo(preference.getValues("penjual_click"))
+        val call: Call<DataPenjual> = Constants.apiInterface.getPenjualInfo(preference.getValues("penjual_click"))
         call.enqueue(object : Callback<DataPenjual> {
             override fun onResponse(call: Call<DataPenjual>, response: Response<DataPenjual>) {
                 val item: DataPenjual? = response.body()
                 if (response.code() == 200) {
                     val img = Uri.parse(item?.foto)
-                    val distance = hitungJarak(
+                    val distance = Constants.hitungJarak(
                         preference.getValues("lat")!!.toDouble(),
                         preference.getValues("long")!!.toDouble(),
                         item?.lat!!.toDouble(),
@@ -215,7 +208,6 @@ class BuatTransaksiActivity : AppCompatActivity() {
                     } else {
                         namaPemilik.text = "Bapak ${item.username}"
                     }
-
                     Glide.with(this@BuatTransaksiActivity)
                         .load(img)
                         .apply(RequestOptions.circleCropTransform())

@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -39,7 +38,6 @@ class DetailPermintaanActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_permintaan)
         preference = SharedPreference(this)
-
         showTransaksi()
         keMaps.setOnClickListener {
             startActivity(
@@ -66,7 +64,6 @@ class DetailPermintaanActivity : AppCompatActivity() {
                 transDitolak(preference.getValues("trans_click"))
                 alertDialog.dismiss()
             }
-
             batal.setOnClickListener {
                 alertDialog.dismiss()
             }
@@ -162,7 +159,6 @@ class DetailPermintaanActivity : AppCompatActivity() {
                 idBarang = item?.id_barang.toString()
                 val jumlah = item?.jumlah_stok!!.toInt() - item.jumlah_barang!!.toInt()
                 stok = jumlah.toString()
-
                 Glide.with(this@DetailPermintaanActivity)
                         .load(imgProfil)
                         .apply(RequestOptions.circleCropTransform())
@@ -175,7 +171,6 @@ class DetailPermintaanActivity : AppCompatActivity() {
                         .load(imgBarang)
                         .apply(RequestOptions.centerCropTransform())
                         .into(barang)
-
                 kode_transaksi.text = item.kode_transaksi
                 tanggal.text = item.waktu_mulai
                 namaUsaha.text = item.nama_usaha

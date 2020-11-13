@@ -28,7 +28,6 @@ class BerlangsungAdapter(private val items: List<TransaksiItem?>): RecyclerView.
             with(itemView){
                 preference = SharedPreference(context)
                 val imgBarang = Uri.parse(item?.foto)
-
                 itemView.namaUsaha.text = item?.nama_usaha
                 itemView.jumlahStok.text = "${item?.jumlah_barang} item"
                 itemView.waktu.text = "Dimulai Sejak ${item?.waktu_mulai}"
@@ -38,12 +37,10 @@ class BerlangsungAdapter(private val items: List<TransaksiItem?>): RecyclerView.
                 } else {
                     itemView.namaPemilik.text = "Bapak ${item.username}"
                 }
-
                 Glide.with(context)
                     .load(imgBarang)
                     .apply(RequestOptions.centerCropTransform())
                     .into(imagePenjual)
-
                 itemView.setOnClickListener {
                     onItemClickCallback?.onItemClicked(item)
                     preference.setValues("trans_click", item.id_transaksi.toString())

@@ -19,7 +19,6 @@ class TransaksiFragment : Fragment() {
                 BerlangsungFragment(),
                 BelumdibayarFragment()
         )
-
         viewPager.adapter = TransaksiPagerAdapter(rv, requireActivity().supportFragmentManager, lifecycle)
         TabLayoutMediator(tab, viewPager){ tab, position ->
             when(position){

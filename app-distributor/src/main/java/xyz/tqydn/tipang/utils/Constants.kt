@@ -3,10 +3,6 @@ package xyz.tqydn.tipang.utils
 import android.content.Context
 import android.content.Intent
 import android.location.Location
-import android.view.LayoutInflater
-import android.view.View
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import xyz.tqydn.tipang.R
 import xyz.tqydn.tipang.network.ApiClient
 import xyz.tqydn.tipang.network.ApiInterface
 import xyz.tqydn.tipang.ui.inventory.*
@@ -32,7 +28,6 @@ class Constants {
         const val TITLE = "title"
         const val status1 = "TAWARAN_DIBUAT"
         const val status2 = "BERLANGSUNG"
-        const val status3 = "SELESAI"
         const val status4 = "GAGAL"
         const val status5 = "PERMINTAAN_DIBUAT"
 

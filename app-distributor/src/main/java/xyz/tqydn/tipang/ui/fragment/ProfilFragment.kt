@@ -22,14 +22,12 @@ import xyz.tqydn.tipang.model.GetDistInfo
 import xyz.tqydn.tipang.model.GetUserInfo
 import xyz.tqydn.tipang.ui.ListRiwayatActivity
 import xyz.tqydn.tipang.utils.Constants
-import xyz.tqydn.tipang.utils.Constants.Companion.EDIT_PROFIL
-import xyz.tqydn.tipang.utils.Constants.Companion.EDIT_USAHA
-import xyz.tqydn.tipang.utils.Constants.Companion.TAMBAH_USAHA
 import xyz.tqydn.tipang.utils.SharedPreference
 import xyz.tqydn.tipang.utils.contracts.EditProfilContract
 import xyz.tqydn.tipang.utils.contracts.EditUsahaContract
 import xyz.tqydn.tipang.utils.contracts.TambahUsahaContract
 
+@SuppressLint("SetTextI18n")
 class ProfilFragment : Fragment() {
 
     private lateinit var preference: SharedPreference
@@ -37,17 +35,16 @@ class ProfilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         preference = SharedPreference(requireContext())
-
         getDataUser()
         getDataUsaha()
         editprofil.setOnClickListener{
-            editProfilActivity.launch(EDIT_PROFIL)
+            editProfilActivity.launch(Constants.EDIT_PROFIL)
         }
         tambahUsaha.setOnClickListener {
-            tambahUsahaActivity.launch(TAMBAH_USAHA)
+            tambahUsahaActivity.launch(Constants.TAMBAH_USAHA)
         }
         editusaha.setOnClickListener {
-            editUsahaActivity.launch(EDIT_USAHA)
+            editUsahaActivity.launch(Constants.EDIT_USAHA)
         }
         layoutRiwayat.setOnClickListener {
             startActivity(Intent(requireContext(), ListRiwayatActivity::class.java))
@@ -66,7 +63,6 @@ class ProfilFragment : Fragment() {
                 photoDialog.show()
             }
 
-            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<GetUserInfo>, response: Response<GetUserInfo>) {
                 val ui: GetUserInfo? = response.body()
                 if (ui?.status.toString() != "200") {
@@ -87,7 +83,6 @@ class ProfilFragment : Fragment() {
                             .load(image)
                             .apply(RequestOptions.circleCropTransform())
                             .into(imageProfil)
-
                     preference.setValues("id_user", ui?.user?.id_user.toString())
                 }
             }
@@ -97,7 +92,6 @@ class ProfilFragment : Fragment() {
     private fun getDataUsaha() {
         val call: Call<GetDistInfo> = Constants.apiInterface.getDistInfo(preference.getValues("id_user"))
         call.enqueue(object: Callback<GetDistInfo> {
-            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<GetDistInfo>, response: Response<GetDistInfo>) {
                 val ui: GetDistInfo? = response.body()
                 if (ui?.status.toString() != "200") {
@@ -112,7 +106,6 @@ class ProfilFragment : Fragment() {
                 } else {
                     tambahUsaha.visibility = View.GONE
                     editusaha.visibility = View.VISIBLE
-
                     namaUsaha.text = ui?.dist_data?.nama_usaha.toString()
                     alamat.text = ui?.dist_data?.alamat.toString()
                     val im = Uri.parse(ui?.dist_data?.foto_usaha.toString())
@@ -120,10 +113,8 @@ class ProfilFragment : Fragment() {
                         .load(im)
                         .apply(RequestOptions.centerCropTransform())
                         .into(imageUsaha)
-
                     imageUsaha.visibility = View.VISIBLE
                     imageUsahaAwal.visibility = View.GONE
-
                     preference.setValues("id_distributor", ui?.dist_data!!.id_distributor)
                 }
             }

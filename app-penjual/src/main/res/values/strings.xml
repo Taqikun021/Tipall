@@ -109,4 +109,12 @@
     <string name="kirim_laporan">Kirim Laporan</string>
     <string name="tandai_selesai">Tandai Selesai</string>
     <string name="kamu_belum_membuat_permintaan_barang_hari_ini">Kamu belum membuat permintaan barang hari ini.</string>
+    <string name="urutkan_berdasarkan_waktu">Urutkan berdasarkan waktu</string>
+    <string name="buat_transaksi_baru">Buat Transaksi Baru</string>
+    <string name="kamu_tidak_punya_penawaran">Kamu tidak punya penawaran</string>
+    <string name="yakin_menolak_transaksi_ini">Yakin Menolak Transaksi Ini?</string>
+    <string name="yakin">Yakin</string>
+    <string name="batal">Batal</string>
+    <string name="tidak_ada_transaksi_berlangsung_hari_ini_ayo_buat_transaksi">Tidak ada transaksi berlangsung hari ini. Ayo buat Transaksi!</string>
+    <string name="lihat_detail_tawaran">Lihat Detail Tawaran</string>
 </resources>
