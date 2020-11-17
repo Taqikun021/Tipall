@@ -7,6 +7,5 @@ data class DistData(
     val foto_usaha: String,
     val lat: String,
     val lng: String,
-    val alamat: String,
-    val desc: String
+    val alamat: String
 )

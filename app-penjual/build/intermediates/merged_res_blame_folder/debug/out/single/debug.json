@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/font_poppins_bold.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/font/poppins_bold.xml"
-    },
-    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/navigation_mobile_navigation.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/navigation/mobile_navigation.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/font_poppins_bold.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/font/poppins_bold.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/drawable_ic_baseline_add_box_24.xml.flat",

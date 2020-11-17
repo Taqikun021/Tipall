@@ -64,7 +64,6 @@ class TambahUsahaActivity : AppCompatActivity() {
         }
         buttonSimpan.setOnClickListener {
             val nama = etNamaUsaha.text.toString().trim()
-            val desc = etDesc.text.toString().trim()
             val foto = imageUri.toString()
             alamats = alamat.text.toString().trim()
             when {
@@ -72,23 +71,19 @@ class TambahUsahaActivity : AppCompatActivity() {
                     etNamaUsaha.error = "Nama tidak boleh kosong"
                     etNamaUsaha.requestFocus()
                 }
-                desc.isEmpty() -> {
-                    etDesc.error = "Deskripsi tidak boleh kosong"
-                    etDesc.requestFocus()
-                }
                 etLokasi.equals("") -> {
                     etLokasi.error = "Ambil titik lokasi dengan mengetuk simbol lokasi"
                     etLokasi.requestFocus()
                 }
                 else -> {
-                    tambahUsaha(nama, foto, latitude, longitude, alamats, desc)
+                    tambahUsaha(nama, foto, latitude, longitude, alamats)
                 }
             }
         }
     }
 
-    private fun tambahUsaha(nama: String, foto: String, lat: String, long: String, alamat: String, desc: String) {
-        val call: Call<DefaultResponse> = Constants.apiInterface.tambahUsaha(preference.getValues("id_user"), nama, foto, lat, long, alamat, desc)
+    private fun tambahUsaha(nama: String, foto: String, lat: String, long: String, alamat: String) {
+        val call: Call<DefaultResponse> = Constants.apiInterface.tambahUsaha(preference.getValues("id_user"), nama, foto, lat, long, alamat)
         call.enqueue(object : Callback<DefaultResponse> {
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                 val ui: DefaultResponse? = response.body()

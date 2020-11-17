@@ -47,8 +47,7 @@ interface ApiInterface {
         @Field("foto_usaha") foto: String?,
         @Field("lat") lat: String,
         @Field("lng") lng: String,
-        @Field("alamat") alamat: String?,
-        @Field("desc") desc: String?
+        @Field("alamat") alamat: String?
     ): Call<DefaultResponse>
 
     @GET("getDistInfo.php")
@@ -64,8 +63,7 @@ interface ApiInterface {
         @Field("foto_usaha") foto_usaha: String?,
         @Field("lat") lat: String?,
         @Field("lng") lng: String?,
-        @Field("alamat") alamat: String?,
-        @Field("desc") desc: String?
+        @Field("alamat") alamat: String?
     ): Call<DefaultResponse>
 
     @GET("getBarangUser.php")

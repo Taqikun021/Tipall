@@ -67,27 +67,23 @@ class EditUsahaActivity : AppCompatActivity() {
         }
         buttonSimpan.setOnClickListener {
             val namaUsaha = etNamaUsaha.text.toString().trim()
-            val desc = etDesc.text.toString().trim()
             val foto = imageUri.toString()
             alamats = alamat.text.toString().trim()
             when { namaUsaha.isEmpty() -> {
                 etNamaUsaha.error = "Nama tidak boleh kosong"
                 etNamaUsaha.requestFocus()
-            } desc.isEmpty() -> {
-                etDesc.error = "Deskripsi tidak boleh kosong"
-                etDesc.requestFocus()
             } etLokasi.equals("") -> {
                 etLokasi.error = "Ambil titik lokasi dengan mengetuk simbol lokasi"
                 etLokasi.requestFocus()
             } else -> {
-                updateUsaha(namaUsaha, foto, latitude, longitude, alamats, desc)
+                updateUsaha(namaUsaha, foto, latitude, longitude, alamats)
             }
             }
         }
     }
 
-    private fun updateUsaha(nama: String, foto: String, lat: String, long: String, alamat: String, desc: String) {
-        val call: Call<DefaultResponse> = Constants.apiInterface.updateUsaha(preference.getValues("id_distributor"), nama, foto, lat, long, alamat, desc)
+    private fun updateUsaha(nama: String, foto: String, lat: String, long: String, alamat: String) {
+        val call: Call<DefaultResponse> = Constants.apiInterface.updateUsaha(preference.getValues("id_distributor"), nama, foto, lat, long, alamat)
         call.enqueue(object : Callback<DefaultResponse> {
             override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                 val ui: DefaultResponse? = response.body()
@@ -122,7 +118,6 @@ class EditUsahaActivity : AppCompatActivity() {
                     Toast.makeText(this@EditUsahaActivity, ui?.message, Toast.LENGTH_SHORT).show()
                 } else {
                     etNamaUsaha.setText(ui?.dist_data?.nama_usaha.toString())
-                    etDesc.setText(ui?.dist_data?.desc.toString())
                     val la = ui?.dist_data?.lat.toString()
                     val lo = ui?.dist_data?.lng.toString()
                     latitude = la
