@@ -331,6 +331,70 @@
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/GARIS"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutBarang" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutLaporan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view4">
+
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/barang_terjual"
+                    android:textSize="@dimen/font_standar"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/textGrey"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/barang_rusak_expired"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="@dimen/font_standar"
+                    android:textColor="@color/textGrey"
+                    app:layout_constraintTop_toBottomOf="@id/tv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:id="@+id/terjual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_3_item"
+                    android:textSize="@dimen/font_standar"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/rusak"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_3_item"
+                    android:textSize="@dimen/font_standar"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintTop_toBottomOf="@id/tv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <Button
                 android:id="@+id/mintaLaporan"
                 android:layout_width="match_parent"
@@ -342,7 +406,7 @@
                 android:textColor="@color/textDiAwan"
                 android:textSize="@dimen/font_standar"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutBarang" />
+                app:layout_constraintTop_toBottomOf="@id/layoutLaporan" />
 
             <Button
                 android:id="@+id/tandaiLunas"
@@ -356,7 +420,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/mintaLaporan"/>
+                app:layout_constraintTop_toBottomOf="@id/mintaLaporan" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -2132,6 +2132,7 @@ drawable ic_baseline_add_24
 drawable ic_baseline_add_a_photo_24
 drawable ic_baseline_add_box_24
 drawable ic_baseline_add_photo_alternate_24
+drawable ic_baseline_assignment_24
 drawable ic_baseline_edit_24
 drawable ic_baseline_history_24
 drawable ic_baseline_indeterminate_check_box_24
@@ -2232,6 +2233,7 @@ id HargaJualBarang
 id LayoutEmail
 id LayoutHape
 id LayoutKelamin
+id LayoutLaporan
 id LayoutLokasi
 id LayoutMap
 id LayoutNama
@@ -2329,6 +2331,7 @@ id bidirectional
 id blocking
 id bottom
 id bounce
+id buatLaporan
 id buatTransaksi
 id buttonBuatAkun
 id buttonDaftar
@@ -2430,6 +2433,8 @@ id enterAlways
 id enterAlwaysCollapsed
 id etEmail
 id etHape
+id etJenisLaporan
+id etJumlah
 id etKelamin
 id etLokasi
 id etNama
@@ -2508,6 +2513,7 @@ id jumpToEnd
 id jumpToStart
 id keMaps
 id keWA
+id kirimLaporan
 id kirimTawaran
 id kode_transaksi
 id kosong
@@ -2520,6 +2526,7 @@ id layoutBarang
 id layoutBintang
 id layoutKebijakan
 id layoutKetentuan
+id layoutLaporan
 id layoutRiwayat
 id layoutVersi
 id left
@@ -2559,7 +2566,6 @@ id media_actions
 id message
 id middle
 id mini
-id mintaLaporan
 id mobile_navigation
 id month_grid
 id month_navigation_bar
@@ -2670,6 +2676,7 @@ id right_icon
 id right_side
 id rounded
 id row_index_key
+id rusak
 id rv
 id rvBarang
 id rvRiwayat
@@ -2751,6 +2758,7 @@ id tambahUsaha
 id tandaiSelesai
 id tanggal
 id terima
+id terjual
 id terrain
 id tersedia
 id test_checkbox_android_button_tint
@@ -2914,6 +2922,7 @@ layout activity_splash_screen
 layout activity_tambah_usaha
 layout activity_ver_email
 layout alert_error
+layout alert_laporan
 layout alert_tolak
 layout bg_profil
 layout custom_dialog
@@ -3044,6 +3053,7 @@ string Narasi_Masuk
 string _0
 string _0_96_km
 string _123
+string _3_item
 string _4_5
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -3079,6 +3089,8 @@ string ambil_gambar
 string app_name
 string appbar_scrolling_view_behavior
 string barang
+string barang_rusak_expired
+string barang_terjual
 string barang_tersedia
 string batal
 string belum_dibayar
@@ -3088,6 +3100,7 @@ string berlangsung
 string bottom_sheet_behavior
 string bottomsheet_action_expand_halfway
 string buat_akun
+string buat_laporan
 string buat_permintaan
 string buat_transaksi_baru
 string buka_kamera
@@ -3151,6 +3164,7 @@ string installation_failed
 string installing_module
 string item_view_role_description
 string jenis_kelamin
+string jenis_laporan
 string judul_barang
 string jumlah_barang
 string jumlah_transaksi_per_bulan

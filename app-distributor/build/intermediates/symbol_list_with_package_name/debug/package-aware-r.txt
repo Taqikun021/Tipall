@@ -2538,6 +2538,7 @@ id layoutBarang
 id layoutBintang
 id layoutKebijakan
 id layoutKetentuan
+id layoutLaporan
 id layoutRiwayat
 id layoutVersi
 id left
@@ -2690,6 +2691,7 @@ id right_side
 id rl
 id rounded
 id row_index_key
+id rusak
 id rv
 id rvBarang
 id rvPenjual
@@ -2773,6 +2775,7 @@ id tambahUsaha
 id tandaiLunas
 id tanggal
 id terima
+id terjual
 id terrain
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
@@ -3073,6 +3076,7 @@ string _0
 string _0_96_km
 string _10_nama_barang
 string _123
+string _3_item
 string _4_5
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -3108,7 +3112,9 @@ string ambil_gambar
 string app_name
 string appbar_scrolling_view_behavior
 string barang
+string barang_rusak_expired
 string barang_saya
+string barang_terjual
 string barang_tersedia
 string batal
 string belum_dibayar

@@ -117,4 +117,9 @@
     <string name="batal">Batal</string>
     <string name="tidak_ada_transaksi_berlangsung_hari_ini_ayo_buat_transaksi">Tidak ada transaksi berlangsung hari ini. Ayo buat Transaksi!</string>
     <string name="lihat_detail_tawaran">Lihat Detail Tawaran</string>
+    <string name="barang_terjual">Barang Terjual</string>
+    <string name="barang_rusak_expired">Barang Rusak/Expired</string>
+    <string name="_3_item">3 Item</string>
+    <string name="buat_laporan">Buat Laporan</string>
+    <string name="jenis_laporan">Jenis Laporan</string>
 </resources>

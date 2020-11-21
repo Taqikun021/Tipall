@@ -12,7 +12,13 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.android.synthetic.main.activity_buat_transaksi.*
 import kotlinx.android.synthetic.main.activity_detail_berlangsung.*
+import kotlinx.android.synthetic.main.activity_detail_berlangsung.alamat
+import kotlinx.android.synthetic.main.activity_detail_berlangsung.imagePenjual
+import kotlinx.android.synthetic.main.activity_detail_berlangsung.namaPemilik
+import kotlinx.android.synthetic.main.activity_detail_berlangsung.namaUsaha
+import kotlinx.android.synthetic.main.activity_detail_berlangsung.ratingPenjual
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -126,7 +132,10 @@ class DetailBerlangsungActivity : AppCompatActivity() {
                 jumlahBarang.text = "${item?.jumlah_barang} Item"
                 totalHarga.text = Constants.formatRupiah(item?.total_tagihan!!.toDouble())
                 ratingPenjual.text = "%.2f".format(item.rating?.toDouble())
-                if (item.status_bayar == "1"){
+                val itungTerjual = item.jumlah_barang!!.toInt() - item.jumlah_sisa!!.toInt()
+                terjual.text = "$itungTerjual item"
+                rusak.text = "${item.jumlah_exp} item"
+                if (item.status_bayar == "1") {
                     tandaiLunas.visibility = View.GONE
                 }
                 if (item.jenis_kelamin == "Perempuan") {

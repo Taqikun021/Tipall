@@ -140,6 +140,10 @@
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/layout/bg_profil.xml"
     },
     {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/layout_alert_laporan.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/layout/alert_laporan.xml"
+    },
+    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/layout_row_belum_dibayar.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/layout/row_belum_dibayar.xml"
     },
@@ -362,6 +366,10 @@
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/drawable_ic_baseline_sort_24.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/drawable/ic_baseline_sort_24.xml"
+    },
+    {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/drawable_ic_baseline_assignment_24.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/drawable/ic_baseline_assignment_24.xml"
     },
     {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/layout_activity_detail_berlangsung.xml.flat",

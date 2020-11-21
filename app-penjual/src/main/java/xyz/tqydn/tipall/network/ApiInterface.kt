@@ -132,4 +132,12 @@ interface ApiInterface {
         @Field("status_transaksi") status_transaksi: String?,
         @Field("id_transaksi") id_transaksi: String?
     ): Call<DefaultResponse>
+
+    @FormUrlEncoded
+    @POST("updateLaporan.php")
+    fun updateLaporan(
+            @Field("jumlah_sisa") jumlah_sisa: String?,
+            @Field("jumlah_exp") jumlah_exp: String?,
+            @Field("id_transaksi") id_transaksi: String?
+    ): Call<DefaultResponse>
 }

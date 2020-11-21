@@ -134,4 +134,7 @@
     <string name="kamu_tidak_punya_permintaan">Kamu tidak punya permintaan.</string>
     <string name="tidak_ada_transaksi_berlangsung_hari_ini_ayo_buat_transaksi">Tidak ada transaksi berlangsung hari ini. Ayo buat transaksi!</string>
     <string name="ups_ada_yang_salah_nih_coba_cek_koneksi_kamu_dan_swipe_down_untuk_memuat_ulang">Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang</string>
+    <string name="barang_terjual">Barang Terjual</string>
+    <string name="barang_rusak_expired">Barang Rusak/Expired</string>
+    <string name="_3_item">3 Item</string>
 </resources>

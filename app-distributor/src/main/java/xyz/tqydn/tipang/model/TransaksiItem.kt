@@ -12,6 +12,8 @@ data class TransaksiItem(
     val waktu_selesai: String?,
     val status_bayar: String?,
     val status_transaksi: String?,
+    val jumlah_sisa: String?,
+    val jumlah_exp: String?,
     val nama_barang: String?,
     val foto_barang: String?,
     val jumlah_stok: String?,
