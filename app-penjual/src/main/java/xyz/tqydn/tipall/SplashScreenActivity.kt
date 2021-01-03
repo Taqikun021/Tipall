@@ -70,7 +70,7 @@ class SplashScreenActivity: AppCompatActivity() {
         locationRequest.numUpdates = 1
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         fusedLocationProviderClient.requestLocationUpdates(
-                locationRequest,locationCallback, Looper.myLooper()
+            locationRequest,locationCallback, Looper.myLooper()
         )
     }
 
@@ -83,9 +83,9 @@ class SplashScreenActivity: AppCompatActivity() {
 
     private fun reqPermission() {
         ActivityCompat.requestPermissions(this, arrayOf
-        (android.Manifest.permission.ACCESS_COARSE_LOCATION,
-                android.Manifest.permission.ACCESS_FINE_LOCATION),
-                permissionID
+            (android.Manifest.permission.ACCESS_COARSE_LOCATION,
+            android.Manifest.permission.ACCESS_FINE_LOCATION),
+            permissionID
         )
     }
 
@@ -100,7 +100,8 @@ class SplashScreenActivity: AppCompatActivity() {
 
     private fun isLocationEnabled():Boolean{
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
+            LocationManager.NETWORK_PROVIDER)
     }
 
     override fun onRequestPermissionsResult( requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

@@ -13,11 +13,11 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.fragment_profil.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipall.R
+import xyz.tqydn.tipall.databinding.FragmentProfilBinding
 import xyz.tqydn.tipall.model.GetInfoPenjual
 import xyz.tqydn.tipall.model.GetUserInfo
 import xyz.tqydn.tipall.ui.ListRiwayatActivity
@@ -33,22 +33,24 @@ import xyz.tqydn.tipall.utils.contracts.TambahUsahaContract
 class ProfilFragment : Fragment() {
 
     private lateinit var preference: SharedPreference
+    private var _binding: FragmentProfilBinding? = null
+    private val binding get() = _binding!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         preference = SharedPreference(requireContext())
         getDataUser()
         getDataUsaha()
-        editprofil.setOnClickListener{
+        binding.editprofil.setOnClickListener{
             editProfilActivity.launch(EDIT_PROFIL)
         }
-        tambahUsaha.setOnClickListener {
+        binding.tambahUsaha.setOnClickListener {
             tambahUsahaActivity.launch(TAMBAH_USAHA)
         }
-        editusaha.setOnClickListener {
+        binding.editusaha.setOnClickListener {
             editUsahaActivity.launch(EDIT_USAHA)
         }
-        layoutRiwayat.setOnClickListener {
+        binding.layoutRiwayat.setOnClickListener {
             startActivity(Intent(requireContext(), ListRiwayatActivity::class.java))
         }
     }
@@ -69,17 +71,17 @@ class ProfilFragment : Fragment() {
                     photoDialog.setView(dialogView)
                     photoDialog.show()
                 } else {
-                    tambahUsaha.visibility = View.GONE
-                    editusaha.visibility = View.VISIBLE
-                    namaUsaha.text = ui?.dist_data?.nama_usaha.toString()
-                    alamat.text = ui?.dist_data?.alamat.toString()
+                    binding.tambahUsaha.visibility = View.GONE
+                    binding.editusaha.visibility = View.VISIBLE
+                    binding.namaUsaha.text = ui?.dist_data?.nama_usaha.toString()
+                    binding.alamat.text = ui?.dist_data?.alamat.toString()
                     val im = Uri.parse(ui?.dist_data?.foto_usaha.toString())
                     Glide.with(requireActivity())
                         .load(im)
                         .apply(RequestOptions.centerCropTransform())
-                        .into(imageUsaha)
-                    imageUsaha.visibility = View.VISIBLE
-                    imageUsahaAwal.visibility = View.GONE
+                        .into(binding.imageUsaha)
+                    binding.imageUsaha.visibility = View.VISIBLE
+                    binding.imageUsahaAwal.visibility = View.GONE
                     preference.setValues("id_penjual", ui?.dist_data?.id_penjual.toString())
                 }
             }
@@ -120,14 +122,14 @@ class ProfilFragment : Fragment() {
                     photoDialog.setView(dialogView)
                     photoDialog.show()
                 } else {
-                    profil_nama.text = ui?.user?.username.toString()
-                    profil_hape.text = ui?.user?.no_hp.toString()
-                    profil_email.text = ui?.user?.email.toString()
+                    binding.profilNama.text = ui?.user?.username.toString()
+                    binding.profilHape.text = ui?.user?.no_hp.toString()
+                    binding.profilEmail.text = ui?.user?.email.toString()
                     val image = Uri.parse(ui?.user?.foto.toString())
                     Glide.with(requireActivity())
                         .load(image)
                         .apply(RequestOptions.circleCropTransform())
-                        .into(imageProfil)
+                        .into(binding.imageProfil)
                     preference.setValues("id_user", ui?.user?.id_user.toString())
                 }
             }
@@ -155,7 +157,13 @@ class ProfilFragment : Fragment() {
         getDataUsaha()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_profil, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentProfilBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

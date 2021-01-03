@@ -3,12 +3,11 @@ package xyz.tqydn.tipall.adapter
 import android.annotation.SuppressLint
 import android.net.Uri
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import kotlinx.android.synthetic.main.row_permintaan.view.*
+import xyz.tqydn.tipall.databinding.RowPermintaanBinding
 import xyz.tqydn.tipall.model.TransaksiItem
 import xyz.tqydn.tipall.utils.Constants.Companion.formatRupiah
 import xyz.tqydn.tipall.utils.Constants.Companion.hitungJarak
@@ -23,36 +22,34 @@ class PermintaanAdapter(private val items: List<TransaksiItem?>): RecyclerView.A
         this.onItemClickCallback = onItemClickCallback
     }
 
-    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class MyViewHolder(private val binding: RowPermintaanBinding) : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(item: TransaksiItem?){
-            with(itemView){
-                preference = SharedPreference(context)
-                val imgBarang = Uri.parse(item?.foto_barang)
-                val imgUsaha = Uri.parse(item?.foto_usaha)
-                val harga = formatRupiah(item?.total_tagihan!!.toDouble())
-                val distance = hitungJarak(
-                    preference.getValues("lat")!!.toDouble(),
-                    preference.getValues("long")!!.toDouble(),
-                    item.lat!!.toDouble(),
-                    item.lng!!.toDouble())
-                itemView.namaBarang.text = item.nama_barang
-                itemView.namaUsaha.text = item.nama_usaha
-                itemView.HargaBarang.text = harga
-                itemView.jarak.text = "${"%.2f".format(distance)} km"
-                itemView.stok.text = item.jumlah_barang
-                Glide.with(itemView.context)
-                    .load(imgBarang)
-                    .apply(RequestOptions.centerCropTransform())
-                    .into(imageBarang)
-                Glide.with(itemView.context)
-                    .load(imgUsaha)
-                    .apply(RequestOptions.circleCropTransform())
-                    .into(imagePenjual)
-                itemView.setOnClickListener {
-                    onItemClickCallback?.onItemClicked(item)
-                    preference.setValues("trans_click", item.id_transaksi.toString())
-                }
+            preference = SharedPreference(itemView.context)
+            val imgBarang = Uri.parse(item?.foto_barang)
+            val imgUsaha = Uri.parse(item?.foto_usaha)
+            val harga = formatRupiah(item?.total_tagihan!!.toDouble())
+            val distance = hitungJarak(
+                preference.getValues("lat")!!.toDouble(),
+                preference.getValues("long")!!.toDouble(),
+                item.lat!!.toDouble(),
+                item.lng!!.toDouble())
+            binding.namaBarang.text = item.nama_barang
+            binding.namaUsaha.text = item.nama_usaha
+            binding.HargaBarang.text = harga
+            binding.jarak.text = "${"%.2f".format(distance)} km"
+            binding.stok.text = item.jumlah_barang
+            Glide.with(itemView.context)
+                .load(imgBarang)
+                .apply(RequestOptions.centerCropTransform())
+                .into(binding.imageBarang)
+            Glide.with(itemView.context)
+                .load(imgUsaha)
+                .apply(RequestOptions.circleCropTransform())
+                .into(binding.imagePenjual)
+            itemView.setOnClickListener {
+                onItemClickCallback?.onItemClicked(item)
+                preference.setValues("trans_click", item.id_transaksi.toString())
             }
         }
     }
@@ -62,7 +59,7 @@ class PermintaanAdapter(private val items: List<TransaksiItem?>): RecyclerView.A
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(xyz.tqydn.tipall.R.layout.row_permintaan, parent, false)
+        val view = RowPermintaanBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(view)
     }
 

@@ -11,8 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tipall"
         android:usesCleartextTraffic="true"
+        tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".ui.inventory.DetailTawaranActivity"></activity>
+        <activity android:name=".ui.inventory.DetailTawaranActivity" />
         <activity android:name=".ui.inventory.RiwayatTransaksiActivity" />
         <activity android:name=".ui.ListRiwayatActivity" />
         <activity android:name=".ui.inventory.DetailPermintaanActivity" />
@@ -29,7 +30,6 @@
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -44,5 +44,4 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
     </application>
-
 </manifest>

@@ -16,11 +16,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_edit_usaha.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipang.R
+import xyz.tqydn.tipang.databinding.ActivityEditUsahaBinding
 import xyz.tqydn.tipang.model.DefaultResponse
 import xyz.tqydn.tipang.model.GetDistInfo
 import xyz.tqydn.tipang.utils.Constants
@@ -38,13 +38,15 @@ class EditUsahaActivity : AppCompatActivity() {
     private lateinit var longitude: String
     private lateinit var imageUri: Uri
     private lateinit var alamats: String
+    private lateinit var binding: ActivityEditUsahaBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_usaha)
+        binding = ActivityEditUsahaBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preference = SharedPreference(this)
         getDistInfo()
-        imageProfil.setOnClickListener {
+        binding.imageProfil.setOnClickListener {
             val photoDialog = MaterialAlertDialogBuilder(this).create()
             val inflater = LayoutInflater.from(this)
             val dialogView = inflater.inflate(R.layout.photo_dialog, null)
@@ -62,19 +64,19 @@ class EditUsahaActivity : AppCompatActivity() {
             }
             photoDialog.show()
         }
-        getLokasi.setOnClickListener {
+        binding.getLokasi.setOnClickListener {
             takeLocationIntent.launch(com.sucho.placepicker.Constants.PLACE_PICKER_REQUEST)
         }
-        buttonSimpan.setOnClickListener {
-            val namaUsaha = etNamaUsaha.text.toString().trim()
+        binding.buttonSimpan.setOnClickListener {
+            val namaUsaha = binding.etNamaUsaha.text.toString().trim()
             val foto = imageUri.toString()
-            alamats = alamat.text.toString().trim()
+            alamats = binding.alamat.text.toString().trim()
             when { namaUsaha.isEmpty() -> {
-                etNamaUsaha.error = "Nama tidak boleh kosong"
-                etNamaUsaha.requestFocus()
-            } etLokasi.equals("") -> {
-                etLokasi.error = "Ambil titik lokasi dengan mengetuk simbol lokasi"
-                etLokasi.requestFocus()
+                binding.etNamaUsaha.error = "Nama tidak boleh kosong"
+                binding.etNamaUsaha.requestFocus()
+            } binding.etLokasi.equals("") -> {
+                binding.etLokasi.error = "Ambil titik lokasi dengan mengetuk simbol lokasi"
+                binding.etLokasi.requestFocus()
             } else -> {
                 updateUsaha(namaUsaha, foto, latitude, longitude, alamats)
             }
@@ -117,21 +119,21 @@ class EditUsahaActivity : AppCompatActivity() {
                 if (ui?.status.toString() != "200") {
                     Toast.makeText(this@EditUsahaActivity, ui?.message, Toast.LENGTH_SHORT).show()
                 } else {
-                    etNamaUsaha.setText(ui?.dist_data?.nama_usaha.toString())
+                    binding.etNamaUsaha.setText(ui?.dist_data?.nama_usaha.toString())
                     val la = ui?.dist_data?.lat.toString()
                     val lo = ui?.dist_data?.lng.toString()
                     latitude = la
                     longitude = lo
                     alamats = ui?.dist_data?.alamat.toString()
-                    etLokasi.setText("$la, $lo")
-                    alamat.text = alamats
+                    binding.etLokasi.setText("$la, $lo")
+                    binding.alamat.text = alamats
                     imageUri = Uri.parse(ui?.dist_data?.foto_usaha.toString())
                     Glide.with(this@EditUsahaActivity)
                         .load(imageUri)
                         .apply(RequestOptions.centerCropTransform())
-                        .into(imageUsaha)
-                    imageUsaha.visibility = View.VISIBLE
-                    imageUsahaAwal.visibility = View.GONE
+                        .into(binding.imageUsaha)
+                    binding.imageUsaha.visibility = View.VISIBLE
+                    binding.imageUsahaAwal.visibility = View.GONE
                     preference.setValues("id_distributor", ui?.dist_data?.id_distributor.toString())
                 }
             }
@@ -160,9 +162,9 @@ class EditUsahaActivity : AppCompatActivity() {
                         Glide.with(this)
                             .load(imageUri)
                             .apply(RequestOptions.centerCropTransform())
-                            .into(imageUsaha)
-                        imageUsaha.visibility = View.VISIBLE
-                        imageUsahaAwal.visibility = View.GONE
+                            .into(binding.imageUsaha)
+                        binding.imageUsaha.visibility = View.VISIBLE
+                        binding.imageUsahaAwal.visibility = View.GONE
                     }
                 }
             } else {
@@ -177,8 +179,8 @@ class EditUsahaActivity : AppCompatActivity() {
         latitude = result[0]
         longitude = result[1]
         alamats = result[2]
-        etLokasi.setText("${result[0]}, ${result[1]}")
-        alamat.text = result[2]
+        binding.etLokasi.setText("${result[0]}, ${result[1]}")
+        binding.alamat.text = result[2]
     }
 
     private val bukaKamera = registerForActivityResult(ImageCameraContract()) { bitmap ->

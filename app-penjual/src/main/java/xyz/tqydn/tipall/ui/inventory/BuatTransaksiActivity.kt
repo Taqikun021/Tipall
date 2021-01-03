@@ -11,11 +11,11 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.activity_buat_transaksi.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipall.R
+import xyz.tqydn.tipall.databinding.ActivityBuatTransaksiBinding
 import xyz.tqydn.tipall.model.DataBarang
 import xyz.tqydn.tipall.model.DefaultResponse
 import xyz.tqydn.tipall.model.RatingBarang
@@ -35,46 +35,48 @@ class BuatTransaksiActivity : AppCompatActivity() {
     private lateinit var idPenjual: String
     private lateinit var idDistributor: String
     private lateinit var idBarang: String
+    private lateinit var binding: ActivityBuatTransaksiBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_buat_transaksi)
+        binding = ActivityBuatTransaksiBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preference = SharedPreference(this)
         var jumlahBarang = 0
         getDataBarang()
         getRatingBarang()
-        kurang.setOnClickListener {
+        binding.kurang.setOnClickListener {
             if (jumlahBarang == 0){
-                jumlah.error = "Jumlah harus positif"
+                binding.jumlah.error = "Jumlah harus positif"
             } else {
                 jumlahBarang -= 1
             }
-            jumlah.setText(jumlahBarang.toString())
-            jumlah.requestFocus()
-            total.text = Constants.formatRupiah(jumlahBarang*hargaBarang)
+            binding.jumlah.setText(jumlahBarang.toString())
+            binding.jumlah.requestFocus()
+            binding.total.text = Constants.formatRupiah(jumlahBarang*hargaBarang)
         }
-        tambah.setOnClickListener {
+        binding.tambah.setOnClickListener {
             if (jumlahBarang == stok){
-                jumlah.error = "Stok tidak mencukupi"
+                binding.jumlah.error = "Stok tidak mencukupi"
             } else {
                 jumlahBarang += 1
             }
-            jumlah.setText(jumlahBarang.toString())
-            jumlah.requestFocus()
-            total.text = Constants.formatRupiah(jumlahBarang*hargaBarang)
+            binding.jumlah.setText(jumlahBarang.toString())
+            binding.jumlah.requestFocus()
+            binding.total.text = Constants.formatRupiah(jumlahBarang*hargaBarang)
         }
-        kirimTawaran.setOnClickListener {
-            val jml = jumlah.text.toString().trim()
+        binding.kirimTawaran.setOnClickListener {
+            val jml = binding.jumlah.text.toString().trim()
             val hasil = (hargaBarang*jumlahBarang).toString()
             if(!isNumber(jml)) {
-                jumlah.error = "Jumlah harus angka"
-                jumlah.requestFocus()
+                binding.jumlah.error = "Jumlah harus angka"
+                binding.jumlah.requestFocus()
             } else if(jml.toInt() < 1) {
-                jumlah.error = "Jumlah harus terisi minimal 1"
-                jumlah.requestFocus()
+                binding.jumlah.error = "Jumlah harus terisi minimal 1"
+                binding.jumlah.requestFocus()
             } else if(jml.toInt() > stok) {
-                jumlah.error = "Stok tidak mencukupi"
-                jumlah.requestFocus()
+                binding.jumlah.error = "Stok tidak mencukupi"
+                binding.jumlah.requestFocus()
             } else {
                 buatTransaksi(jml, hasil)
             }
@@ -120,8 +122,8 @@ class BuatTransaksiActivity : AppCompatActivity() {
         call.enqueue(object : Callback<RatingBarang> {
             override fun onResponse(call: Call<RatingBarang>, response: Response<RatingBarang>) {
                 if (response.code() == 200) {
-                    ratingPenjual.text = "%.2f".format(response.body()?.rating_barang?.toFloat())
-                    transaksi.text = "${response.body()?.jumlah_transaksi} Transaksi"
+                    binding.ratingPenjual.text = "%.2f".format(response.body()?.rating_barang?.toFloat())
+                    binding.transaksi.text = "${response.body()?.jumlah_transaksi} Transaksi"
                 } else {
                     val photoDialog = MaterialAlertDialogBuilder(this@BuatTransaksiActivity).create()
                     val inflater = LayoutInflater.from(this@BuatTransaksiActivity)
@@ -161,23 +163,23 @@ class BuatTransaksiActivity : AppCompatActivity() {
                     idPenjual = preference.getValues("id_penjual")!!
                     idBarang = data.id_barang
                     idDistributor = data.id_distributor
-                    namaUsaha.text = data.nama_usaha
-                    namaPemilik.text = "Pemilik ${data.username}"
-                    jarak.text = "${"%.2f".format(distance)} km"
-                    alamat.text = data.alamat
-                    namaBarang.text = data.nama_barang
-                    descBarang.text = data.deskripsi_produk
-                    HargaBarang.text = Constants.formatRupiah(data.harga_awal.toDouble())
-                    HargaJualBarang.text = Constants.formatRupiah(data.harga_jual.toDouble())
-                    tersedia.text = "Tersedia ${data.jumlah_stok} item"
+                    binding.namaUsaha.text = data.nama_usaha
+                    binding.namaPemilik.text = "Pemilik ${data.username}"
+                    binding.jarak.text = "${"%.2f".format(distance)} km"
+                    binding.alamat.text = data.alamat
+                    binding.namaBarang.text = data.nama_barang
+                    binding.descBarang.text = data.deskripsi_produk
+                    binding.HargaBarang.text = Constants.formatRupiah(data.harga_awal.toDouble())
+                    binding.HargaJualBarang.text = Constants.formatRupiah(data.harga_jual.toDouble())
+                    binding.tersedia.text = "Tersedia ${data.jumlah_stok} item"
                     Glide.with(this@BuatTransaksiActivity)
                         .load(Uri.parse(data.foto_usaha))
                         .apply(RequestOptions.circleCropTransform())
-                        .into(imagePenjual)
+                        .into(binding.imagePenjual)
                     Glide.with(this@BuatTransaksiActivity)
                         .load(Uri.parse(data.foto_barang))
                         .apply(RequestOptions.centerCropTransform())
-                        .into(barang)
+                        .into(binding.barang)
                 } else {
                     val photoDialog = MaterialAlertDialogBuilder(this@BuatTransaksiActivity).create()
                     val inflater = LayoutInflater.from(this@BuatTransaksiActivity)

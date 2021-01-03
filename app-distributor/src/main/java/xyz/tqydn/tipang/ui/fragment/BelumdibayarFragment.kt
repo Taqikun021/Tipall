@@ -8,12 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_belumdibayar.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipang.R
 import xyz.tqydn.tipang.adapter.BelumdibayarAdapter
+import xyz.tqydn.tipang.databinding.FragmentBelumdibayarBinding
 import xyz.tqydn.tipang.model.Transaksi
 import xyz.tqydn.tipang.model.TransaksiItem
 import xyz.tqydn.tipang.utils.Constants
@@ -25,6 +25,8 @@ import xyz.tqydn.tipang.utils.contracts.DetailHutangContract
 class BelumdibayarFragment : Fragment() {
 
     private lateinit var preference: SharedPreference
+    private var _binding: FragmentBelumdibayarBinding? = null
+    private val binding get() = _binding!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -43,24 +45,24 @@ class BelumdibayarFragment : Fragment() {
                         showTransaksi(it)
                     }
                 } else {
-                    rv.visibility = View.GONE
-                    kosong.visibility = View.VISIBLE
+                    binding.rv.visibility = View.GONE
+                    binding.kosong.visibility = View.VISIBLE
                 }
             }
 
             override fun onFailure(call: Call<Transaksi>, t: Throwable) {
-                rv.visibility = View.GONE
-                kosong.visibility = View.VISIBLE
-                iv.setImageResource(R.drawable.ic_ilustrasi_eror)
-                tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
+                binding.rv.visibility = View.GONE
+                binding.kosong.visibility = View.VISIBLE
+                binding.iv.setImageResource(R.drawable.ic_ilustrasi_eror)
+                binding.tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
             }
         })
     }
 
     private fun showTransaksi(list: List<TransaksiItem?>) {
         val items = BelumdibayarAdapter(list)
-        rv.adapter = items
-        rv.layoutManager = LinearLayoutManager(requireContext())
+        binding.rv.adapter = items
+        binding.rv.layoutManager = LinearLayoutManager(requireContext())
         items.setOnItemClickCallback(object: BelumdibayarAdapter.OnItemClickCallback{
             override fun onItemClicked(item: TransaksiItem) {
                 detailBelumdibayar.launch(Constants.DETAIL_HUTANG)
@@ -75,7 +77,13 @@ class BelumdibayarFragment : Fragment() {
         fetchTransaksi(preference.getValues("id_distributor"))
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_belumdibayar, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentBelumdibayarBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

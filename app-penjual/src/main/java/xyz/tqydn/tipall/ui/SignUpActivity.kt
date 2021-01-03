@@ -7,46 +7,50 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.widget.Toast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.activity_sign_up.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipall.R
+import xyz.tqydn.tipall.databinding.ActivitySignUpBinding
 import xyz.tqydn.tipall.model.DefaultResponse
 import xyz.tqydn.tipall.utils.Constants.Companion.apiInterface
 
 class SignUpActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivitySignUpBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
-        val nama = FieldNamaLengkap.text.toString().trim()
-        val email = FieldDaftarEmail.text.toString().trim()
-        val pw = FieldPwDaftar.text.toString().trim()
-        val pwUlang = FieldPwUlang.text.toString().trim()
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val nama = binding.FieldNamaLengkap.text.toString().trim()
+        val email = binding.FieldDaftarEmail.text.toString().trim()
+        val pw = binding.FieldPwDaftar.text.toString().trim()
+        val pwUlang = binding.FieldPwUlang.text.toString().trim()
         if (pw != pwUlang){
-            FieldPwUlang.error = "Password Harus Sama"
-            FieldPwUlang.requestFocus()
+            binding.FieldPwUlang.error = "Password Harus Sama"
+            binding.FieldPwUlang.requestFocus()
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            FieldDaftarEmail.error = "Masukan Email dengan benar"
-            FieldDaftarEmail.requestFocus()
+            binding.FieldDaftarEmail.error = "Masukan Email dengan benar"
+            binding.FieldDaftarEmail.requestFocus()
         } else if (nama.isEmpty()){
-            FieldNamaLengkap.error = "Nama Tidak Boleh Kosong"
-            FieldNamaLengkap.requestFocus()
+            binding.FieldNamaLengkap.error = "Nama Tidak Boleh Kosong"
+            binding.FieldNamaLengkap.requestFocus()
         } else if (email.isEmpty()){
-            FieldDaftarEmail.error = "Email Tidak Boleh Kosong"
-            FieldDaftarEmail.requestFocus()
+            binding.FieldDaftarEmail.error = "Email Tidak Boleh Kosong"
+            binding.FieldDaftarEmail.requestFocus()
         } else if (pw.isEmpty()){
-            FieldPwDaftar.error = "Silahkan isi Password"
-            FieldPwDaftar.requestFocus()
+            binding.FieldPwDaftar.error = "Silahkan isi Password"
+            binding.FieldPwDaftar.requestFocus()
         } else if (pw.length < 8){
-            FieldPwDaftar.error = "Password Minimal memiliki 8 karakter"
-            FieldPwDaftar.requestFocus()
+            binding.FieldPwDaftar.error = "Password Minimal memiliki 8 karakter"
+            binding.FieldPwDaftar.requestFocus()
         } else {
-            buttonDaftar.setOnClickListener{
+            binding.buttonDaftar.setOnClickListener{
                 daftar(email, nama, pw)
             }
         }
-        buttonMasuklagi.setOnClickListener {
+        binding.buttonMasuklagi.setOnClickListener {
             startActivity(Intent(this@SignUpActivity, LoginActivity::class.java))
         }
     }

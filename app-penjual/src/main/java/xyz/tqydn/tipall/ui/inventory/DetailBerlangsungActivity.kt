@@ -13,12 +13,12 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.activity_detail_berlangsung.*
-import kotlinx.android.synthetic.main.alert_laporan.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipall.R
+import xyz.tqydn.tipall.databinding.ActivityDetailBerlangsungBinding
+import xyz.tqydn.tipall.databinding.AlertLaporanBinding
 import xyz.tqydn.tipall.model.DefaultResponse
 import xyz.tqydn.tipall.model.TransaksiItem
 import xyz.tqydn.tipall.utils.Constants
@@ -36,26 +36,28 @@ class DetailBerlangsungActivity : AppCompatActivity() {
     private lateinit var statusBayar: String
     private lateinit var sisa: String
     private lateinit var exp: String
+    private lateinit var binding: ActivityDetailBerlangsungBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_berlangsung)
+        binding = ActivityDetailBerlangsungBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preference = SharedPreference(this)
         showTransaksi()
-        keMaps.setOnClickListener {
+        binding.keMaps.setOnClickListener {
             startActivity(
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://google.co.id/maps/dir/${dari}/${ke}"))
             )
         }
-        keWA.setOnClickListener {
+        binding.keWA.setOnClickListener {
             startActivity(
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/${telepon}"))
             )
         }
-        buatLaporan.setOnClickListener {
+        binding.buatLaporan.setOnClickListener {
             buatLaporan()
         }
-        tandaiSelesai.setOnClickListener {
+        binding.tandaiSelesai.setOnClickListener {
             transaksiSelesai(preference.getValues("trans_click"))
         }
     }
@@ -64,11 +66,11 @@ class DetailBerlangsungActivity : AppCompatActivity() {
     private fun buatLaporan() {
         val photoDialog = MaterialAlertDialogBuilder(this@DetailBerlangsungActivity).create()
         val inflater = LayoutInflater.from(this@DetailBerlangsungActivity)
-        val dialogView = inflater.inflate(R.layout.alert_laporan, null)
+        val dialogView = AlertLaporanBinding.inflate(inflater)
         photoDialog.setCancelable(true)
-        photoDialog.setView(dialogView)
+        photoDialog.setView(dialogView.root)
         val item = listOf("Stok Tersisa", "Barang Rusak/Expired")
-        val adapter = ArrayAdapter(dialogView.context, R.layout.list_kelamin, item)
+        val adapter = ArrayAdapter(dialogView.root.context, R.layout.list_kelamin, item)
         (dialogView.LayoutLaporan.editText as? AutoCompleteTextView)?.setAdapter(adapter)
         photoDialog.show()
 
@@ -157,34 +159,34 @@ class DetailBerlangsungActivity : AppCompatActivity() {
                 Glide.with(this@DetailBerlangsungActivity)
                     .load(imgProfil)
                     .apply(RequestOptions.circleCropTransform())
-                    .into(imagePenjual)
+                    .into(binding.imagePenjual)
                 Glide.with(this@DetailBerlangsungActivity)
                     .load(imgUsaha)
                     .apply(RequestOptions.centerCropTransform())
-                    .into(imageUsaha)
+                    .into(binding.imageUsaha)
                 Glide.with(this@DetailBerlangsungActivity)
                     .load(imgBarang)
                     .apply(RequestOptions.centerCropTransform())
-                    .into(barang)
-                kode_transaksi.text = item.kode_transaksi
-                tanggal.text = item.waktu_mulai
-                namaUsaha.text = item.nama_usaha
-                alamat.text = item.alamat
-                nomorHP.text = "+62 ${item.no_hp}"
-                namaBarang.text = item.nama_barang
-                descBarang.text = item.deskripsi_produk
-                jumlahBarang.text = "${item.jumlah_barang} Item"
-                totalHarga.text = Constants.formatRupiah(item.total_tagihan!!.toDouble())
-                ratingPenjual.text = "%.2f".format(item.rating?.toDouble())
-                terjual.text = "$itungTerjual item"
-                rusak.text = "${item.jumlah_exp} item"
+                    .into(binding.barang)
+                binding.kodeTransaksi.text = item.kode_transaksi
+                binding.tanggal.text = item.waktu_mulai
+                binding.namaUsaha.text = item.nama_usaha
+                binding.alamat.text = item.alamat
+                binding.nomorHP.text = "+62 ${item.no_hp}"
+                binding.namaBarang.text = item.nama_barang
+                binding.descBarang.text = item.deskripsi_produk
+                binding.jumlahBarang.text = "${item.jumlah_barang} Item"
+                binding.totalHarga.text = Constants.formatRupiah(item.total_tagihan!!.toDouble())
+                binding.ratingPenjual.text = "%.2f".format(item.rating?.toDouble())
+                binding.terjual.text = "$itungTerjual item"
+                binding.rusak.text = "${item.jumlah_exp} item"
                 if (item.status_bayar == "1"){
-                    tandaiSelesai.visibility = View.GONE
+                    binding.tandaiSelesai.visibility = View.GONE
                 }
                 if (item.jenis_kelamin == "Perempuan") {
-                    namaPemilik.text = "Ibu ${item.username}"
+                    binding.namaPemilik.text = "Ibu ${item.username}"
                 } else {
-                    namaPemilik.text = "Bapak ${item.username}"
+                    binding.namaPemilik.text = "Bapak ${item.username}"
                 }
             }
 

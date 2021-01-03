@@ -4,11 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import xyz.tqydn.tipall.R
+import xyz.tqydn.tipall.databinding.ActivityLoginBinding
 import xyz.tqydn.tipall.model.LoginResponse
 import xyz.tqydn.tipall.utils.Constants.Companion.apiInterface
 import xyz.tqydn.tipall.utils.SharedPreference
@@ -16,32 +15,34 @@ import xyz.tqydn.tipall.utils.SharedPreference
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var preferences: SharedPreference
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preferences = SharedPreference(this)
         if (preferences.getValues("isLogin").equals("1")){
             val i = Intent(this@LoginActivity, CadanganActivity::class.java)
             startActivity(i)
             finishAffinity()
         } else {
-            buttonMasuk.setOnClickListener {
-                val email = editTextEmail.text.toString()
-                val pw = editTextPaw.text.toString()
+            binding.buttonMasuk.setOnClickListener {
+                val email = binding.editTextEmail.text.toString()
+                val pw = binding.editTextPaw.text.toString()
                 when {
                     email.isEmpty() -> {
-                        editTextEmail.error = "Silahkan tulis Username Anda"
-                        editTextEmail.requestFocus()
+                        binding.editTextEmail.error = "Silahkan tulis Username Anda"
+                        binding.editTextEmail.requestFocus()
                     } pw.isEmpty() -> {
-                        editTextPaw.error = "Silahkan tulis Password Anda"
-                        editTextPaw.requestFocus()
+                        binding.editTextPaw.error = "Silahkan tulis Password Anda"
+                        binding.editTextPaw.requestFocus()
                     } else -> {
                         pushLogin(email, pw)
                     }
                 }
             }
-            buttonBuatAkun.setOnClickListener {
+            binding.buttonBuatAkun.setOnClickListener {
                 startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
             }
         }

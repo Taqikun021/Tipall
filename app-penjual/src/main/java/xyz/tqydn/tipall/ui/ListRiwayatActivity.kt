@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_list_riwayat.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipall.R
 import xyz.tqydn.tipall.adapter.RiwayatAdapter
+import xyz.tqydn.tipall.databinding.ActivityListRiwayatBinding
 import xyz.tqydn.tipall.model.Transaksi
 import xyz.tqydn.tipall.model.TransaksiItem
 import xyz.tqydn.tipall.utils.Constants.Companion.RIWAYAT_TRANSAKSI
@@ -22,10 +22,12 @@ import xyz.tqydn.tipall.utils.contracts.RiwayatTransaksiContract
 class ListRiwayatActivity : AppCompatActivity() {
 
     private lateinit var preference: SharedPreference
+    private lateinit var binding: ActivityListRiwayatBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list_riwayat)
+        binding = ActivityListRiwayatBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preference = SharedPreference(this)
         val id = preference.getValues("id_penjual")
         fetchTransaksi(id)
@@ -41,25 +43,25 @@ class ListRiwayatActivity : AppCompatActivity() {
                         showTransaksi(it)
                     }
                 } else {
-                    rvRiwayat.visibility = View.GONE
-                    kosong.visibility = View.VISIBLE
+                    binding.rvRiwayat.visibility = View.GONE
+                    binding.kosong.visibility = View.VISIBLE
                 }
             }
 
             @SuppressLint("SetTextI18n")
             override fun onFailure(call: Call<Transaksi>, t: Throwable) {
-                rvRiwayat.visibility = View.GONE
-                kosong.visibility = View.VISIBLE
-                iv.setImageResource(R.drawable.ic_ilustrasi_eror)
-                tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
+                binding.rvRiwayat.visibility = View.GONE
+                binding.kosong.visibility = View.VISIBLE
+                binding.iv.setImageResource(R.drawable.ic_ilustrasi_eror)
+                binding.tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
             }
         })
     }
 
     private fun showTransaksi(list: List<TransaksiItem?>) {
         val items = RiwayatAdapter(list)
-        rvRiwayat.adapter = items
-        rvRiwayat.layoutManager = LinearLayoutManager(this)
+        binding.rvRiwayat.adapter = items
+        binding.rvRiwayat.layoutManager = LinearLayoutManager(this)
         items.setOnItemClickCallback(object: RiwayatAdapter.OnItemClickCallback{
             override fun onItemClicked(item: TransaksiItem) {
                 riwayatTransaksi.launch(RIWAYAT_TRANSAKSI)

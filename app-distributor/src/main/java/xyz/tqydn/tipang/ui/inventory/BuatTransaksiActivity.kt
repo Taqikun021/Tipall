@@ -12,12 +12,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.activity_buat_transaksi.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipang.R
 import xyz.tqydn.tipang.adapter.BarangPagerAdapter
+import xyz.tqydn.tipang.databinding.ActivityBuatTransaksiBinding
 import xyz.tqydn.tipang.model.*
 import xyz.tqydn.tipang.utils.Constants
 import xyz.tqydn.tipang.utils.SharedPreference
@@ -31,48 +31,50 @@ class BuatTransaksiActivity : AppCompatActivity() {
     private lateinit var idPenjual: String
     private lateinit var idDistributor: String
     private lateinit var idBarang: String
+    private lateinit var binding: ActivityBuatTransaksiBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_buat_transaksi)
+        binding = ActivityBuatTransaksiBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preference = SharedPreference(this)
         var jumlahBarang = 0
         getPenjualInfo()
         getRatingPenjual()
         getBarang()
-        kurang.setOnClickListener {
+        binding.kurang.setOnClickListener {
             if (jumlahBarang == 0){
-                jumlah.error = "Jumlah harus positif"
+                binding.jumlah.error = "Jumlah harus positif"
             } else {
                 jumlahBarang -= 1
             }
-            jumlah.setText(jumlahBarang.toString())
-            jumlah.requestFocus()
-            total.text = Constants.formatRupiah(jumlahBarang*hargaBarang)
+            binding.jumlah.setText(jumlahBarang.toString())
+            binding.jumlah.requestFocus()
+            binding.total.text = Constants.formatRupiah(jumlahBarang*hargaBarang)
         }
-        tambah.setOnClickListener {
+        binding.tambah.setOnClickListener {
             if (jumlahBarang >= stok){
-                jumlah.error = "Stok tidak mencukupi"
+                binding.jumlah.error = "Stok tidak mencukupi"
             } else {
                 jumlahBarang += 1
             }
-            jumlah.setText(jumlahBarang.toString())
-            jumlah.requestFocus()
-            total.text = Constants.formatRupiah(jumlahBarang*hargaBarang)
+            binding.jumlah.setText(jumlahBarang.toString())
+            binding.jumlah.requestFocus()
+            binding.total.text = Constants.formatRupiah(jumlahBarang*hargaBarang)
         }
-        kirimTawaran.setOnClickListener {
-            val jml = jumlah.text.toString().trim()
+        binding.kirimTawaran.setOnClickListener {
+            val jml = binding.jumlah.text.toString().trim()
             val hasil = (hargaBarang*jumlahBarang).toString()
 
             if(!Constants.isNumber(jml)) {
-                jumlah.error = "Jumlah harus angka"
-                jumlah.requestFocus()
+                binding.jumlah.error = "Jumlah harus angka"
+                binding.jumlah.requestFocus()
             } else if(jml.toInt() < 1) {
-                jumlah.error = "Jumlah harus terisi minimal 1"
-                jumlah.requestFocus()
+                binding.jumlah.error = "Jumlah harus terisi minimal 1"
+                binding.jumlah.requestFocus()
             } else if(jml.toInt() > stok) {
-                jumlah.error = "Stok tidak mencukupi"
-                jumlah.requestFocus()
+                binding.jumlah.error = "Stok tidak mencukupi"
+                binding.jumlah.requestFocus()
             } else {
                 buatTransaksi(jml, hasil)
             }
@@ -120,8 +122,8 @@ class BuatTransaksiActivity : AppCompatActivity() {
                 val item: Barang? = response.body()
                 val listBarang = item?.dataBarang
                 if (item!!.jumlahData > 0) {
-                    viewPager.adapter = BarangPagerAdapter(listBarang)
-                    viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                    binding.viewPager.adapter = BarangPagerAdapter(listBarang)
+                    binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                         override fun onPageSelected(position: Int) {
                             super.onPageSelected(position)
                             val a = listBarang?.get(position)
@@ -159,8 +161,8 @@ class BuatTransaksiActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Rating>, response: Response<Rating>) {
                 val item: Rating? = response.body()
                 if (response.code() == 200) {
-                    ratingPenjual.text = "%.2f".format(item?.rating_penjual!!.toDouble())
-                    transaksi.text = "Dari ${item.jumlah_transaksi} Transaksi"
+                    binding.ratingPenjual.text = "%.2f".format(item?.rating_penjual!!.toDouble())
+                    binding.transaksi.text = "Dari ${item.jumlah_transaksi} Transaksi"
                 } else {
                     val photoDialog = MaterialAlertDialogBuilder(this@BuatTransaksiActivity).create()
                     val inflater = LayoutInflater.from(this@BuatTransaksiActivity)
@@ -200,18 +202,18 @@ class BuatTransaksiActivity : AppCompatActivity() {
 
                     idPenjual = item.id_penjual
                     idDistributor = preference.getValues("id_distributor")!!
-                    namaUsaha.text = item.nama_usaha
-                    alamat.text = item.alamat
-                    jarak.text = "${"%.2f".format(distance)} km"
+                    binding.namaUsaha.text = item.nama_usaha
+                    binding.alamat.text = item.alamat
+                    binding.jarak.text = "${"%.2f".format(distance)} km"
                     if (item.jenis_kelamin == "Perempuan") {
-                        namaPemilik.text = "Ibu ${item.username}"
+                        binding.namaPemilik.text = "Ibu ${item.username}"
                     } else {
-                        namaPemilik.text = "Bapak ${item.username}"
+                        binding.namaPemilik.text = "Bapak ${item.username}"
                     }
                     Glide.with(this@BuatTransaksiActivity)
                         .load(img)
                         .apply(RequestOptions.circleCropTransform())
-                        .into(imagePenjual)
+                        .into(binding.imagePenjual)
                 } else {
                     val photoDialog = MaterialAlertDialogBuilder(this@BuatTransaksiActivity).create()
                     val inflater = LayoutInflater.from(this@BuatTransaksiActivity)

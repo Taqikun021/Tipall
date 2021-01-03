@@ -16,11 +16,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_tambah_usaha.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipang.R
+import xyz.tqydn.tipang.databinding.ActivityTambahUsahaBinding
 import xyz.tqydn.tipang.model.DefaultResponse
 import xyz.tqydn.tipang.utils.Constants
 import xyz.tqydn.tipang.utils.SharedPreference
@@ -36,12 +36,14 @@ class TambahUsahaActivity : AppCompatActivity() {
     private lateinit var longitude: String
     private lateinit var imageUri: Uri
     private lateinit var alamats: String
+    private lateinit var binding: ActivityTambahUsahaBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tambah_usaha)
+        binding = ActivityTambahUsahaBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preference = SharedPreference(this)
-        imageProfil.setOnClickListener {
+        binding.imageProfil.setOnClickListener {
             val photoDialog = MaterialAlertDialogBuilder(this).create()
             val inflater = LayoutInflater.from(this)
             val dialogView = inflater.inflate(R.layout.photo_dialog, null)
@@ -59,21 +61,21 @@ class TambahUsahaActivity : AppCompatActivity() {
             }
             photoDialog.show()
         }
-        getLokasi.setOnClickListener {
+        binding.getLokasi.setOnClickListener {
             takeLocationIntent.launch(com.sucho.placepicker.Constants.PLACE_PICKER_REQUEST)
         }
-        buttonSimpan.setOnClickListener {
-            val nama = etNamaUsaha.text.toString().trim()
+        binding.buttonSimpan.setOnClickListener {
+            val nama = binding.etNamaUsaha.text.toString().trim()
             val foto = imageUri.toString()
-            alamats = alamat.text.toString().trim()
+            alamats = binding.alamat.text.toString().trim()
             when {
                 nama.isEmpty() -> {
-                    etNamaUsaha.error = "Nama tidak boleh kosong"
-                    etNamaUsaha.requestFocus()
+                    binding.etNamaUsaha.error = "Nama tidak boleh kosong"
+                    binding.etNamaUsaha.requestFocus()
                 }
-                etLokasi.equals("") -> {
-                    etLokasi.error = "Ambil titik lokasi dengan mengetuk simbol lokasi"
-                    etLokasi.requestFocus()
+                binding.etLokasi.equals("") -> {
+                    binding.etLokasi.error = "Ambil titik lokasi dengan mengetuk simbol lokasi"
+                    binding.etLokasi.requestFocus()
                 }
                 else -> {
                     tambahUsaha(nama, foto, latitude, longitude, alamats)
@@ -121,9 +123,9 @@ class TambahUsahaActivity : AppCompatActivity() {
                         Glide.with(this)
                             .load(imageUri)
                             .apply(RequestOptions.centerCropTransform())
-                            .into(imageUsaha)
-                        imageUsaha.visibility = View.VISIBLE
-                        imageUsahaAwal.visibility = View.GONE
+                            .into(binding.imageUsaha)
+                        binding.imageUsaha.visibility = View.VISIBLE
+                        binding.imageUsahaAwal.visibility = View.GONE
                     }
                 }
             } else {
@@ -148,7 +150,7 @@ class TambahUsahaActivity : AppCompatActivity() {
         latitude = result[0]
         longitude = result[1]
         alamats = result[2]
-        etLokasi.setText("${result[0]}, ${result[1]}")
-        alamat.text = result[2]
+        binding.etLokasi.setText("${result[0]}, ${result[1]}")
+        binding.alamat.text = result[2]
     }
 }

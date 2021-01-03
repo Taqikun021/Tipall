@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.fragment_transaksi.*
-import xyz.tqydn.tipang.R
 import xyz.tqydn.tipang.adapter.TransaksiPagerAdapter
+import xyz.tqydn.tipang.databinding.FragmentTransaksiBinding
 
 class TransaksiFragment : Fragment() {
+
+    private var _binding: FragmentTransaksiBinding? = null
+    private val binding get() = _binding!!
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val rv = listOf(
@@ -19,8 +22,8 @@ class TransaksiFragment : Fragment() {
                 BerlangsungFragment(),
                 BelumdibayarFragment()
         )
-        viewPager.adapter = TransaksiPagerAdapter(rv, requireActivity().supportFragmentManager, lifecycle)
-        TabLayoutMediator(tab, viewPager){ tab, position ->
+        binding.viewPager.adapter = TransaksiPagerAdapter(rv, requireActivity().supportFragmentManager, lifecycle)
+        TabLayoutMediator(binding.tab, binding.viewPager){ tab, position ->
             when(position){
                 0 -> tab.text = "Tawaran Saya"
                 1 -> tab.text = "Permintaan"
@@ -30,7 +33,13 @@ class TransaksiFragment : Fragment() {
         }.attach()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_transaksi, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentTransaksiBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

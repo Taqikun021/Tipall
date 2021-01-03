@@ -8,11 +8,11 @@ import android.view.LayoutInflater
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.activity_detail_tawaran.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipang.R
+import xyz.tqydn.tipang.databinding.ActivityDetailTawaranBinding
 import xyz.tqydn.tipang.model.TransaksiItem
 import xyz.tqydn.tipang.utils.Constants.Companion.apiInterface
 import xyz.tqydn.tipang.utils.Constants.Companion.formatRupiah
@@ -22,10 +22,12 @@ import xyz.tqydn.tipang.utils.SharedPreference
 class DetailTawaranActivity : AppCompatActivity() {
 
     private lateinit var preference: SharedPreference
+    private lateinit var binding: ActivityDetailTawaranBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_tawaran)
+        binding = ActivityDetailTawaranBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preference = SharedPreference(this)
         getDetail()
     }
@@ -44,32 +46,31 @@ class DetailTawaranActivity : AppCompatActivity() {
                     item?.lat!!.toDouble(),
                     item.lng!!.toDouble()
                 )
-                kode_transaksi.text = item.kode_transaksi
-                tanggal.text = item.waktu_mulai
-                namaUsaha.text = item.nama_usaha
-                ratingPenjual.text = "%.2f".format(item.rating?.toDouble())
-                transaksi.text = "Dari ${item.jumlah_transaksi} Transaksi"
-                jarak.text = "${"%.2f".format(distance)} km"
-                namaBarang.text = item.nama_barang
-                descBarang.text = item.deskripsi_produk
-                HargaBarang.text = formatRupiah(item.harga_awal!!.toDouble())
-                alamat.text = item.alamat
-                total.text = formatRupiah(item.total_tagihan!!.toDouble())
-                jumlah.setText(item.jumlah_barang)
-                jumlah.isClickable = false
+                binding.kodeTransaksi.text = item.kode_transaksi
+                binding.tanggal.text = item.waktu_mulai
+                binding.namaUsaha.text = item.nama_usaha
+                binding.ratingPenjual.text = "%.2f".format(item.rating?.toDouble())
+                binding.transaksi.text = "Dari ${item.jumlah_transaksi} Transaksi"
+                binding.jarak.text = "${"%.2f".format(distance)} km"
+                binding.namaBarang.text = item.nama_barang
+                binding.descBarang.text = item.deskripsi_produk
+                binding.HargaBarang.text = formatRupiah(item.harga_awal!!.toDouble())
+                binding.alamat.text = item.alamat
+                binding.total.text = formatRupiah(item.total_tagihan!!.toDouble())
+                binding.jumlah.setText(item.jumlah_barang)
+                binding.jumlah.isClickable = false
                 Glide.with(this@DetailTawaranActivity)
                         .load(imgProfil)
                         .apply(RequestOptions.circleCropTransform())
-                        .into(imagePenjual)
-
+                        .into(binding.imagePenjual)
                 Glide.with(this@DetailTawaranActivity)
                         .load(imgBarang)
                         .apply(RequestOptions.centerCropTransform())
-                        .into(barang)
+                        .into(binding.barang)
                 if (item.jenis_kelamin == "Perempuan") {
-                    namaPemilik.text = "Ibu ${item.username}"
+                    binding.namaPemilik.text = "Ibu ${item.username}"
                 } else {
-                    namaPemilik.text = "Bapak ${item.username}"
+                    binding.namaPemilik.text = "Bapak ${item.username}"
                 }
             }
 

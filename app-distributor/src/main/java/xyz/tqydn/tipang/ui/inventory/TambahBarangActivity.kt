@@ -15,11 +15,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_tambah_barang.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipang.R
+import xyz.tqydn.tipang.databinding.ActivityTambahBarangBinding
 import xyz.tqydn.tipang.model.DefaultResponse
 import xyz.tqydn.tipang.utils.Constants
 import xyz.tqydn.tipang.utils.SharedPreference
@@ -29,14 +29,16 @@ import java.util.*
 
 class TambahBarangActivity : AppCompatActivity() {
 
-    lateinit var preference: SharedPreference
+    private lateinit var preference: SharedPreference
     private lateinit var imageUri: Uri
+    private lateinit var binding: ActivityTambahBarangBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tambah_barang)
+        binding = ActivityTambahBarangBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preference = SharedPreference(this)
-        imageBarang.setOnClickListener {
+        binding.imageBarang.setOnClickListener {
             val photoDialog = MaterialAlertDialogBuilder(this).create()
             val inflater = LayoutInflater.from(this)
             val dialogView = inflater.inflate(R.layout.photo_dialog, null)
@@ -54,28 +56,28 @@ class TambahBarangActivity : AppCompatActivity() {
             }
             photoDialog.show()
         }
-        buttonSimpan.setOnClickListener{
-            val nama = etNamaBarang.text.toString().trim()
-            val desc = etDesc.text.toString().trim()
+        binding.buttonSimpan.setOnClickListener{
+            val nama = binding.etNamaBarang.text.toString().trim()
+            val desc = binding.etDesc.text.toString().trim()
             val foto = imageUri.toString()
-            val stok = etStok.text.toString().trim()
-            val harga = etHarga.text.toString().trim()
-            val hargaJual = etHargaJual.text.toString().trim()
+            val stok = binding.etStok.text.toString().trim()
+            val harga = binding.etHarga.text.toString().trim()
+            val hargaJual = binding.etHargaJual.text.toString().trim()
             when { nama.isEmpty() -> {
-                etNamaBarang.error = "Nama Barang tidak boleh kosong"
-                etNamaBarang.requestFocus()
+                binding.etNamaBarang.error = "Nama Barang tidak boleh kosong"
+                binding.etNamaBarang.requestFocus()
             } desc.isEmpty() -> {
-                etDesc.error = "Berikan deskripsi tentang barang anda"
-                etDesc.requestFocus()
+                binding.etDesc.error = "Berikan deskripsi tentang barang anda"
+                binding.etDesc.requestFocus()
             } stok.toInt() < 0 -> {
-                etStok.error = "Stok minimum 0"
-                etStok.requestFocus()
+                binding.etStok.error = "Stok minimum 0"
+                binding.etStok.requestFocus()
             } harga >= hargaJual -> {
-                etHargaJual.error = "Berikan selisih harga untuk keuntungan anda"
-                etHargaJual.requestFocus()
+                binding.etHargaJual.error = "Berikan selisih harga untuk keuntungan anda"
+                binding.etHargaJual.requestFocus()
             } harga.toInt() < 1 -> {
-                etHarga.error = "Harga minimum Rp. 1"
-                etHarga.requestFocus()
+                binding.etHarga.error = "Harga minimum Rp. 1"
+                binding.etHarga.requestFocus()
             } else -> {
                 tambahBarang(nama, foto, stok, desc, harga, hargaJual)
             }
@@ -122,9 +124,9 @@ class TambahBarangActivity : AppCompatActivity() {
                         Glide.with(this)
                             .load(imageUri)
                             .apply(RequestOptions.centerCropTransform())
-                            .into(imageBarangFix)
-                        imageBarangFix.visibility = View.VISIBLE
-                        imageBarangAwal.visibility = View.GONE
+                            .into(binding.imageBarangFix)
+                        binding.imageBarangFix.visibility = View.VISIBLE
+                        binding.imageBarangAwal.visibility = View.GONE
                     }
                 }
             } else {

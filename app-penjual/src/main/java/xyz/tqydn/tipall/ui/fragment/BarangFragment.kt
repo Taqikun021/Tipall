@@ -8,12 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_barang.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipall.R
 import xyz.tqydn.tipall.adapter.BarangAdapter
+import xyz.tqydn.tipall.databinding.FragmentBarangBinding
 import xyz.tqydn.tipall.model.Barang
 import xyz.tqydn.tipall.model.DataBarang
 import xyz.tqydn.tipall.utils.Constants
@@ -24,6 +24,8 @@ import xyz.tqydn.tipall.utils.contracts.BuatTransaksiContract
 class BarangFragment : Fragment() {
 
     private lateinit var preference: SharedPreference
+    private var _binding: FragmentBarangBinding? = null
+    private val binding get() = _binding!!
 
     private val buatTransaksi = registerForActivityResult(BuatTransaksiContract()){
         if (it != null){
@@ -48,25 +50,25 @@ class BarangFragment : Fragment() {
                         showBarang(it)
                     }
                 } else {
-                    rvBarang.visibility = View.GONE
-                    kosong.visibility = View.VISIBLE
+                    binding.rvBarang.visibility = View.GONE
+                    binding.kosong.visibility = View.VISIBLE
                 }
             }
 
             @SuppressLint("SetTextI18n")
             override fun onFailure(call: Call<Barang>, t: Throwable) {
-                rvBarang.visibility = View.GONE
-                kosong.visibility = View.VISIBLE
-                iv.setImageResource(R.drawable.ic_ilustrasi_eror)
-                tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
+                binding.rvBarang.visibility = View.GONE
+                binding.kosong.visibility = View.VISIBLE
+                binding.iv.setImageResource(R.drawable.ic_ilustrasi_eror)
+                binding.tv.text = "Ups! Ada yang salah nih. Coba cek koneksi kamu dan swipe down untuk memuat ulang"
             }
         })
     }
 
     private fun showBarang(barang: List<DataBarang>) {
         val barangAdapter = BarangAdapter(barang)
-        rvBarang.layoutManager = LinearLayoutManager(requireContext())
-        rvBarang.adapter = barangAdapter
+        binding.rvBarang.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvBarang.adapter = barangAdapter
         barangAdapter.setOnItemClickCallback(object : BarangAdapter.OnItemClickCallback {
             override fun onItemClicked(barang: DataBarang) {
                 buatTransaksi.launch(BUAT_TRANSAKSI)
@@ -74,7 +76,13 @@ class BarangFragment : Fragment() {
         })
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_barang, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentBarangBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

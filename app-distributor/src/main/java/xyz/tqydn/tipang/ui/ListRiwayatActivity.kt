@@ -7,12 +7,12 @@ import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.activity_list_riwayat.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipang.R
 import xyz.tqydn.tipang.adapter.RiwayatAdapter
+import xyz.tqydn.tipang.databinding.ActivityListRiwayatBinding
 import xyz.tqydn.tipang.model.Transaksi
 import xyz.tqydn.tipang.model.TransaksiItem
 import xyz.tqydn.tipang.utils.Constants
@@ -22,10 +22,12 @@ import xyz.tqydn.tipang.utils.contracts.RiwayatTransaksiContract
 class ListRiwayatActivity : AppCompatActivity() {
 
     private lateinit var preference: SharedPreference
+    private lateinit var binding: ActivityListRiwayatBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list_riwayat)
+        binding = ActivityListRiwayatBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preference = SharedPreference(this)
         val id = preference.getValues("id_distributor")
         fetchTransaksi(id)
@@ -41,8 +43,8 @@ class ListRiwayatActivity : AppCompatActivity() {
                         showTransaksi(it)
                     }
                 } else {
-                    rvRiwayat.visibility = View.GONE
-                    kosong.visibility = View.VISIBLE
+                    binding.rvRiwayat.visibility = View.GONE
+                    binding.kosong.visibility = View.VISIBLE
                 }
             }
 
@@ -59,8 +61,8 @@ class ListRiwayatActivity : AppCompatActivity() {
 
     private fun showTransaksi(list: List<TransaksiItem?>) {
         val items = RiwayatAdapter(list)
-        rvRiwayat.adapter = items
-        rvRiwayat.layoutManager = LinearLayoutManager(this)
+        binding.rvRiwayat.adapter = items
+        binding.rvRiwayat.layoutManager = LinearLayoutManager(this)
         items.setOnItemClickCallback(object: RiwayatAdapter.OnItemClickCallback{
             override fun onItemClicked(item: TransaksiItem) {
                 riwayatTransaksi.launch(Constants.RIWAYAT_TRANSAKSI)

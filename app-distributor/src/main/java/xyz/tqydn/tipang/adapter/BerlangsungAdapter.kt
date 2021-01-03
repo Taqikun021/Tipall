@@ -3,12 +3,11 @@ package xyz.tqydn.tipang.adapter
 import android.annotation.SuppressLint
 import android.net.Uri
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import kotlinx.android.synthetic.main.row_berlangsung.view.*
+import xyz.tqydn.tipang.databinding.RowBerlangsungBinding
 import xyz.tqydn.tipang.model.TransaksiItem
 import xyz.tqydn.tipang.utils.Constants.Companion.formatRupiah
 import xyz.tqydn.tipang.utils.SharedPreference
@@ -22,29 +21,27 @@ class BerlangsungAdapter(private val items: List<TransaksiItem?>): RecyclerView.
         this.onItemClickCallback = onItemClickCallback
     }
 
-    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class MyViewHolder(private val binding: RowBerlangsungBinding) : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(item: TransaksiItem?){
-            with(itemView){
-                preference = SharedPreference(context)
-                val imgBarang = Uri.parse(item?.foto)
-                itemView.namaUsaha.text = item?.nama_usaha
-                itemView.jumlahStok.text = "${item?.jumlah_barang} item"
-                itemView.waktu.text = "Dimulai Sejak ${item?.waktu_mulai}"
-                itemView.tagihan.text = formatRupiah(item?.total_tagihan!!.toDouble())
-                if (item.jenis_kelamin == "Perempuan"){
-                    itemView.namaPemilik.text = "Ibu ${item.username}"
-                } else {
-                    itemView.namaPemilik.text = "Bapak ${item.username}"
-                }
-                Glide.with(context)
-                    .load(imgBarang)
-                    .apply(RequestOptions.centerCropTransform())
-                    .into(imagePenjual)
-                itemView.setOnClickListener {
-                    onItemClickCallback?.onItemClicked(item)
-                    preference.setValues("trans_click", item.id_transaksi.toString())
-                }
+            preference = SharedPreference(itemView.context)
+            val imgBarang = Uri.parse(item?.foto)
+            binding.namaUsaha.text = item?.nama_usaha
+            binding.jumlahStok.text = "${item?.jumlah_barang} item"
+            binding.waktu.text = "Dimulai Sejak ${item?.waktu_mulai}"
+            binding.tagihan.text = formatRupiah(item?.total_tagihan!!.toDouble())
+            if (item.jenis_kelamin == "Perempuan"){
+                binding.namaPemilik.text = "Ibu ${item.username}"
+            } else {
+                binding.namaPemilik.text = "Bapak ${item.username}"
+            }
+            Glide.with(itemView.context)
+                .load(imgBarang)
+                .apply(RequestOptions.centerCropTransform())
+                .into(binding.imagePenjual)
+            itemView.setOnClickListener {
+                onItemClickCallback?.onItemClicked(item)
+                preference.setValues("trans_click", item.id_transaksi.toString())
             }
         }
     }
@@ -54,7 +51,7 @@ class BerlangsungAdapter(private val items: List<TransaksiItem?>): RecyclerView.
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(xyz.tqydn.tipang.R.layout.row_berlangsung, parent, false)
+        val view = RowBerlangsungBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(view)
     }
 

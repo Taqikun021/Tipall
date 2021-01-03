@@ -9,11 +9,11 @@ import android.view.LayoutInflater
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.activity_riwayat_transaksi.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipang.R
+import xyz.tqydn.tipang.databinding.ActivityRiwayatTransaksiBinding
 import xyz.tqydn.tipang.model.TransaksiItem
 import xyz.tqydn.tipang.utils.Constants
 import xyz.tqydn.tipang.utils.Constants.Companion.BUAT_TRANSAKSI
@@ -23,13 +23,15 @@ import xyz.tqydn.tipang.utils.contracts.BuatTransaksiContract
 class RiwayatTransaksiActivity : AppCompatActivity() {
 
     private lateinit var preference: SharedPreference
+    private lateinit var binding: ActivityRiwayatTransaksiBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_riwayat_transaksi)
+        binding = ActivityRiwayatTransaksiBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preference = SharedPreference(this)
         showTransaksi()
-        buatTransaksi.setOnClickListener {
+        binding.buatTransaksi.setOnClickListener {
             regbuatTransaksi.launch(BUAT_TRANSAKSI)
         }
     }
@@ -46,29 +48,29 @@ class RiwayatTransaksiActivity : AppCompatActivity() {
                 Glide.with(this@RiwayatTransaksiActivity)
                     .load(imgProfil)
                     .apply(RequestOptions.circleCropTransform())
-                    .into(imagePenjual)
+                    .into(binding.imagePenjual)
                 Glide.with(this@RiwayatTransaksiActivity)
                     .load(imgUsaha)
                     .apply(RequestOptions.centerCropTransform())
-                    .into(imageUsaha)
+                    .into(binding.imageUsaha)
                 Glide.with(this@RiwayatTransaksiActivity)
                     .load(imgBarang)
                     .apply(RequestOptions.centerCropTransform())
-                    .into(barang)
-                kode_transaksi.text = item?.kode_transaksi
-                tanggal.text = item?.waktu_mulai
-                namaUsaha.text = item?.nama_usaha
-                alamat.text = item?.alamat
-                namaBarang.text = item?.nama_barang
-                descBarang.text = item?.deskripsi_produk
-                jumlahBarang.text = "${item?.jumlah_barang} Item"
-                totalHarga.text = Constants.formatRupiah(item?.total_tagihan!!.toDouble())
-                ratingPenjual.text = "%.2f".format(item.rating?.toDouble())
-                status.text = item.status_transaksi
+                    .into(binding.barang)
+                binding.kodeTransaksi.text = item?.kode_transaksi
+                binding.tanggal.text = item?.waktu_mulai
+                binding.namaUsaha.text = item?.nama_usaha
+                binding.alamat.text = item?.alamat
+                binding.namaBarang.text = item?.nama_barang
+                binding.descBarang.text = item?.deskripsi_produk
+                binding.jumlahBarang.text = "${item?.jumlah_barang} Item"
+                binding.totalHarga.text = Constants.formatRupiah(item?.total_tagihan!!.toDouble())
+                binding.ratingPenjual.text = "%.2f".format(item.rating?.toDouble())
+                binding.status.text = item.status_transaksi
                 if (item.jenis_kelamin == "Perempuan") {
-                    namaPemilik.text = "Ibu ${item.username}"
+                    binding.namaPemilik.text = "Ibu ${item.username}"
                 } else {
-                    namaPemilik.text = "Bapak ${item.username}"
+                    binding.namaPemilik.text = "Bapak ${item.username}"
                 }
             }
 

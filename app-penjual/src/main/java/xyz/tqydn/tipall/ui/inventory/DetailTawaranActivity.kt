@@ -11,11 +11,11 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.activity_detail_tawaran.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipall.R
+import xyz.tqydn.tipall.databinding.ActivityDetailTawaranBinding
 import xyz.tqydn.tipall.model.DefaultResponse
 import xyz.tqydn.tipall.model.TransaksiItem
 import xyz.tqydn.tipall.utils.Constants
@@ -33,26 +33,28 @@ class DetailTawaranActivity : AppCompatActivity() {
     private lateinit var telepon: String
     private lateinit var idBarang: String
     private lateinit var stok: String
+    private lateinit var binding: ActivityDetailTawaranBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_tawaran)
+        binding = ActivityDetailTawaranBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preference = SharedPreference(this)
         showTransaksi()
-        keMaps.setOnClickListener {
+        binding.keMaps.setOnClickListener {
             startActivity(
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://google.co.id/maps/dir/${dari}/${ke}"))
             )
         }
-        keWA.setOnClickListener {
+        binding.keWA.setOnClickListener {
             startActivity(
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/${telepon}"))
             )
         }
-        terima.setOnClickListener {
+        binding.terima.setOnClickListener {
             transDiterima(preference.getValues("trans_click"))
         }
-        tolak.setOnClickListener {
+        binding.tolak.setOnClickListener {
             val alertDialog = MaterialAlertDialogBuilder(this).create()
             val inflater = LayoutInflater.from(this)
             val dialogView = inflater.inflate(R.layout.alert_tolak, null)
@@ -89,29 +91,29 @@ class DetailTawaranActivity : AppCompatActivity() {
                 Glide.with(this@DetailTawaranActivity)
                     .load(imgProfil)
                     .apply(RequestOptions.circleCropTransform())
-                    .into(imagePenjual)
+                    .into(binding.imagePenjual)
                 Glide.with(this@DetailTawaranActivity)
                     .load(imgUsaha)
                     .apply(RequestOptions.centerCropTransform())
-                    .into(imageUsaha)
+                    .into(binding.imageUsaha)
                 Glide.with(this@DetailTawaranActivity)
                     .load(imgBarang)
                     .apply(RequestOptions.centerCropTransform())
-                    .into(barang)
-                kode_transaksi.text = item.kode_transaksi
-                tanggal.text = item.waktu_mulai
-                namaUsaha.text = item.nama_usaha
-                alamat.text = item.alamat
-                nomorHP.text = "+62 ${item.no_hp}"
-                namaBarang.text = item.nama_barang
-                descBarang.text = item.deskripsi_produk
-                jumlahBarang.text = "${item.jumlah_barang} Item"
-                totalHarga.text = formatRupiah(item.total_tagihan!!.toDouble())
-                ratingPenjual.text = "%.2f".format(item.rating?.toDouble())
+                    .into(binding.barang)
+                binding.kodeTransaksi.text = item.kode_transaksi
+                binding.tanggal.text = item.waktu_mulai
+                binding.namaUsaha.text = item.nama_usaha
+                binding.alamat.text = item.alamat
+                binding.nomorHP.text = "+62 ${item.no_hp}"
+                binding.namaBarang.text = item.nama_barang
+                binding.descBarang.text = item.deskripsi_produk
+                binding.jumlahBarang.text = "${item.jumlah_barang} Item"
+                binding.totalHarga.text = formatRupiah(item.total_tagihan!!.toDouble())
+                binding.ratingPenjual.text = "%.2f".format(item.rating?.toDouble())
                 if (item.jenis_kelamin == "Perempuan") {
-                    namaPemilik.text = "Ibu ${item.username}"
+                    binding.namaPemilik.text = "Ibu ${item.username}"
                 } else {
-                    namaPemilik.text = "Bapak ${item.username}"
+                    binding.namaPemilik.text = "Bapak ${item.username}"
                 }
             }
 

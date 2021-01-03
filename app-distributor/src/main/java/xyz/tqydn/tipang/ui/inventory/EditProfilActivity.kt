@@ -13,11 +13,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_edit_profil.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipang.R
+import xyz.tqydn.tipang.databinding.ActivityEditProfilBinding
 import xyz.tqydn.tipang.model.DefaultResponse
 import xyz.tqydn.tipang.model.GetUserInfo
 import xyz.tqydn.tipang.utils.Constants
@@ -29,18 +29,20 @@ import java.util.*
 
 class EditProfilActivity : AppCompatActivity() {
 
-    lateinit var preference: SharedPreference
-    lateinit var imageUri: Uri
+    private lateinit var preference: SharedPreference
+    private lateinit var imageUri: Uri
+    private lateinit var binding: ActivityEditProfilBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_profil)
+        binding = ActivityEditProfilBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preference = SharedPreference(this)
         getUserInfo()
         val item = listOf("Laki laki", "Perempuan")
         val adapter = ArrayAdapter(this, R.layout.list_kelamin, item)
-        (LayoutKelamin.editText as? AutoCompleteTextView)?.setAdapter(adapter)
-        imageProfil.setOnClickListener {
+        (binding.LayoutKelamin.editText as? AutoCompleteTextView)?.setAdapter(adapter)
+        binding.imageProfil.setOnClickListener {
             val photoDialog = MaterialAlertDialogBuilder(this).create()
             val inflater = LayoutInflater.from(this)
             val dialogView = inflater.inflate(R.layout.photo_dialog, null)
@@ -58,22 +60,22 @@ class EditProfilActivity : AppCompatActivity() {
             }
             photoDialog.show()
         }
-        buttonSimpan.setOnClickListener {
-            val nama = etNama.text.toString().trim()
-            val email = etEmail.text.toString().trim()
-            val kelamin = etKelamin.text.toString().trim()
-            val noHP = etHape.text.toString().trim()
+        binding.buttonSimpan.setOnClickListener {
+            val nama = binding.etNama.text.toString().trim()
+            val email = binding.etEmail.text.toString().trim()
+            val kelamin = binding.etKelamin.text.toString().trim()
+            val noHP = binding.etHape.text.toString().trim()
             val foto = imageUri.toString()
             when {
                 nama.isEmpty() -> {
-                    etNama.error = "Nama Tidak Boleh Kosong"
-                    etNama.requestFocus()
+                    binding.etNama.error = "Nama Tidak Boleh Kosong"
+                    binding.etNama.requestFocus()
                 } email.isEmpty() -> {
-                    etEmail.error = "Email Tidak Boleh Kosong"
-                    etEmail.requestFocus()
+                    binding.etEmail.error = "Email Tidak Boleh Kosong"
+                    binding.etEmail.requestFocus()
                 } noHP.isEmpty() -> {
-                    etHape.error = "Silahkan isi Nomor HP"
-                    etHape.requestFocus()
+                    binding.etHape.error = "Silahkan isi Nomor HP"
+                    binding.etHape.requestFocus()
                 } else -> {
                     updateProfil(email, nama, kelamin, noHP, foto)
                 }
@@ -122,18 +124,18 @@ class EditProfilActivity : AppCompatActivity() {
                 if (ui?.status.toString() != "200") {
                     Toast.makeText(this@EditProfilActivity, ui?.message, Toast.LENGTH_LONG).show()
                 } else {
-                    etNama.setText(ui?.user?.username.toString())
-                    etEmail.setText(ui?.user?.email.toString())
-                    etHape.setText(ui?.user?.no_hp.toString())
+                    binding.etNama.setText(ui?.user?.username.toString())
+                    binding.etEmail.setText(ui?.user?.email.toString())
+                    binding.etHape.setText(ui?.user?.no_hp.toString())
                     imageUri = Uri.parse(ui?.user?.foto.toString())
                     try {
                         Glide.with(this@EditProfilActivity)
                             .load(imageUri)
                             .apply(RequestOptions.circleCropTransform())
-                            .into(imageProfil)
+                            .into(binding.imageProfil)
                     } catch (e: FileNotFoundException) {
                         Toast.makeText(this@EditProfilActivity, e.message.toString(), Toast.LENGTH_SHORT).show()
-                        imageProfil.setImageResource(R.drawable.ic_foto_profil)
+                        binding.imageProfil.setImageResource(R.drawable.ic_foto_profil)
                     }
                     preference.setValues("id_user", ui?.user?.id_user.toString())
                 }
@@ -155,7 +157,7 @@ class EditProfilActivity : AppCompatActivity() {
                         Glide.with(this)
                             .load(imageUri)
                             .apply(RequestOptions.circleCropTransform())
-                            .into(imageProfil)
+                            .into(binding.imageProfil)
                     }
                 }
             } else {

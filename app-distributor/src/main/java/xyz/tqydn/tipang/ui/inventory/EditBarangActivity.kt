@@ -16,11 +16,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_edit_barang.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import xyz.tqydn.tipang.R
+import xyz.tqydn.tipang.databinding.ActivityEditBarangBinding
 import xyz.tqydn.tipang.model.DataBarang
 import xyz.tqydn.tipang.model.DefaultResponse
 import xyz.tqydn.tipang.utils.Constants
@@ -33,13 +33,15 @@ class EditBarangActivity : AppCompatActivity() {
 
     private lateinit var preference: SharedPreference
     private lateinit var imageUri: Uri
+    private lateinit var binding: ActivityEditBarangBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_barang)
+        binding = ActivityEditBarangBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preference = SharedPreference(this)
         getBarangInfo()
-        imageBarang.setOnClickListener {
+        binding.imageBarang.setOnClickListener {
             val photoDialog = MaterialAlertDialogBuilder(this).create()
             val inflater = LayoutInflater.from(this)
             val dialogView = inflater.inflate(R.layout.photo_dialog, null)
@@ -57,7 +59,7 @@ class EditBarangActivity : AppCompatActivity() {
             }
             photoDialog.show()
         }
-        buttonHapus.setOnClickListener {
+        binding.buttonHapus.setOnClickListener {
             val alertDialog = MaterialAlertDialogBuilder(this).create()
             val inflater = LayoutInflater.from(this)
             val dialogView = inflater.inflate(R.layout.alert_hapus, null)
@@ -74,33 +76,33 @@ class EditBarangActivity : AppCompatActivity() {
             }
             alertDialog.show()
         }
-        buttonSimpan.setOnClickListener{
-            val nama = etNamaBarang.text.toString().trim()
-            val desc = etDesc.text.toString().trim()
+        binding.buttonSimpan.setOnClickListener{
+            val nama = binding.etNamaBarang.text.toString().trim()
+            val desc = binding.etDesc.text.toString().trim()
             val foto = imageUri.toString()
-            val stok = etStok.text.toString().trim()
-            val harga = etHarga.text.toString().trim()
-            val hargaJual = etHargaJual.text.toString().trim()
+            val stok = binding.etStok.text.toString().trim()
+            val harga = binding.etHarga.text.toString().trim()
+            val hargaJual = binding.etHargaJual.text.toString().trim()
             when {
                 nama.isEmpty() -> {
-                    etNamaBarang.error = "Nama Barang tidak boleh kosong"
-                    etNamaBarang.requestFocus()
+                    binding.etNamaBarang.error = "Nama Barang tidak boleh kosong"
+                    binding.etNamaBarang.requestFocus()
                 }
                 desc.isEmpty() -> {
-                    etDesc.error = "Berikan deskripsi tentang barang anda"
-                    etDesc.requestFocus()
+                    binding.etDesc.error = "Berikan deskripsi tentang barang anda"
+                    binding.etDesc.requestFocus()
                 }
                 stok.toInt() < 0 -> {
-                    etStok.error = "Stok minimum 0"
-                    etStok.requestFocus()
+                    binding.etStok.error = "Stok minimum 0"
+                    binding.etStok.requestFocus()
                 }
                 harga >= hargaJual -> {
-                    etHargaJual.error = "Berikan selisih harga untuk keuntungan anda"
-                    etHargaJual.requestFocus()
+                    binding.etHargaJual.error = "Berikan selisih harga untuk keuntungan anda"
+                    binding.etHargaJual.requestFocus()
                 }
                 harga.toInt() < 1 -> {
-                    etHarga.error = "Harga minimum Rp. 1"
-                    etHarga.requestFocus()
+                    binding.etHarga.error = "Harga minimum Rp. 1"
+                    binding.etHarga.requestFocus()
                 }
                 else -> {
                     editBarang(nama, foto, stok, desc, harga, hargaJual)
@@ -155,17 +157,17 @@ class EditBarangActivity : AppCompatActivity() {
             override fun onResponse(call: Call<DataBarang>, response: Response<DataBarang>) {
                 val data = response.body()
                 imageUri = Uri.parse(data?.foto_barang)
-                etNamaBarang.setText(data?.nama_barang)
-                etDesc.setText(data?.deskripsi_produk)
-                etStok.setText(data?.jumlah_stok)
-                etHarga.setText(data?.harga_awal)
-                etHargaJual.setText(data?.harga_jual)
+                binding.etNamaBarang.setText(data?.nama_barang)
+                binding.etDesc.setText(data?.deskripsi_produk)
+                binding.etStok.setText(data?.jumlah_stok)
+                binding.etHarga.setText(data?.harga_awal)
+                binding.etHargaJual.setText(data?.harga_jual)
                 Glide.with(this@EditBarangActivity)
                     .load(imageUri)
                     .apply(RequestOptions.centerCropTransform())
-                    .into(imageBarangFix)
-                imageBarangAwal.visibility = View.GONE
-                imageBarangFix.visibility = View.VISIBLE
+                    .into(binding.imageBarangFix)
+                binding.imageBarangAwal.visibility = View.GONE
+                binding.imageBarangFix.visibility = View.VISIBLE
             }
 
             override fun onFailure(call: Call<DataBarang>, t: Throwable) {
@@ -193,9 +195,9 @@ class EditBarangActivity : AppCompatActivity() {
                         Glide.with(this)
                             .load(imageUri)
                             .apply(RequestOptions.centerCropTransform())
-                            .into(imageBarangFix)
-                        imageBarangFix.visibility = View.VISIBLE
-                        imageBarangAwal.visibility = View.GONE
+                            .into(binding.imageBarangFix)
+                        binding.imageBarangFix.visibility = View.VISIBLE
+                        binding.imageBarangAwal.visibility = View.GONE
                     }
                 }
             } else {

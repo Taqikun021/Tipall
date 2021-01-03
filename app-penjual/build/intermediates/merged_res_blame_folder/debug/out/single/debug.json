@@ -136,10 +136,6 @@
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/layout/activity_login.xml"
     },
     {
-        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/layout_bg_profil.xml.flat",
-        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/layout/bg_profil.xml"
-    },
-    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/build/intermediates/res/merged/debug/layout_alert_laporan.xml.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-penjual/src/main/res/layout/alert_laporan.xml"
     },
