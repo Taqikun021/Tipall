@@ -348,6 +348,10 @@
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/layout/row_berlangsung.xml"
     },
     {
+        "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/drawable_ic_illustrasi_bertanya.xml.flat",
+        "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/drawable/ic_illustrasi_bertanya.xml"
+    },
+    {
         "merged": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "/home/taqiyudin/AndroidStudioProjects/Tipall/app-distributor/src/main/res/mipmap-hdpi/ic_launcher_round.png"
     },

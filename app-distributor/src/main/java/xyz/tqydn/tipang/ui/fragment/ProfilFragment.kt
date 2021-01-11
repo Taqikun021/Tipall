@@ -37,8 +37,26 @@ class ProfilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         preference = SharedPreference(requireContext())
-        getDataUser()
-        getDataUsaha()
+        binding.profilNama.text = preference.getValues("username")
+        binding.profilHape.text = preference.getValues("no_hp")
+        binding.profilEmail.text = preference.getValues("email")
+        val image = Uri.parse(preference.getValues("foto_user"))
+        Glide.with(requireActivity())
+                .load(image)
+                .apply(RequestOptions.circleCropTransform())
+                .into(binding.imageProfil)
+        binding.tambahUsaha.visibility = View.GONE
+        binding.editusaha.visibility = View.VISIBLE
+        binding.namaUsaha.text = preference.getValues("nama_usaha")
+        binding.alamat.text = preference.getValues("alamat")
+        val im = Uri.parse(preference.getValues("foto_usaha"))
+        Glide.with(requireActivity())
+                .load(im)
+                .apply(RequestOptions.centerCropTransform())
+                .into(binding.imageUsaha)
+        binding.imageUsaha.visibility = View.VISIBLE
+        binding.imageUsahaAwal.visibility = View.GONE
+
         binding.editprofil.setOnClickListener{
             editProfilActivity.launch(Constants.EDIT_PROFIL)
         }
@@ -85,14 +103,21 @@ class ProfilFragment : Fragment() {
                             .load(image)
                             .apply(RequestOptions.circleCropTransform())
                             .into(binding.imageProfil)
+                    preference.setValues("username", ui?.user?.username.toString())
+                    preference.setValues("no_hp", ui?.user?.no_hp.toString())
+                    preference.setValues("email", ui?.user?.email.toString())
+                    val images = ui?.user?.foto.toString()
+                    preference.setValues("foto_user", images)
                     preference.setValues("id_user", ui?.user?.id_user.toString())
+                    preference.setValues("id_user", ui?.user?.id_user.toString())
+                    getDataUsaha(ui?.user?.id_user.toString())
                 }
             }
         })
     }
 
-    private fun getDataUsaha() {
-        val call: Call<GetDistInfo> = Constants.apiInterface.getDistInfo(preference.getValues("id_user"))
+    private fun getDataUsaha(id: String) {
+        val call: Call<GetDistInfo> = Constants.apiInterface.getDistInfo(id)
         call.enqueue(object: Callback<GetDistInfo> {
             override fun onResponse(call: Call<GetDistInfo>, response: Response<GetDistInfo>) {
                 val ui: GetDistInfo? = response.body()
@@ -112,9 +137,9 @@ class ProfilFragment : Fragment() {
                     binding.alamat.text = ui?.dist_data?.alamat.toString()
                     val im = Uri.parse(ui?.dist_data?.foto_usaha.toString())
                     Glide.with(requireActivity())
-                        .load(im)
-                        .apply(RequestOptions.centerCropTransform())
-                        .into(binding.imageUsaha)
+                            .load(im)
+                            .apply(RequestOptions.centerCropTransform())
+                            .into(binding.imageUsaha)
                     binding.imageUsaha.visibility = View.VISIBLE
                     binding.imageUsahaAwal.visibility = View.GONE
                     preference.setValues("id_distributor", ui?.dist_data!!.id_distributor)
@@ -143,14 +168,14 @@ class ProfilFragment : Fragment() {
         if (it != null){
             Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
         }
-        getDataUsaha()
+        getDataUsaha(preference.getValues("id_user").toString())
     }
 
     private val editUsahaActivity = registerForActivityResult(EditUsahaContract()) {
         if (it != null){
             Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
         }
-        getDataUsaha()
+        getDataUsaha(preference.getValues("id_user").toString())
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

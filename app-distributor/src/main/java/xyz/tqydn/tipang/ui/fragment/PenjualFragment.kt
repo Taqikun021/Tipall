@@ -31,18 +31,27 @@ class PenjualFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         preference = SharedPreference(requireContext())
         fetchRow()
+        binding.refresh.setOnRefreshListener {
+            fetchRow()
+            binding.kosong.visibility = View.GONE
+            binding.rvPenjual.visibility = View.VISIBLE
+            binding.refresh.isRefreshing = false
+        }
     }
 
     private fun fetchRow() {
+        binding.loading.visibility = View.VISIBLE
         val call: Call<Penjual> = Constants.apiInterface.getPenjual()
         call.enqueue(object : Callback<Penjual> {
             override fun onResponse(call: Call<Penjual>, response: Response<Penjual>) {
                 val item = response.body()?.dataPenjual
                 if (response.body()?.jumlahData!! > 0) {
                     item?.let {
+                        binding.loading.visibility = View.GONE
                         showPenjual(it)
                     }
                 } else {
+                    binding.loading.visibility = View.GONE
                     binding.rvPenjual.visibility = View.GONE
                     binding.kosong.visibility = View.VISIBLE
                 }
@@ -50,6 +59,7 @@ class PenjualFragment : Fragment() {
 
 
             override fun onFailure(call: Call<Penjual>, t: Throwable) {
+                binding.loading.visibility = View.GONE
                 binding.rvPenjual.visibility = View.GONE
                 binding.kosong.visibility = View.VISIBLE
                 binding.iv.setImageResource(R.drawable.ic_ilustrasi_eror)

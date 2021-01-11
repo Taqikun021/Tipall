@@ -31,15 +31,23 @@ class ListRiwayatActivity : AppCompatActivity() {
         preference = SharedPreference(this)
         val id = preference.getValues("id_distributor")
         fetchTransaksi(id)
+        binding.refresh.setOnRefreshListener {
+            fetchTransaksi(id)
+            binding.kosong.visibility = View.GONE
+            binding.rvRiwayat.visibility = View.VISIBLE
+            binding.refresh.isRefreshing = false
+        }
     }
 
     private fun fetchTransaksi(id: String?) {
+        binding.loading.visibility = View.VISIBLE
         val call: Call<Transaksi> = Constants.apiInterface.getListTransaksiLunas(1, id)
         call.enqueue(object : Callback<Transaksi> {
             override fun onResponse(call: Call<Transaksi>, response: Response<Transaksi>) {
                 val item = response.body()?.transaksi
                 if (response.body()?.jumlahData!! > 0) {
                     item?.let {
+                        binding.loading.visibility = View.GONE
                         showTransaksi(it)
                     }
                 } else {
@@ -49,6 +57,7 @@ class ListRiwayatActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Transaksi>, t: Throwable) {
+                binding.loading.visibility = View.GONE
                 val photoDialog = MaterialAlertDialogBuilder(this@ListRiwayatActivity).create()
                 val inflater = LayoutInflater.from(this@ListRiwayatActivity)
                 val dialogView = inflater.inflate(R.layout.alert_error, null)

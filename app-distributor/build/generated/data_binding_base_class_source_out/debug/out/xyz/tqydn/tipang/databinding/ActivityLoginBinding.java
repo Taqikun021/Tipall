@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import java.lang.NullPointerException;
@@ -44,6 +45,9 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final ImageView imageView3;
 
   @NonNull
+  public final CircularProgressIndicator loading;
+
+  @NonNull
   public final TextView textView2;
 
   @NonNull
@@ -56,7 +60,8 @@ public final class ActivityLoginBinding implements ViewBinding {
       @NonNull Button buttonMasuk, @NonNull TextInputEditText editTextEmail,
       @NonNull TextInputLayout editTextPassword, @NonNull TextInputEditText editTextPaw,
       @NonNull TextInputLayout editTextTextEmailAddress, @NonNull ImageView imageView3,
-      @NonNull TextView textView2, @NonNull TextView textView3, @NonNull TextView textView4) {
+      @NonNull CircularProgressIndicator loading, @NonNull TextView textView2,
+      @NonNull TextView textView3, @NonNull TextView textView4) {
     this.rootView = rootView;
     this.buttonBuatAkun = buttonBuatAkun;
     this.buttonMasuk = buttonMasuk;
@@ -65,6 +70,7 @@ public final class ActivityLoginBinding implements ViewBinding {
     this.editTextPaw = editTextPaw;
     this.editTextTextEmailAddress = editTextTextEmailAddress;
     this.imageView3 = imageView3;
+    this.loading = loading;
     this.textView2 = textView2;
     this.textView3 = textView3;
     this.textView4 = textView4;
@@ -139,6 +145,12 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.loading;
+      CircularProgressIndicator loading = rootView.findViewById(id);
+      if (loading == null) {
+        break missingId;
+      }
+
       id = R.id.textView2;
       TextView textView2 = rootView.findViewById(id);
       if (textView2 == null) {
@@ -159,7 +171,7 @@ public final class ActivityLoginBinding implements ViewBinding {
 
       return new ActivityLoginBinding((ScrollView) rootView, buttonBuatAkun, buttonMasuk,
           editTextEmail, editTextPassword, editTextPaw, editTextTextEmailAddress, imageView3,
-          textView2, textView3, textView4);
+          loading, textView2, textView3, textView4);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -40,18 +40,27 @@ class StokFragment : Fragment() {
                 } else -> false
             }
         }
+        binding.refresh.setOnRefreshListener {
+            fetchStok()
+            binding.kosong.visibility = View.GONE
+            binding.rvBarang.visibility = View.VISIBLE
+            binding.refresh.isRefreshing = false
+        }
     }
 
     private fun fetchStok() {
+        binding.loading.visibility = View.VISIBLE
         val call: Call<Barang> = Constants.apiInterface.getBarang(preference.getValues("id_distributor"))
         call.enqueue(object : Callback<Barang> {
             override fun onResponse(call: Call<Barang>, response: Response<Barang>) {
                 val item = response.body()?.dataBarang
                 if (response.body()?.jumlahData!! > 0) {
                     item?.let {
+                        binding.loading.visibility = View.GONE
                         showStok(it)
                     }
                 } else {
+                    binding.loading.visibility = View.GONE
                     binding.rvBarang.visibility = View.GONE
                     binding.kosong.visibility = View.VISIBLE
                 }
@@ -59,6 +68,7 @@ class StokFragment : Fragment() {
 
             @SuppressLint("SetTextI18n")
             override fun onFailure(call: Call<Barang>, t: Throwable) {
+                binding.loading.visibility = View.GONE
                 binding.rvBarang.visibility = View.GONE
                 binding.kosong.visibility = View.VISIBLE
                 binding.iv.setImageResource(R.drawable.ic_ilustrasi_eror)

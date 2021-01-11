@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewbinding.ViewBinding;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import java.lang.NullPointerException;
@@ -68,6 +69,9 @@ public final class ActivityEditProfilBinding implements ViewBinding {
   public final ImageView imageUsahaAwal;
 
   @NonNull
+  public final CircularProgressIndicator loading;
+
+  @NonNull
   public final TextView textView8;
 
   private ActivityEditProfilBinding(@NonNull CoordinatorLayout rootView,
@@ -78,7 +82,7 @@ public final class ActivityEditProfilBinding implements ViewBinding {
       @NonNull TextInputEditText etHape, @NonNull AutoCompleteTextView etKelamin,
       @NonNull TextInputEditText etNama, @NonNull ImageButton imageProfil,
       @NonNull ImageView imageUsaha, @NonNull ImageView imageUsahaAwal,
-      @NonNull TextView textView8) {
+      @NonNull CircularProgressIndicator loading, @NonNull TextView textView8) {
     this.rootView = rootView;
     this.LayoutEmail = LayoutEmail;
     this.LayoutHape = LayoutHape;
@@ -94,6 +98,7 @@ public final class ActivityEditProfilBinding implements ViewBinding {
     this.imageProfil = imageProfil;
     this.imageUsaha = imageUsaha;
     this.imageUsahaAwal = imageUsahaAwal;
+    this.loading = loading;
     this.textView8 = textView8;
   }
 
@@ -208,6 +213,12 @@ public final class ActivityEditProfilBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.loading;
+      CircularProgressIndicator loading = rootView.findViewById(id);
+      if (loading == null) {
+        break missingId;
+      }
+
       id = R.id.textView8;
       TextView textView8 = rootView.findViewById(id);
       if (textView8 == null) {
@@ -216,7 +227,7 @@ public final class ActivityEditProfilBinding implements ViewBinding {
 
       return new ActivityEditProfilBinding((CoordinatorLayout) rootView, LayoutEmail, LayoutHape,
           LayoutKelamin, LayoutNama, buttonSimpan, cardView2, constraintLayout2, etEmail, etHape,
-          etKelamin, etNama, imageProfil, imageUsaha, imageUsahaAwal, textView8);
+          etKelamin, etNama, imageProfil, imageUsaha, imageUsahaAwal, loading, textView8);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -13,6 +13,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -29,6 +30,9 @@ public final class ActivityListRiwayatBinding implements ViewBinding {
   public final ConstraintLayout kosong;
 
   @NonNull
+  public final CircularProgressIndicator loading;
+
+  @NonNull
   public final RecyclerView rvRiwayat;
 
   @NonNull
@@ -38,11 +42,12 @@ public final class ActivityListRiwayatBinding implements ViewBinding {
   public final TextView tv;
 
   private ActivityListRiwayatBinding(@NonNull CoordinatorLayout rootView, @NonNull ImageView iv,
-      @NonNull ConstraintLayout kosong, @NonNull RecyclerView rvRiwayat,
-      @NonNull MaterialToolbar toolbar, @NonNull TextView tv) {
+      @NonNull ConstraintLayout kosong, @NonNull CircularProgressIndicator loading,
+      @NonNull RecyclerView rvRiwayat, @NonNull MaterialToolbar toolbar, @NonNull TextView tv) {
     this.rootView = rootView;
     this.iv = iv;
     this.kosong = kosong;
+    this.loading = loading;
     this.rvRiwayat = rvRiwayat;
     this.toolbar = toolbar;
     this.tv = tv;
@@ -87,6 +92,12 @@ public final class ActivityListRiwayatBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.loading;
+      CircularProgressIndicator loading = rootView.findViewById(id);
+      if (loading == null) {
+        break missingId;
+      }
+
       id = R.id.rvRiwayat;
       RecyclerView rvRiwayat = rootView.findViewById(id);
       if (rvRiwayat == null) {
@@ -105,8 +116,8 @@ public final class ActivityListRiwayatBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityListRiwayatBinding((CoordinatorLayout) rootView, iv, kosong, rvRiwayat,
-          toolbar, tv);
+      return new ActivityListRiwayatBinding((CoordinatorLayout) rootView, iv, kosong, loading,
+          rvRiwayat, toolbar, tv);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

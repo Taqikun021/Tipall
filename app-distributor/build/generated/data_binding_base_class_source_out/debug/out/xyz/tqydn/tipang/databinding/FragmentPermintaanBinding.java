@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -28,16 +29,21 @@ public final class FragmentPermintaanBinding implements ViewBinding {
   public final ConstraintLayout kosong;
 
   @NonNull
+  public final CircularProgressIndicator loading;
+
+  @NonNull
   public final RecyclerView rv;
 
   @NonNull
   public final TextView tv;
 
   private FragmentPermintaanBinding(@NonNull FrameLayout rootView, @NonNull ImageView iv,
-      @NonNull ConstraintLayout kosong, @NonNull RecyclerView rv, @NonNull TextView tv) {
+      @NonNull ConstraintLayout kosong, @NonNull CircularProgressIndicator loading,
+      @NonNull RecyclerView rv, @NonNull TextView tv) {
     this.rootView = rootView;
     this.iv = iv;
     this.kosong = kosong;
+    this.loading = loading;
     this.rv = rv;
     this.tv = tv;
   }
@@ -81,6 +87,12 @@ public final class FragmentPermintaanBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.loading;
+      CircularProgressIndicator loading = rootView.findViewById(id);
+      if (loading == null) {
+        break missingId;
+      }
+
       id = R.id.rv;
       RecyclerView rv = rootView.findViewById(id);
       if (rv == null) {
@@ -93,7 +105,7 @@ public final class FragmentPermintaanBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentPermintaanBinding((FrameLayout) rootView, iv, kosong, rv, tv);
+      return new FragmentPermintaanBinding((FrameLayout) rootView, iv, kosong, loading, rv, tv);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

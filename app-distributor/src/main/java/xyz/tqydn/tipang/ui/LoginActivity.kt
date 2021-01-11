@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Toast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import retrofit2.Call
@@ -52,9 +53,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun pushLogin(email: String, pw: String) {
+        binding.loading.visibility = View.VISIBLE
         val call: Call<LoginResponse> = apiInterface.login(email, pw)
         call.enqueue(object : Callback<LoginResponse> {
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                binding.loading.visibility = View.GONE
                 val photoDialog = MaterialAlertDialogBuilder(this@LoginActivity).create()
                 val inflater = LayoutInflater.from(this@LoginActivity)
                 val dialogView = inflater.inflate(R.layout.alert_error, null)
@@ -69,6 +72,7 @@ class LoginActivity : AppCompatActivity() {
                 if (loginResponse?.status.toString() != "422") {
                     preferences.setValues("token", loginResponse?.token.toString())
                     preferences.setValues("isLogin", "1")
+                    binding.loading.visibility = View.GONE
                     startActivity(Intent(this@LoginActivity, CadanganActivity::class.java))
                 }
             }

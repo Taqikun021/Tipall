@@ -7,6 +7,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
@@ -108,9 +109,11 @@ class EditProfilActivity : AppCompatActivity() {
     }
 
     private fun getUserInfo() {
+        binding.loading.visibility = View.VISIBLE
         val call : Call<GetUserInfo> = Constants.apiInterface.getUserInfo("Bearer " + preference.getValues("token"))
         call.enqueue(object : Callback<GetUserInfo> {
             override fun onFailure(call: Call<GetUserInfo>, t: Throwable) {
+                binding.loading.visibility = View.GONE
                 val photoDialog = MaterialAlertDialogBuilder(this@EditProfilActivity).create()
                 val inflater = LayoutInflater.from(this@EditProfilActivity)
                 val dialogView = inflater.inflate(R.layout.alert_error, null)
@@ -122,28 +125,38 @@ class EditProfilActivity : AppCompatActivity() {
             override fun onResponse(call: Call<GetUserInfo>, response: Response<GetUserInfo>) {
                 val ui: GetUserInfo? = response.body()
                 if (ui?.status.toString() != "200") {
-                    Toast.makeText(this@EditProfilActivity, ui?.message, Toast.LENGTH_LONG).show()
+                    binding.loading.visibility = View.GONE
+                    val photoDialog = MaterialAlertDialogBuilder(this@EditProfilActivity).create()
+                    val inflater = LayoutInflater.from(this@EditProfilActivity)
+                    val dialogView = inflater.inflate(R.layout.alert_error, null)
+                    photoDialog.setCancelable(true)
+                    photoDialog.setView(dialogView)
+                    photoDialog.show()
                 } else {
                     binding.etNama.setText(ui?.user?.username.toString())
                     binding.etEmail.setText(ui?.user?.email.toString())
                     binding.etHape.setText(ui?.user?.no_hp.toString())
                     imageUri = Uri.parse(ui?.user?.foto.toString())
+                    binding.etKelamin.setText(ui?.user?.jenis_kelamin)
                     try {
                         Glide.with(this@EditProfilActivity)
                             .load(imageUri)
-                            .apply(RequestOptions.circleCropTransform())
-                            .into(binding.imageProfil)
+                            .apply(RequestOptions.centerCropTransform())
+                            .into(binding.imageUsaha)
                     } catch (e: FileNotFoundException) {
                         Toast.makeText(this@EditProfilActivity, e.message.toString(), Toast.LENGTH_SHORT).show()
-                        binding.imageProfil.setImageResource(R.drawable.ic_foto_profil)
+                        binding.imageUsaha.setImageResource(R.drawable.ic_foto_profil)
                     }
-                    preference.setValues("id_user", ui?.user?.id_user.toString())
+                    binding.loading.visibility = View.GONE
+                    binding.imageUsahaAwal.visibility = View.GONE
+                    binding.imageUsaha.visibility = View.VISIBLE
                 }
             }
         })
     }
 
     private fun uploadImageAndSaveUri(bitmap: Bitmap?) {
+        binding.loading.visibility = View.VISIBLE
         val baos = ByteArrayOutputStream()
         val storageRef = FirebaseStorage.getInstance().reference.child("profil/" + UUID.randomUUID().toString())
         bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, baos)
@@ -154,6 +167,7 @@ class EditProfilActivity : AppCompatActivity() {
                 storageRef.downloadUrl.addOnCompleteListener { urlTask ->
                     urlTask.result?.let {
                         imageUri = it
+                        binding.loading.visibility = View.GONE
                         Glide.with(this)
                             .load(imageUri)
                             .apply(RequestOptions.circleCropTransform())
@@ -162,6 +176,7 @@ class EditProfilActivity : AppCompatActivity() {
                 }
             } else {
                 uploadtask.exception?.let {
+                    binding.loading.visibility = View.GONE
                     Toast.makeText(this, it.message!!, Toast.LENGTH_SHORT).show()
                 }
             }

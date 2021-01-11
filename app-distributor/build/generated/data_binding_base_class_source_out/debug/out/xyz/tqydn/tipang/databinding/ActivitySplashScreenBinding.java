@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -21,10 +22,14 @@ public final class ActivitySplashScreenBinding implements ViewBinding {
   @NonNull
   public final ImageView imageView;
 
+  @NonNull
+  public final CircularProgressIndicator loading;
+
   private ActivitySplashScreenBinding(@NonNull RelativeLayout rootView,
-      @NonNull ImageView imageView) {
+      @NonNull ImageView imageView, @NonNull CircularProgressIndicator loading) {
     this.rootView = rootView;
     this.imageView = imageView;
+    this.loading = loading;
   }
 
   @Override
@@ -60,7 +65,13 @@ public final class ActivitySplashScreenBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivitySplashScreenBinding((RelativeLayout) rootView, imageView);
+      id = R.id.loading;
+      CircularProgressIndicator loading = rootView.findViewById(id);
+      if (loading == null) {
+        break missingId;
+      }
+
+      return new ActivitySplashScreenBinding((RelativeLayout) rootView, imageView, loading);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

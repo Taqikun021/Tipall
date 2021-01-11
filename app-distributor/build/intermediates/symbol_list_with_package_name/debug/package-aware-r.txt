@@ -2180,6 +2180,7 @@ drawable ic_foto_profil
 drawable ic_icon_barang
 drawable ic_icon_profil
 drawable ic_icon_transaksi
+drawable ic_illustrasi_bertanya
 drawable ic_ilustrasi_email
 drawable ic_ilustrasi_eror
 drawable ic_ilustrasi_login_svg
@@ -2582,6 +2583,7 @@ id linearLayout2
 id listMode
 id list_item
 id ll
+id loading
 id map
 id marker_image_view
 id marker_shadow_image_view
@@ -2716,6 +2718,7 @@ id radio
 id ratingPenjual
 id ratio
 id rectangles
+id refresh
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3868,6 +3871,7 @@ style Theme_MaterialComponents_NoActionBar_Bridge
 style Theme_PlayCore_Transparent
 style Theme_Tipall
 style ThemeOverlay_App_BottomNavigationView
+style ThemeOverlay_App_CircularProgressIndicator
 style ThemeOverlay_App_TabLayout
 style ThemeOverlay_App_Toolbar
 style ThemeOverlay_AppCompat
@@ -3922,6 +3926,7 @@ style ThemeOverlay_MaterialComponents_Toolbar_Surface
 style ThemeOverlayColorAccentRed
 style Widget_App_BottomNavigationView
 style Widget_App_Button_OutlinedButton_IconOnly
+style Widget_App_CircularProgressIndicator
 style Widget_App_TabLayout
 style Widget_App_Toolbar
 style Widget_AppCompat_ActionBar

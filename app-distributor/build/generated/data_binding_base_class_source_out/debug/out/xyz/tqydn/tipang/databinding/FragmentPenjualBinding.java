@@ -11,8 +11,10 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewbinding.ViewBinding;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -29,6 +31,12 @@ public final class FragmentPenjualBinding implements ViewBinding {
   public final ConstraintLayout kosong;
 
   @NonNull
+  public final CircularProgressIndicator loading;
+
+  @NonNull
+  public final SwipeRefreshLayout refresh;
+
+  @NonNull
   public final RecyclerView rvPenjual;
 
   @NonNull
@@ -38,11 +46,14 @@ public final class FragmentPenjualBinding implements ViewBinding {
   public final TextView tv;
 
   private FragmentPenjualBinding(@NonNull CoordinatorLayout rootView, @NonNull ImageView iv,
-      @NonNull ConstraintLayout kosong, @NonNull RecyclerView rvPenjual,
+      @NonNull ConstraintLayout kosong, @NonNull CircularProgressIndicator loading,
+      @NonNull SwipeRefreshLayout refresh, @NonNull RecyclerView rvPenjual,
       @NonNull MaterialToolbar toolbar, @NonNull TextView tv) {
     this.rootView = rootView;
     this.iv = iv;
     this.kosong = kosong;
+    this.loading = loading;
+    this.refresh = refresh;
     this.rvPenjual = rvPenjual;
     this.toolbar = toolbar;
     this.tv = tv;
@@ -87,6 +98,18 @@ public final class FragmentPenjualBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.loading;
+      CircularProgressIndicator loading = rootView.findViewById(id);
+      if (loading == null) {
+        break missingId;
+      }
+
+      id = R.id.refresh;
+      SwipeRefreshLayout refresh = rootView.findViewById(id);
+      if (refresh == null) {
+        break missingId;
+      }
+
       id = R.id.rvPenjual;
       RecyclerView rvPenjual = rootView.findViewById(id);
       if (rvPenjual == null) {
@@ -105,8 +128,8 @@ public final class FragmentPenjualBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentPenjualBinding((CoordinatorLayout) rootView, iv, kosong, rvPenjual,
-          toolbar, tv);
+      return new FragmentPenjualBinding((CoordinatorLayout) rootView, iv, kosong, loading, refresh,
+          rvPenjual, toolbar, tv);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

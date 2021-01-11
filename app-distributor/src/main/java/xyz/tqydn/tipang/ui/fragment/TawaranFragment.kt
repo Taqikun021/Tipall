@@ -31,18 +31,27 @@ class TawaranFragment : Fragment() {
         preference = SharedPreference(requireContext())
         val id = preference.getValues("id_distributor")
         fetchTransaksi(id)
+        binding.refresh.setOnRefreshListener {
+            fetchTransaksi(id)
+            binding.kosong.visibility = View.GONE
+            binding.rv.visibility = View.VISIBLE
+            binding.refresh.isRefreshing = false
+        }
     }
 
     private fun fetchTransaksi(id: String?) {
+        binding.loading.visibility = View.VISIBLE
         val call: Call<Transaksi> = Constants.apiInterface.getListTransaksi(Constants.status1, id)
         call.enqueue(object : Callback<Transaksi> {
             override fun onResponse(call: Call<Transaksi>, response: Response<Transaksi>) {
                 val item = response.body()?.transaksi
                 if (response.body()?.jumlahData!! > 0) {
                     item?.let {
+                        binding.loading.visibility = View.GONE
                         showTransaksi(it)
                     }
                 } else {
+                    binding.loading.visibility = View.GONE
                     binding.rv.visibility = View.GONE
                     binding.kosong.visibility = View.VISIBLE
                 }
@@ -50,6 +59,7 @@ class TawaranFragment : Fragment() {
 
             @SuppressLint("SetTextI18n")
             override fun onFailure(call: Call<Transaksi>, t: Throwable) {
+                binding.loading.visibility = View.GONE
                 binding.rv.visibility = View.GONE
                 binding.kosong.visibility = View.VISIBLE
                 binding.iv.setImageResource(R.drawable.ic_ilustrasi_eror)
