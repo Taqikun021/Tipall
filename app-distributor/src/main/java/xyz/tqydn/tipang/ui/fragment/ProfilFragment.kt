@@ -109,6 +109,7 @@ class ProfilFragment : Fragment() {
                     val images = ui?.user?.foto.toString()
                     preference.setValues("foto_user", images)
                     preference.setValues("id_user", ui?.user?.id_user.toString())
+                    preference.setValues("id_user", ui?.user?.id_user.toString())
                     getDataUsaha(ui?.user?.id_user.toString())
                 }
             }

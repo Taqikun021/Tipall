@@ -31,12 +31,6 @@ class ListRiwayatActivity : AppCompatActivity() {
         preference = SharedPreference(this)
         val id = preference.getValues("id_distributor")
         fetchTransaksi(id)
-        binding.refresh.setOnRefreshListener {
-            fetchTransaksi(id)
-            binding.kosong.visibility = View.GONE
-            binding.rvRiwayat.visibility = View.VISIBLE
-            binding.refresh.isRefreshing = false
-        }
     }
 
     private fun fetchTransaksi(id: String?) {

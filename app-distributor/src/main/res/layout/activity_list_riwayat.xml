@@ -16,7 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="@string/riwayat_transaksi"
-            android:paddingVertical="8dp"
             app:menu="@menu/riwayat_menu"
             style="@style/Widget.App.Toolbar"/>
     </com.google.android.material.appbar.AppBarLayout>

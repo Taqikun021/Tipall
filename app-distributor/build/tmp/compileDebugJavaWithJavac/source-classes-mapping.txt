@@ -1,0 +1,80 @@
+xyz/tqydn/tipang/databinding/ActivityDetailTawaranBinding.java
+ xyz.tqydn.tipang.databinding.ActivityDetailTawaranBinding
+xyz/tqydn/tipang/databinding/RowPenjualBinding.java
+ xyz.tqydn.tipang.databinding.RowPenjualBinding
+xyz/tqydn/tipang/databinding/ActivityListRiwayatBinding.java
+ xyz.tqydn.tipang.databinding.ActivityListRiwayatBinding
+xyz/tqydn/tipang/databinding/AlertLunasBinding.java
+ xyz.tqydn.tipang.databinding.AlertLunasBinding
+xyz/tqydn/tipang/databinding/RowBarangBinding.java
+ xyz.tqydn.tipang.databinding.RowBarangBinding
+xyz/tqydn/tipang/databinding/AlertHapusBinding.java
+ xyz.tqydn.tipang.databinding.AlertHapusBinding
+xyz/tqydn/tipang/BuildConfig.java
+ xyz.tqydn.tipang.BuildConfig
+xyz/tqydn/tipang/databinding/ActivityVerEmailBinding.java
+ xyz.tqydn.tipang.databinding.ActivityVerEmailBinding
+xyz/tqydn/tipang/databinding/ActivityRiwayatTransaksiBinding.java
+ xyz.tqydn.tipang.databinding.ActivityRiwayatTransaksiBinding
+xyz/tqydn/tipang/databinding/ActivityTambahBarangBinding.java
+ xyz.tqydn.tipang.databinding.ActivityTambahBarangBinding
+xyz/tqydn/tipang/databinding/FragmentStokBinding.java
+ xyz.tqydn.tipang.databinding.FragmentStokBinding
+xyz/tqydn/tipang/databinding/RowBerlangsungBinding.java
+ xyz.tqydn.tipang.databinding.RowBerlangsungBinding
+xyz/tqydn/tipang/databinding/ActivityDetailHutangBinding.java
+ xyz.tqydn.tipang.databinding.ActivityDetailHutangBinding
+xyz/tqydn/tipang/databinding/RowTawaranBinding.java
+ xyz.tqydn.tipang.databinding.RowTawaranBinding
+xyz/tqydn/tipang/databinding/ActivityEditUsahaBinding.java
+ xyz.tqydn.tipang.databinding.ActivityEditUsahaBinding
+xyz/tqydn/tipang/databinding/ActivityDetailBerlangsungBinding.java
+ xyz.tqydn.tipang.databinding.ActivityDetailBerlangsungBinding
+xyz/tqydn/tipang/databinding/FragmentTawaranBinding.java
+ xyz.tqydn.tipang.databinding.FragmentTawaranBinding
+xyz/tqydn/tipang/databinding/FragmentBelumdibayarBinding.java
+ xyz.tqydn.tipang.databinding.FragmentBelumdibayarBinding
+xyz/tqydn/tipang/databinding/FragmentProfilBinding.java
+ xyz.tqydn.tipang.databinding.FragmentProfilBinding
+xyz/tqydn/tipang/databinding/RowBelumDibayarBinding.java
+ xyz.tqydn.tipang.databinding.RowBelumDibayarBinding
+xyz/tqydn/tipang/databinding/ActivityTambahUsahaBinding.java
+ xyz.tqydn.tipang.databinding.ActivityTambahUsahaBinding
+xyz/tqydn/tipang/databinding/RowPermintaanBinding.java
+ xyz.tqydn.tipang.databinding.RowPermintaanBinding
+xyz/tqydn/tipang/databinding/ActivityDetailPermintaanBinding.java
+ xyz.tqydn.tipang.databinding.ActivityDetailPermintaanBinding
+xyz/tqydn/tipang/databinding/AlertErrorBinding.java
+ xyz.tqydn.tipang.databinding.AlertErrorBinding
+xyz/tqydn/tipang/databinding/FragmentPermintaanBinding.java
+ xyz.tqydn.tipang.databinding.FragmentPermintaanBinding
+xyz/tqydn/tipang/databinding/FragmentBerlangsungBinding.java
+ xyz.tqydn.tipang.databinding.FragmentBerlangsungBinding
+xyz/tqydn/tipang/databinding/ActivitySignUpBinding.java
+ xyz.tqydn.tipang.databinding.ActivitySignUpBinding
+xyz/tqydn/tipang/databinding/ActivityEditProfilBinding.java
+ xyz.tqydn.tipang.databinding.ActivityEditProfilBinding
+xyz/tqydn/tipang/databinding/AlertTolakBinding.java
+ xyz.tqydn.tipang.databinding.AlertTolakBinding
+xyz/tqydn/tipang/databinding/ViewpagerBarangBinding.java
+ xyz.tqydn.tipang.databinding.ViewpagerBarangBinding
+xyz/tqydn/tipang/databinding/ActivityBuatTransaksiBinding.java
+ xyz.tqydn.tipang.databinding.ActivityBuatTransaksiBinding
+xyz/tqydn/tipang/databinding/ActivityLoginBinding.java
+ xyz.tqydn.tipang.databinding.ActivityLoginBinding
+xyz/tqydn/tipang/databinding/ActivityEditBarangBinding.java
+ xyz.tqydn.tipang.databinding.ActivityEditBarangBinding
+xyz/tqydn/tipang/databinding/FragmentTransaksiBinding.java
+ xyz.tqydn.tipang.databinding.FragmentTransaksiBinding
+xyz/tqydn/tipang/databinding/ActivityCadanganBinding.java
+ xyz.tqydn.tipang.databinding.ActivityCadanganBinding
+xyz/tqydn/tipang/databinding/PhotoDialogBinding.java
+ xyz.tqydn.tipang.databinding.PhotoDialogBinding
+xyz/tqydn/tipang/databinding/ActivitySplashScreenBinding.java
+ xyz.tqydn.tipang.databinding.ActivitySplashScreenBinding
+xyz/tqydn/tipang/databinding/ListKelaminBinding.java
+ xyz.tqydn.tipang.databinding.ListKelaminBinding
+xyz/tqydn/tipang/databinding/FragmentPenjualBinding.java
+ xyz.tqydn.tipang.databinding.FragmentPenjualBinding
+xyz/tqydn/tipang/databinding/RowRiwayatBinding.java
+ xyz.tqydn.tipang.databinding.RowRiwayatBinding
