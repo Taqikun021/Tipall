@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">914332552190-opgt6lokctef888qrdk544vrvm8pjc2d.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://tipall-5d61b.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">914332552190</string>
+    <string name="google_api_key" translatable="false">AIzaSyCHnpVlvJhSjJwIlnEHqkZ0ovjz6mdITBY</string>
+    <string name="google_app_id" translatable="false">1:914332552190:android:833ae46a93b4a537d9ceaf</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCHnpVlvJhSjJwIlnEHqkZ0ovjz6mdITBY</string>
+    <string name="google_storage_bucket" translatable="false">tipall-5d61b.appspot.com</string>
+    <string name="project_id" translatable="false">tipall-5d61b</string>
+</resources>

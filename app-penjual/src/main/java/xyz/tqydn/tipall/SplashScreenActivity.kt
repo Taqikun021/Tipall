@@ -11,9 +11,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
+import xyz.tqydn.tipall.databinding.ActivitySplashScreenBinding
 import xyz.tqydn.tipall.ui.LoginActivity
 import xyz.tqydn.tipall.utils.SharedPreference
 
@@ -23,20 +25,24 @@ class SplashScreenActivity: AppCompatActivity() {
     private lateinit var preference: SharedPreference
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var locationRequest: LocationRequest
+    private lateinit var binding: ActivitySplashScreenBinding
     private val permissionID = 1010
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
+        binding = ActivitySplashScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         preference = SharedPreference(this)
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         Log.d("Debug : ", checkPermission().toString())
         Log.d("Debug : ", isLocationEnabled().toString())
         reqPermission()
         getLastLocation()
+        binding.loading.visibility = View.VISIBLE
         if (checkPermission()){
             Handler(Looper.getMainLooper()).postDelayed({
                 val intent = Intent(this@SplashScreenActivity, LoginActivity::class.java)
+                binding.loading.visibility = View.GONE
                 startActivity(intent)
                 finish()
             }, 1500)

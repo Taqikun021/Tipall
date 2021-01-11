@@ -10,7 +10,20 @@
         <item name="textAppearanceButton">@style/TextAppearance.AppCompat.Body1</item>
         <item name="buttonStyle">@style/Widget.App.Button.OutlinedButton.IconOnly</item>
         <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
+        <item name="circularProgressIndicatorStyle">@style/Widget.App.CircularProgressIndicator</item>
         <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+    <style name="Widget.App.CircularProgressIndicator" parent="Widget.MaterialComponents.CircularProgressIndicator">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.CircularProgressIndicator</item>
+        <item name="trackThickness">4dp</item>
+        <item name="showAnimationBehavior">inward</item>
+        <item name="hideAnimationBehavior">outward</item>
+        <item name="trackCornerRadius">2dp</item>
+    </style>
+
+    <style name="ThemeOverlay.App.CircularProgressIndicator" parent="">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
     </style>
 
     <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">

@@ -38,13 +38,22 @@ class BarangFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         preference = SharedPreference(requireContext())
         fetchBarang()
+        binding.refresh.setOnRefreshListener {
+            fetchBarang()
+            binding.kosong.visibility = View.GONE
+            binding.rvBarang.visibility = View.VISIBLE
+            binding.refresh.isRefreshing = false
+        }
+
     }
 
     private fun fetchBarang() {
+        binding.loading.visibility = View.VISIBLE
         val call: Call<Barang> = Constants.apiInterface.getBarang()
         call.enqueue(object : Callback<Barang> {
             override fun onResponse(call: Call<Barang>, response: Response<Barang>) {
                 val item = response.body()?.dataBarang
+                binding.loading.visibility = View.GONE
                 if (response.body()?.jumlahData!! > 0) {
                     item?.let {
                         showBarang(it)
@@ -57,6 +66,7 @@ class BarangFragment : Fragment() {
 
             @SuppressLint("SetTextI18n")
             override fun onFailure(call: Call<Barang>, t: Throwable) {
+                binding.loading.visibility = View.GONE
                 binding.rvBarang.visibility = View.GONE
                 binding.kosong.visibility = View.VISIBLE
                 binding.iv.setImageResource(R.drawable.ic_ilustrasi_eror)

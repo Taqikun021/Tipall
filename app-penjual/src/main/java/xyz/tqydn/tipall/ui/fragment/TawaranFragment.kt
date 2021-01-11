@@ -33,6 +33,12 @@ class TawaranFragment : Fragment() {
         preference = SharedPreference(requireContext())
         val id = preference.getValues("id_penjual")
         fetchTransaksi(id)
+        binding.refresh.setOnRefreshListener {
+            fetchTransaksi(id)
+            binding.kosong.visibility = View.GONE
+            binding.rv.visibility = View.VISIBLE
+            binding.refresh.isRefreshing = false
+        }
     }
 
     private fun fetchTransaksi(id: String?) {

@@ -22,14 +22,12 @@ import xyz.tqydn.tipall.model.GetInfoPenjual
 import xyz.tqydn.tipall.model.GetUserInfo
 import xyz.tqydn.tipall.ui.ListRiwayatActivity
 import xyz.tqydn.tipall.utils.Constants
-import xyz.tqydn.tipall.utils.Constants.Companion.EDIT_PROFIL
-import xyz.tqydn.tipall.utils.Constants.Companion.EDIT_USAHA
-import xyz.tqydn.tipall.utils.Constants.Companion.TAMBAH_USAHA
 import xyz.tqydn.tipall.utils.SharedPreference
 import xyz.tqydn.tipall.utils.contracts.EditProfilContract
 import xyz.tqydn.tipall.utils.contracts.EditUsahaContract
 import xyz.tqydn.tipall.utils.contracts.TambahUsahaContract
 
+@SuppressLint("SetTextI18n")
 class ProfilFragment : Fragment() {
 
     private lateinit var preference: SharedPreference
@@ -39,24 +37,42 @@ class ProfilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         preference = SharedPreference(requireContext())
-        getDataUser()
-        getDataUsaha()
+        binding.profilNama.text = preference.getValues("username")
+        binding.profilHape.text = preference.getValues("no_hp")
+        binding.profilEmail.text = preference.getValues("email")
+        val image = Uri.parse(preference.getValues("foto_user"))
+        Glide.with(requireActivity())
+                .load(image)
+                .apply(RequestOptions.circleCropTransform())
+                .into(binding.imageProfil)
+        binding.tambahUsaha.visibility = View.GONE
+        binding.editusaha.visibility = View.VISIBLE
+        binding.namaUsaha.text = preference.getValues("nama_usaha")
+        binding.alamat.text = preference.getValues("alamat")
+        val im = Uri.parse(preference.getValues("foto_usaha"))
+        Glide.with(requireActivity())
+                .load(im)
+                .apply(RequestOptions.centerCropTransform())
+                .into(binding.imageUsaha)
+        binding.imageUsaha.visibility = View.VISIBLE
+        binding.imageUsahaAwal.visibility = View.GONE
+
         binding.editprofil.setOnClickListener{
-            editProfilActivity.launch(EDIT_PROFIL)
+            editProfilActivity.launch(Constants.EDIT_PROFIL)
         }
         binding.tambahUsaha.setOnClickListener {
-            tambahUsahaActivity.launch(TAMBAH_USAHA)
+            tambahUsahaActivity.launch(Constants.TAMBAH_USAHA)
         }
         binding.editusaha.setOnClickListener {
-            editUsahaActivity.launch(EDIT_USAHA)
+            editUsahaActivity.launch(Constants.EDIT_USAHA)
         }
         binding.layoutRiwayat.setOnClickListener {
             startActivity(Intent(requireContext(), ListRiwayatActivity::class.java))
         }
     }
 
-    private fun getDataUsaha() {
-        val call: Call<GetInfoPenjual> = Constants.apiInterface.getInfoPenjual(preference.getValues("id_user"))
+    private fun getDataUsaha(id: String) {
+        val call: Call<GetInfoPenjual> = Constants.apiInterface.getInfoPenjual(id)
         call.enqueue(object: Callback<GetInfoPenjual> {
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<GetInfoPenjual>, response: Response<GetInfoPenjual>) {
@@ -130,7 +146,13 @@ class ProfilFragment : Fragment() {
                         .load(image)
                         .apply(RequestOptions.circleCropTransform())
                         .into(binding.imageProfil)
+                    preference.setValues("username", ui?.user?.username.toString())
+                    preference.setValues("no_hp", ui?.user?.no_hp.toString())
+                    preference.setValues("email", ui?.user?.email.toString())
+                    val images = ui?.user?.foto.toString()
+                    preference.setValues("foto_user", images)
                     preference.setValues("id_user", ui?.user?.id_user.toString())
+                    getDataUsaha(ui?.user?.id_user.toString())
                 }
             }
         })
@@ -147,14 +169,14 @@ class ProfilFragment : Fragment() {
         if (it != null){
             Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
         }
-        getDataUsaha()
+        getDataUsaha(preference.getValues("id_user").toString())
     }
 
     private val editUsahaActivity = registerForActivityResult(EditUsahaContract()) {
         if (it != null){
             Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
         }
-        getDataUsaha()
+        getDataUsaha(preference.getValues("id_user").toString())
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

@@ -31,13 +31,21 @@ class BelumdibayarFragment : Fragment() {
         preference = SharedPreference(requireContext())
         val id = preference.getValues("id_penjual")
         fetchTransaksi(id)
+        binding.refresh.setOnRefreshListener {
+            fetchTransaksi(id)
+            binding.kosong.visibility = View.GONE
+            binding.rv.visibility = View.VISIBLE
+            binding.refresh.isRefreshing = false
+        }
     }
 
     private fun fetchTransaksi(id: String?) {
+        binding.loading.visibility = View.VISIBLE
         val call: Call<Transaksi> = Constants.apiInterface.getListTransaksiLunas(0, id)
         call.enqueue(object : Callback<Transaksi> {
             override fun onResponse(call: Call<Transaksi>, response: Response<Transaksi>) {
                 val item = response.body()?.transaksi
+                binding.loading.visibility = View.GONE
                 if (response.body()?.jumlahData!! > 0) {
                     item?.let {
                         showTransaksi(it)
@@ -50,6 +58,7 @@ class BelumdibayarFragment : Fragment() {
 
             @SuppressLint("SetTextI18n")
             override fun onFailure(call: Call<Transaksi>, t: Throwable) {
+                binding.loading.visibility = View.GONE
                 binding.rv.visibility = View.GONE
                 binding.kosong.visibility = View.VISIBLE
                 binding.iv.setImageResource(R.drawable.ic_ilustrasi_eror)

@@ -3,6 +3,7 @@ package xyz.tqydn.tipall.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import retrofit2.Call
 import retrofit2.Callback
@@ -49,14 +50,17 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun pushLogin(email: String, pw: String) {
+        binding.loading.visibility = View.VISIBLE
         val call: Call<LoginResponse> = apiInterface.login(email, pw)
         call.enqueue(object : Callback<LoginResponse> {
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                binding.loading.visibility = View.GONE
                 Toast.makeText(this@LoginActivity, t.message, Toast.LENGTH_LONG).show()
             }
 
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 val loginResponse: LoginResponse? = response.body()
+                binding.loading.visibility = View.GONE
                 Toast.makeText(this@LoginActivity, loginResponse?.message, Toast.LENGTH_LONG).show()
                 if (loginResponse?.status.toString() != "422") {
                     preferences.setValues("token", loginResponse?.token.toString())
