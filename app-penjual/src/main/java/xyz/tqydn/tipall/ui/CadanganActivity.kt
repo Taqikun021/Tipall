@@ -105,7 +105,7 @@ class CadanganActivity : AppCompatActivity() {
                     preference.setValues("alamat", ui?.dist_data?.alamat.toString())
                     val im = ui?.dist_data?.foto_usaha.toString()
                     preference.setValues("foto_usaha", im)
-                    preference.setValues("id_distributor", ui?.dist_data!!.id_penjual)
+                    preference.setValues("id_penjual", ui?.dist_data!!.id_penjual)
                 }
             }
 

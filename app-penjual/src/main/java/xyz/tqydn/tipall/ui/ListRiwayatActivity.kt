@@ -82,6 +82,6 @@ class ListRiwayatActivity : AppCompatActivity() {
         if (it != null){
             Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
         }
-        fetchTransaksi(preference.getValues("id_distributor"))
+        fetchTransaksi(preference.getValues("id_penjual"))
     }
 }
